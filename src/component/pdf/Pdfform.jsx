@@ -1,62 +1,64 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import logo from "../../assestss/logo.png"
 import { usePDF } from 'react-to-pdf';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
-
 export default function Pdfform() {
+
   const location = useLocation()
-  const { toPDF, targetRef } = usePDF({ filename: 'freight Estimate.pdf' });
-  const getdatallestimate = (location.state)
+  const getdatallestimate = (location?.state)
   console.log(getdatallestimate)
+  const { toPDF, targetRef } = usePDF({ filename: getdatallestimate.freight_number });
+  const navigate = useNavigate()
+  const userid = JSON.parse(localStorage?.getItem('data'))
 
-  const userid = JSON.parse(localStorage.getItem('data'))
+  console.log(getdatallestimate,userid)
 
-
-  const acceptQuotatyion = () => {
-    axios.post(`${process.env.REACT_APP_BASE_URL}accept-quotation`, {
-      freight_id: getdatallestimate?.freight_id, user_id: userid?.id
-    }).then((response) => {
+  const handlcickaccept =()=>{
+    axios.post(`${process.env.REACT_APP_BASE_URL}accept-quotation`,{ freight_id:getdatallestimate.freight_id, user_id:userid.id}).then((response)=>{
       toast.success(response.data.message)
-      console.log(response.data.message)
-    }).catch((error) => {
+    }).catch((error)=>{
       toast.error(error.response.data.message)
-      console.log(error.response.data.message)
     })
   }
-  const rejectquotation = () => {
-    axios.post(`${process.env.REACT_APP_BASE_URL}reject-quotation`, {
-      freight_id: userid?.id
-    }).then((response) => {
+  const handleclickreject =()=>{
+    axios.post(`${process.env.REACT_APP_BASE_URL}reject-quotation`,{ freight_id:getdatallestimate.freight_id}).then((response)=>{
       toast.success(response.data.message)
-      console.log(response.data.message)
-    }).catch((error) => {
+    }).catch((error)=>{
       toast.error(error.response.data.message)
-      console.log(error.response.data.message)
     })
   }
-
-console.log(getdatallestimate)
 
   return (
-    <div className="container-fluid ">
-      <div className="row mt-3 mx-2">
-        <div className="col rounded pt-2 frightBgTop d-flex justify-content-between">
+    
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col-md-12 d-flex justify-content-between">
           <div>
-            <p className='fs-5 fw-bold ' style={{ color: "#fff" }} >Estimate</p>
+            <button className='btn_web bg-success' onClick={handlcickaccept}>Accept Quotation</button>
+            <button className='btn_web m-2 bg-danger' onClick={handleclickreject}>Reject Quotation</button>
           </div>
-          <div className='border rounded shadow'>
-            <i className="fi fi-br-download btn" onClick={() => toPDF()} style={{ color: "#fff" }} />
+          <div>
+          <button className='btn_web'>
+            <div className='d-flex justify-content-between align-items-center'>
+              <div onClick={() => toPDF()}>
+                <h4 className='pdf_web'>Estimate</h4>
+              </div>
+              <div className=''>
+                <i className="fi fi-br-download esti_web"  />
+              </div>
+            </div>
+          </button>
           </div>
         </div>
       </div>
-
       <div className="row ">
-        <div className="col">
-          <div className="px-5 mt-4" ref={targetRef} style={{ background: "#cfd0d71c" }} >
-            <table style={{margin:"auto"}}>
+        <div className="col-md-12">
+        {/* ref={targetRef} */}
+          <div className="px-5 mt-4" style={{ background: "#cfd0d71c" }} >
+            <table style={{ width: "100%" }}>
               <tbody>
                 <tr>
                   <td>
@@ -211,7 +213,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.no_of_packages}
+                                        {getdatallestimate?.no_of_packages}
                                       </p>
                                     </div>
                                     <div
@@ -236,7 +238,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.incoterm}
+                                        {getdatallestimate?.incoterm}
                                       </p>
                                     </div>
                                     <div
@@ -261,7 +263,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.dimension}
+                                        {getdatallestimate?.dimension}
                                       </p>
                                     </div>
                                     <div
@@ -286,7 +288,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.client_name}
+                                        {getdatallestimate?.client_name}
                                       </p>
                                     </div>
                                     <div
@@ -312,7 +314,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.no_of_packages}
+                                        {getdatallestimate?.no_of_packages}
                                       </p>
                                     </div>
                                   </td>
@@ -363,7 +365,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.exchange_rate}
+                                        {getdatallestimate?.exchange_rate}
                                       </p>
                                     </div>
                                   </td>
@@ -386,7 +388,7 @@ console.log(getdatallestimate)
                                     <strong>Reference</strong>
                                   </td>
                                   <td style={{ paddingBottom: 10, fontSize: 15 }}>
-                                    {getdatallestimate.client_ref}
+                                    {getdatallestimate?.client_ref}
                                   </td>
                                 </tr>
                                 <tr>
@@ -405,7 +407,7 @@ console.log(getdatallestimate)
                                     paddingBottom: 15, fontSize: 15,
                                     padding: "0px 10px 10px 10px",
                                   }}>
-                                    {getdatallestimate.date}
+                                    {getdatallestimate?.date}
                                   </td>
                                 </tr>
                                 <tr>
@@ -522,7 +524,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.port_of_loading}
+                                        {getdatallestimate?.port_of_loading}
                                       </p>
                                     </div>
                                     <div
@@ -548,7 +550,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.port_of_discharge}
+                                        {getdatallestimate?.port_of_discharge}
                                       </p>
                                     </div>
                                     <div
@@ -575,7 +577,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.place_of_delivery}
+                                        {getdatallestimate?.place_of_delivery}
                                       </p>
                                     </div>
                                     <div
@@ -602,7 +604,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.quote_received}
+                                        {getdatallestimate?.quote_received}
                                       </p>
                                     </div>
                                     <div
@@ -628,7 +630,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.quote_received}
+                                        {getdatallestimate?.quote_received}
                                       </p>
                                     </div>
                                     <div
@@ -655,7 +657,7 @@ console.log(getdatallestimate)
                                           marginTop: 10
                                         }}
                                       >
-                                        {getdatallestimate.transit_time}
+                                        {getdatallestimate?.transit_time}
                                       </p>
                                     </div>
                                   </td>
@@ -669,9 +671,10 @@ console.log(getdatallestimate)
                     <table
                       style={{
                         border: "2px solid #1a2142",
-                        width: "35%",
+                        width: "100%",
                         marginTop: 10,
-                        borderBottom: "unset"
+                        borderBottom: "unset",
+                        background: "#1b2245"
                       }}
                     >
                       <tbody>
@@ -684,11 +687,9 @@ console.log(getdatallestimate)
                           }}
                         >
                           <td>
-                            {" "}
-                            <span
-                              style={{ paddingRight: 20, fontSize: 15, fontWeight: 600 }}
-                            >
-                              {" "}
+                            {/* {" "} */}
+                            <span style={{ paddingRight: 20, fontSize: 15, fontWeight: 600, color: "#fff" }} >
+                              {/* {" "} */}
                               QUOTE INFORMATION
                             </span>
                           </td>
@@ -739,7 +740,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            Amount 
+                            Amount
                           </th>
                           {/* <th
                             style={{
@@ -772,7 +773,7 @@ console.log(getdatallestimate)
                             Freight
                           </th>
                           <td style={{ padding: 5, border: "1px solid #1a2142" }}>
-                            {getdatallestimate.freight}
+                            {getdatallestimate?.freight}
                           </td>
                           <td
                             style={{
@@ -781,7 +782,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.freight_currency}
+                            {getdatallestimate?.freight_currency}
                           </td>
 
                           <td
@@ -791,7 +792,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.freight_amount}
+                            {getdatallestimate?.freight_amount}
                           </td>
                           {/* <td
                             style={{
@@ -800,7 +801,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.freight_gp}
+                            {getdatallestimate?.freight_gp}
                           </td> */}
                           <td
                             style={{
@@ -809,7 +810,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.freightt_amount}
+                            {getdatallestimate?.freightt_amount}
                           </td>
                         </tr>
                         {/* <tr>
@@ -900,7 +901,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.freigh_amount}
+                            {getdatallestimate?.freigh_amount}
 
                           </th>
                           <th
@@ -1005,7 +1006,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_currency}
+                            {getdatallestimate?.origin_currency}
                           </td>
 
                           <td
@@ -1015,7 +1016,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_pick_up}
+                            {getdatallestimate?.origin_pick_up}
                           </td>
                           {/* <td
                             style={{
@@ -1024,7 +1025,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_pickup_gp}
+                            {getdatallestimate?.origin_pickup_gp}
                           </td> */}
                           <td
                             style={{
@@ -1063,7 +1064,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_currency}
+                            {getdatallestimate?.origin_currency}
                           </td>
 
                           <td
@@ -1073,7 +1074,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_customs}
+                            {getdatallestimate?.origin_customs}
                           </td>
                           {/* <td
                             style={{
@@ -1082,7 +1083,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_customs_gp}
+                            {getdatallestimate?.origin_customs_gp}
 
                           </td> */}
                           <td
@@ -1122,7 +1123,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_currency}
+                            {getdatallestimate?.origin_currency}
 
                           </td>
 
@@ -1133,7 +1134,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_document}
+                            {getdatallestimate?.origin_document}
 
                           </td>
                           {/* <td
@@ -1143,7 +1144,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_document_gp}
+                            {getdatallestimate?.origin_document_gp}
 
                           </td> */}
                           <td
@@ -1183,7 +1184,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_currency}
+                            {getdatallestimate?.origin_currency}
 
                           </td>
 
@@ -1194,7 +1195,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_warehouse}
+                            {getdatallestimate?.origin_warehouse}
 
                           </td>
                           {/* <td
@@ -1204,7 +1205,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_warehouse_gp}
+                            {getdatallestimate?.origin_warehouse_gp}
 
                           </td> */}
                           <td
@@ -1244,7 +1245,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_currency}
+                            {getdatallestimate?.origin_currency}
 
                           </td>
 
@@ -1255,7 +1256,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_port_fees}
+                            {getdatallestimate?.origin_port_fees}
                           </td>
                           {/* <td
                             style={{
@@ -1264,7 +1265,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_port_fees_gp}
+                            {getdatallestimate?.origin_port_fees_gp}
 
                           </td> */}
                           <td
@@ -1303,7 +1304,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_currency}
+                            {getdatallestimate?.origin_currency}
 
                           </td>
 
@@ -1314,7 +1315,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_other}
+                            {getdatallestimate?.origin_other}
                           </td>
                           {/* <td
                             style={{
@@ -1323,7 +1324,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_other_gp}
+                            {getdatallestimate?.origin_other_gp}
 
                           </td> */}
                           <td
@@ -1368,7 +1369,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_amount}
+                            {getdatallestimate?.origin_amount}
 
                           </th>
                           {/* <th
@@ -1378,7 +1379,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.origin_amount_gp}
+                            {getdatallestimate??.origin_amount_gp}
 
                           </th> */}
                           <th
@@ -1468,7 +1469,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_currency}
+                            {getdatallestimate?.des_currency}
                           </td>
                           <td
                             style={{
@@ -1477,7 +1478,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_delivery}
+                            {getdatallestimate?.des_delivery}
                           </td>
                           {/* <td
                             style={{
@@ -1486,7 +1487,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_delivery_gp}
+                            {getdatallestimate?.des_delivery_gp}
                           </td> */}
                           <td
                             style={{
@@ -1523,7 +1524,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_currency}
+                            {getdatallestimate?.des_currency}
                           </td>
                           <td
                             style={{
@@ -1532,7 +1533,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_customs}
+                            {getdatallestimate?.des_customs}
                           </td>
                           {/* <td
                             style={{
@@ -1541,7 +1542,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_customs_gp}
+                            {getdatallestimate?.des_customs_gp}
                           </td> */}
                           <td
                             style={{
@@ -1578,7 +1579,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_currency}
+                            {getdatallestimate?.des_currency}
                           </td>
                           <td
                             style={{
@@ -1587,7 +1588,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_document}
+                            {getdatallestimate?.des_document}
                           </td>
                           {/* <td
                             style={{
@@ -1596,7 +1597,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_document_gp}
+                            {getdatallestimate?.des_document_gp}
                           </td> */}
                           <td
                             style={{
@@ -1633,7 +1634,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_currency}
+                            {getdatallestimate?.des_currency}
                           </td>
                           <td
                             style={{
@@ -1642,7 +1643,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_warehouse}
+                            {getdatallestimate?.des_warehouse}
                           </td>
                           {/* <td
                             style={{
@@ -1651,7 +1652,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_warehouse_gp}
+                            {getdatallestimate?.des_warehouse_gp}
                           </td> */}
                           <td
                             style={{
@@ -1688,7 +1689,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_currency}
+                            {getdatallestimate?.des_currency}
                           </td>
                           <td
                             style={{
@@ -1697,17 +1698,8 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_port_fees}
+                            {getdatallestimate?.des_port_fees}
                           </td>
-                          {/* <td
-                            style={{
-                              padding: 5,
-                              border: "1px solid #1a2142",
-                              fontSize: 15
-                            }}
-                          >
-                            {getdatallestimate.des_port_fees_gp}
-                          </td> */}
                           <td
                             style={{
                               padding: 5,
@@ -1743,7 +1735,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_currency}
+                            {getdatallestimate?.des_currency}
                           </td>
                           <td
                             style={{
@@ -1752,17 +1744,8 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_unpack}
+                            {getdatallestimate?.des_unpack}
                           </td>
-                          {/* <td
-                            style={{
-                              padding: 5,
-                              border: "1px solid #1a2142",
-                              fontSize: 15
-                            }}
-                          >
-                            {getdatallestimate.des_unpack_gp}
-                          </td> */}
                           <td
                             style={{
                               padding: 5,
@@ -1798,7 +1781,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_currency}
+                            {getdatallestimate?.des_currency}
                           </td>
                           <td
                             style={{
@@ -1807,7 +1790,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_other}
+                            {getdatallestimate?.des_other}
                           </td>
                           {/* <td
                             style={{
@@ -1816,7 +1799,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_other_gp}
+                            {getdatallestimate?.des_other_gp}
                           </td> */}
                           <td
                             style={{
@@ -1858,7 +1841,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                            {getdatallestimate.des_amount}
+                            {getdatallestimate?.des_amount}
                           </th>
                           <th
                             style={{
@@ -1900,8 +1883,18 @@ console.log(getdatallestimate)
                               border: "1px solid #1a2142",
                               fontSize: 15
                             }}
-                          />
-                           {getdatallestimate.sub_amount}
+                          >
+                          </td>
+                          <td
+                            style={{
+                              padding: 5,
+                              border: "1px solid #1a2142",
+                              fontSize: 15
+                            }}
+                          >
+                            {getdatallestimate?.sub_amount}
+                          </td>
+
                           <th
                             style={{
                               padding: 5,
@@ -1909,7 +1902,7 @@ console.log(getdatallestimate)
                               fontSize: 15
                             }}
                           >
-                          {getdatallestimate.total_amount}
+                            {getdatallestimate?.total_amount}
                           </th>
                           {/* <th
                             style={{
@@ -1919,15 +1912,15 @@ console.log(getdatallestimate)
                             }}
                           >
                           </th> */}
-                          <th
+                          {/* <th
                             style={{
                               padding: 5,
                               border: "1px solid #1a2142",
                               fontSize: 15,
                             }}
                           >
-                           
-                          </th>
+
+                          </th> */}
                         </tr>
                       </tbody>
                     </table>
@@ -1938,14 +1931,6 @@ console.log(getdatallestimate)
           </div>
         </div>
       </div>
-      {
-              getdatallestimate.order_status === "0"? (
-                <div className="d-flex mt-5 mx-2 mb-3 ">
-                  <button className="w-25 btn btn-success ms-5" onClick={acceptQuotatyion}>Accept Freight</button>
-                  <button className=" w-25 btn btn-danger ms-3" onClick={rejectquotation}>Reject Freight</button>
-                </div>
-              ) : (getdatallestimate.order_status === "1" ? (<p className="w-25 text-success text-center fw-bold mt-4 ms-5"> Already Accepted </p>) : (<p className="text-danger fw-bold fs-4 my-4 text-center">This Freight is rejected by you.</p>))
-            }
       <ToastContainer />
     </div>
   )

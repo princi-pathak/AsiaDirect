@@ -26,7 +26,7 @@ const AirFreight = () => {
             </section>
             <section className="pt80 pb80">
                 <div className="container">
-                    <div className="row d-flex">
+                    <div className="row">
                         <div className="col-lg-6">
                             <div data-aos="fade-right" className="aos-init aos-animate">
                                 <div className="digitalTrusted pe25">

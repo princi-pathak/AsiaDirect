@@ -2,9 +2,10 @@ import React, { useEffect } from 'react'
 // import image2 from '../../../assestss/airFrieght.png'
 import air2 from "../../../assestss/warehouse.png"
 import plane from "../../../assestss/check.jpg"
-import cap from "../../../assestss/cap1.webp"
+// import cap from "../../../assestss/cap1.webp"
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import compleImg from "../../../assestss/compleImg.webp";
 export default function ComplianceSupportServices() {
 
     useEffect(() => {
@@ -13,13 +14,12 @@ export default function ComplianceSupportServices() {
     return (
         <div>
             <Navbar />
-            <section
-                className=" bannerBg complience">
+            <section className=" bannerBg" style={{backgroundImage:`url(${compleImg})`}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <h1>Compliance Support Services  </h1>
-                            <h5>Compliance Support Services are the cornerstone of seamless shipping and logistics operations. 
+                            <h5>Compliance Support Services are the cornerstone of seamless shipping and logistics operations.
                             </h5>
                         </div>
                     </div>
@@ -27,7 +27,7 @@ export default function ComplianceSupportServices() {
             </section>
             <section className="pt80 pb80">
                 <div className="container">
-                    <div className="row d-flex">
+                    <div className="row">
                         <div className="col-lg-6">
                             <div data-aos="fade-right" className="aos-init aos-animate">
                                 <div className="digitalTrusted pe25">
@@ -85,7 +85,7 @@ export default function ComplianceSupportServices() {
                                 <img src={plane} alt="" />
                             </div>
                             <div className="contetnPlain">
-                                <h5> Seamless Integratio</h5>
+                                <h5> Seamless Integration</h5>
                                 <p>Our services are designed to integrate effortlessly with your existing operations, providing a streamlined approach to compliance and documentation.</p>
                             </div>
                         </div>
@@ -93,7 +93,7 @@ export default function ComplianceSupportServices() {
                     <div className="row mt-4">
                         <div className="contetnPlain">
                             <h3>Ensuring Your Success</h3>
-                            <p className='mt-2'>  With Asia Direct, you gain a partner that’s dedicated to your business’s compliance and success.</p>
+                            <p className='mt-2'>  With Asia Direct, you gain a partner that's dedicated to your business's compliance and success.</p>
                         </div>
                     </div>
                 </div >
@@ -138,7 +138,6 @@ export default function ComplianceSupportServices() {
                                 </p>
                             </div>
                         </div>
-
                     </div>
                     <div className=" row pt50">
                         <div className="col-lg-12">

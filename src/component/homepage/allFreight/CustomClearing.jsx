@@ -5,6 +5,8 @@ import Footer from '../Footer'
 import plane from "../../../assestss//check.jpg"
 import cap from "../../../assestss/customNew (1).png"
 import Topbar from '../../Topbar'
+import customImg from "../../../assestss/customImg.jpg";
+
 const CustomClearing = () => {
     const getdatya = () => {
         window.scrollTo(0, 0)
@@ -17,7 +19,7 @@ const CustomClearing = () => {
             <Topbar />
             <Navbar />
             <section
-                className=" bannerBg RoadBanner">
+                className=" bannerBg" style={{backgroundImage:`url(${customImg})`}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -30,7 +32,7 @@ const CustomClearing = () => {
             </section>
             <section className="pt80 pb80">
                 <div className="container">
-                    <div className="row d-flex">
+                    <div className="row">
                         <div className="col-lg-6">
                             <div data-aos="fade-right" className="aos-init aos-animate">
                                 <div className="digitalTrusted pe25">

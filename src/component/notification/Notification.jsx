@@ -31,10 +31,9 @@ export default function Notification() {
           toast.success(response.data.message)
           handlegetnoti()
         }).catch((error) => {
-          console.log(error.response.data.messgae)
+          console.log(error.response.data.message)
         })
         Swal.fire({
-
           title: "Deleted!",
           text: "Your file has been deleted.",
           icon: "success"
@@ -66,7 +65,7 @@ export default function Notification() {
             data.length > 0 ? (
               <button className='mb-3 justify-content-end bg-primary btn text-white rounded' style={{ marginLeft: "93%" }} onClick={hanldeclickdelete}>Clear All</button>
             ) : (
-              <p>no notification</p>
+              <p className='text-center'>no notification</p>
             )
           }
           <div className="row">

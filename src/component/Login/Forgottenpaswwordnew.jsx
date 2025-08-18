@@ -20,7 +20,6 @@ export default function Forgottenpaswwordnew() {
   })
   const [error, setError] = useState([])
   const navigate = useNavigate()
-  console.log(process.env.REACT_APP_BASE_URL)
 
   const handlechange = (e) => {
     const { name, value } = e.target
@@ -41,10 +40,8 @@ export default function Forgottenpaswwordnew() {
   const handleclick = () => {
     handlevalidate(data)
   }
-
  
   const apihit = () => {
-    console.log(data);
     const datauswer = {
       newPassword: data.newPassword,
       confirmPassword: data.confirmPassword
@@ -52,14 +49,11 @@ export default function Forgottenpaswwordnew() {
     
     const token = localStorage.getItem("token");
     // Concatenate the token to the URL string
-    console.log(`${process.env.REACT_APP_BASE_URL}user-reset-password?token='${token}'`)
     axios.post(`${process.env.REACT_APP_BASE_URL}user-reset-password?token=${token}`, datauswer)
       .then((response) => {
-        console.log(response.data);
         toast.success(response.data.msg);
       })
       .catch((error) => {
-        console.log(error.response.data);
         toast.error(error.response.data.msg);
       });
   };

@@ -5,6 +5,7 @@ const Testing = () => {
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
+  console.log('tusahr')
   return (
     <div>
       <h1>Select an option:</h1>

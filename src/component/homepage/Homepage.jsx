@@ -10,29 +10,31 @@ import Whychooseus from './Whychooseus'
 import WhyWesafe from './WhyWesafe'
 import Oursuppluchain from './Oursuppluchain'
 import Footer from './Footer'
+import Whatssapicon from './Whatssapicon'
 
 export default function Homepage() {
 
   const handletop = () => {
     window.scrollTo(0, 0)
   }
+
   useEffect(() => {
     handletop()
   })
+
   return (
     <>
       <Topbar />
       <Navbar />
+      <Whatssapicon />
       <Homebanner />
       <Trackingsection />
       <Trustedsection />
-      <Deliveredpackage />
+      <Deliveredpackage />  
       <Howwehelp />
       <Whychooseus />
-      {/* <ClienbtTrust /> */}
       <WhyWesafe />
       <Oursuppluchain />
-      {/* <Trustedsection /> */}
       <Footer />
     </>
   )

@@ -6,7 +6,7 @@ import truck from "../../assestss/truck.png"
 import shipFreight from "../../assestss/freight.jpg"
 import economic from "../../assestss/economic.png"
 import schedule from "../../assestss/schedule.png"
-import imageOne from "../../assestss/cargoCon.jpg"
+import cargoImg from "../../assestss/cargoCon.jpg"
 import Topbar from '../Topbar'
 export default function CargoConsolidation() {
     useEffect(()=>{
@@ -17,7 +17,7 @@ export default function CargoConsolidation() {
           <Topbar />
     <Navbar />
     <section
-        className="bannerBg" style={{backgroundImage:`url(${imageOne})`}} >
+        className="bannerBg" style={{backgroundImage:`url(${cargoImg})`}} >
         <div className="container">
             <div className="row">
                 <div className="col-lg-12">

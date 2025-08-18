@@ -1,459 +1,720 @@
-// import React from 'react'
-// import { useLocation } from 'react-router-dom'
-// import Topbar from '../Topbar'
-// import Navbar from '../homepage/Navbar'
-// import Footer from '../homepage/Footer'
-
-// export default function Customdetails() {
-//     const location = useLocation()
-//     const cleardata = (location?.state?.data)
-//     console.log(location?.state?.data)
-//   return(
-//     <>
-// <Topbar />
-// <Navbar />
-//     <div>
-//      <section className="formDetails">
-//   <div className="container">
-//     <div className="row">
-//       <div className="col-lg-12">
-//         <h4 className="empyDetailHead">Custom Clearance Details</h4>
-//       </div>
-//     </div>
-//     <div className="row">
-//       <div className="col">
-//         <label htmlFor="">Clearing Result</label>
-//         <input className="form-control" value={cleardata?.clearing_result} placeholder={1} readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">Clearing Agent</label>
-//         <input className="form-control" value={cleardata.clearing_agent} placeholder="allen james" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">Client</label>
-//         <input
-//           type="text"
-//           className="form-control"
-//           placeholder="xyz"
-//           readOnly=""
-//           value={cleardata.client}
-//         />
-//       </div>
-//     </div>
-//     <div className="row">
-//       <div className="col">
-//         <label>
-//             Comment On Doccument</label>
-//         <input placeholder="12/3/12" value={cleardata?.comment_on_docs} className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label>Customer Refrence</label>
-//         <input placeholder="LCL"  value={cleardata?.customer_ref}   className="form-control" readOnly="" />
-//       </div>
-//     </div>
-//     <div className="row">
-//       <div className="col">
-//         <label>Destination</label>
-//         <input placeholder="sea" value={cleardata.destination} className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">Document Required</label>
-//         <input placeholder="DDP" value={cleardata?.document_req} className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">Goods Desc</label>
-//         <input placeholder={5} value={cleardata.goods_desc} className="form-control" readOnly="" />
-//       </div>
-//     </div>
-//     <div className="horizontalLine"></div>
-//     <div className="row">
-//       <div className="col">
-//         <label>port_of_entry</label>
-//         <input placeholder={5} value={cleardata.port_of_entry} className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label>port_of_exit </label>
-//         <input placeholder="yes" value={cleardata?.port_of_exit} className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">sad500</label>
-//         <input placeholder="Pending" value={cleardata.sad500} className="form-control" readOnly="" />
-//       </div>
-//     </div>
-//     <div className="row">
-//       <div className="col">
-//         <label>Quote Document</label>
-//         <input
-//           placeholder="1705310072449-profilemenu.png"
-//           className="form-control"
-//           readOnly=""
-//           value={cleardata.document_upload}
-//         />
-//       </div>
-//       <div className="col">
-//         <label>trans_reference</label>
-//         <input placeholder={0} value={cleardata.trans_reference} className="form-control" readOnly="" />
-//       </div>
-//     </div>
-//     {/* <div className="row">
-//       <div className="col">
-//         <label htmlFor="">Comment</label>
-//         <input placeholder="" className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">No. of Packages</label>
-//         <input placeholder={12} className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor=""> Package Type</label>
-//         <input
-//           placeholder="package type"
-//           className="form-control"
-//           readOnly=""
-//         />
-//       </div>
-//     </div> */}
-//     <div className="horizontalLine"></div>
-//     {/* <div className="row">
-//       <div className="col">
-//         <label htmlFor="">Commodity</label>
-//         <input placeholder="commodity" className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">Hazardous</label>
-//         <input placeholder="hazardous" className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label>Industry</label>
-//         <input placeholder="healthCare" className="form-control" readOnly="" />
-//       </div>
-//     </div>
-//     <div className="row">
-//       <div className="col">
-//         <label>Country Id</label>
-//         <input placeholder={5} className="form-control" readOnly="" />
-//       </div>
-//     </div>
-//     <div className="row">
-//       <div className="col">
-//         <label>Supplier Address</label>
-//         <input
-//           placeholder="supplier address"
-//           className="form-control"
-//           readOnly=""
-//         />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">Port of Loading</label>
-//         <input
-//           placeholder="port of loading"
-//           className="form-control"
-//           readOnly=""
-//         />
-//       </div>
-//       <div className="col">
-//         <label>Port of Discharge</label>
-//         <input
-//           placeholder="post of discharge"
-//           className="form-control"
-//           readOnly=""
-//         />
-//       </div>
-//     </div> */}
-//     {/* <div className="horizontalLine" /> */}
-//     {/* <div className="row">
-//       <div className="col">
-//         <label htmlFor="">Place of Delivery</label>
-//         <input
-//           placeholder="place of delivery"
-//           className="form-control"
-//           readOnly=""
-//         />
-//       </div>
-//     </div>
-//     <div className="row">
-//       <div className="col">
-//         <label>Ready for Collection</label>
-//         <input
-//           placeholder="ready for collection"
-//           className="form-control"
-//           readOnly=""
-//         />
-//       </div>
-//       <div className="col">
-//         <label>Assign Id</label>
-//         <input placeholder={123} className="form-control" readOnly="" />
-//       </div>
-//     </div>
-//     <div className="row">
-//       <div className="col">
-//         <label>Loading Frequency</label>
-//         <input placeholder={12} className="form-control" readOnly="" />
-//       </div>
-//       <div className="col">
-//         <label htmlFor="">Transit Time</label>
-//         <input placeholder="12ns" className="form-control" readOnly="" />
-//       </div>
-//     </div> */}
-//     {/* <div className="horizontalLine" /> */}
-//   </div>
-// </section>
-
-//     </div>
-//     <Footer />
-//     </>
-//   )
-// }
-// import React from 'react';
-// import { useLocation } from 'react-router-dom'
-// import { Container, Row, Col } from 'react-bootstrap';
-// import Topbar from '../Topbar';
-// import Navbar from '../homepage/Navbar';
-// import Footer from '../homepage/Footer';
-
-// export default function Customdetails() {
-//     const location = useLocation();
-//     const cleardata = location?.state?.data;
-
-//     return (
-//         <>
-//             <Topbar />
-//             <Navbar />
-//             <section className="formDetails">
-//                 <Container className="mt-5">
-//                     <h4 className="empyDetailHead">Custom Clearance Details</h4>
-//                     <Row>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Clearing Result:</label>
-//                                 <span className="detail-value">{cleardata?.clearing_result}</span>
-//                             </div>
-//                         </Col>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Clearing Agent:</label>
-//                                 <span className="detail-value">{cleardata?.clearing_agent}</span>
-//                             </div>
-//                         </Col>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Client:</label>
-//                                 <span className="detail-value">{cleardata?.client}</span>
-//                             </div>
-//                         </Col>
-//                     </Row>
-//                     <Row>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Comment on Document:</label>
-//                                 <span className="detail-value">{cleardata?.comment_on_docs}</span>
-//                             </div>
-//                         </Col>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Customer Reference:</label>
-//                                 <span className="detail-value">{cleardata?.customer_ref}</span>
-//                             </div>
-//                         </Col>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Destination:</label>
-//                                 <span className="detail-value">{cleardata?.destination}</span>
-//                             </div>
-//                         </Col>
-//                     </Row>
-//                     <Row>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Document Required:</label>
-//                                 <span className="detail-value">{cleardata?.document_req}</span>
-//                             </div>
-//                         </Col>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Goods Description:</label>
-//                                 <span className="detail-value">{cleardata?.goods_desc}</span>
-//                             </div>
-//                         </Col>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Port of Entry:</label>
-//                                 <span className="detail-value">{cleardata?.port_of_entry}</span>
-//                             </div>
-//                         </Col>
-//                     </Row>
-//                     <Row>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Port of Exit:</label>
-//                                 <span className="detail-value">{cleardata?.port_of_exit}</span>
-//                             </div>
-//                         </Col>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">SAD500:</label>
-//                                 <span className="detail-value">{cleardata?.sad500}</span>
-//                             </div>
-//                         </Col>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Quote Document:</label>
-//                                 <span className="detail-value">{cleardata?.document_upload}</span>
-//                             </div>
-//                         </Col>
-//                     </Row>
-//                     <Row>
-//                         <Col lg={4} className="mb-4">
-//                             <div className="detail">
-//                                 <label className="detail-label">Transaction Reference:</label>
-//                                 <span className="detail-value">{cleardata?.trans_reference}</span>
-//                             </div>
-//                         </Col>
-//                     </Row>
-//                 </Container>
-//             </section>
-//             <Footer />
-//         </>
-//     );
-// }
-// import React from 'react';
-// import { Container, Row, Col, Form } from 'react-bootstrap';
-// import Topbar from '../Topbar';
-// import Navbar from '../homepage/Navbar';
-// import Footer from '../homepage/Footer';
-// import { useLocation } from 'react-router-dom';
-
-// export default function CustomDetails() {
-//     const location = useLocation();
-//     const data = location?.state?.data;
-
-//     return (
-//         <div>
-//             <Topbar />
-//             <Navbar />
-//             <section className="formDetails">
-//                 <Container className="mt-5">
-//                     <h4 className="empyDetailHead">Custom Clearance Details</h4>
-//                     <Row>
-//                         {Object.entries(data).map(([key, value]) => (
-//                             <Col key={key} lg={4} className="mb-4">
-//                                 <Form.Group className="mb-3">
-//                                     <Form.Label>{key.replace(/_/g, ' ')}</Form.Label>
-//                                     <Form.Control type="text" placeholder={value} readOnly />
-//                                 </Form.Group>
-//                             </Col>
-//                         ))}
-//                     </Row>
-//                 </Container>
-//             </section>
-//             <Footer />
-//         </div>
-//     );
-// }
-// import React from 'react';
-// import { Container, Row, Col, Form } from 'react-bootstrap';
-// import Topbar from '../Topbar';
-// import Navbar from '../homepage/Navbar';
-// import Footer from '../homepage/Footer';
-// import { useLocation } from 'react-router-dom';
-
-// export default function CustomDetails() {
-//     const location = useLocation();
-//     const data = location?.state?.data;
-
-//     // Define an array of keys to exclude from rendering
-//     const excludedKeys = ['key1']; // Add keys you want to exclude
-
-//     // Filter out excluded keys from data
-//     const filteredData = Object.fromEntries(
-//         Object.entries(data).filter(([key]) => !excludedKeys.includes(key))
-//     );
-
-//     return (
-//         <div>
-//             <Topbar />
-//             <Navbar />
-//             <section className="formDetails">
-//                 <Container className="mt-5">
-//                     <h4 className="empyDetailHead">Custom Clearance Details</h4>
-//                     <Row>
-//                         {Object.entries(filteredData).map(([key, value]) => (
-//                             <Col key={key} lg={4} className="mb-4">
-//                                 <Form.Group className="mb-3">
-//                                     <Form.Label>{key.replace(/_/g, ' ')}</Form.Label>
-//                                     <Form.Control type="text" placeholder={value} readOnly />
-//                                 </Form.Group>
-//                             </Col>
-//                         ))}
-//                     </Row>
-//                 </Container>
-//             </section>
-//             <Footer />
-//         </div>
-//     );
-// }
-import React, { useEffect } from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
-import Topbar from '../Topbar';
-import Navbar from '../homepage/Navbar';
-import Footer from '../homepage/Footer';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Container, Row, Col, Form } from "react-bootstrap";
+import Topbar from "../Topbar";
+import Navbar from "../homepage/Navbar";
+import Footer from "../homepage/Footer";
+import { Link, useLocation } from "react-router-dom";
 
 export default function CustomDetails() {
-  useEffect(()=>{
-getdata()
-  },[])
+  useEffect(() => {
+    getdata();
+  }, []);
 
-  const getdata=()=>{
-    window.scrollTo(0,0)
-  }
-    const location = useLocation();
-    const data1 = location?.state?.data;
-console.log(location?.state?.data)
-    // Explicitly pick fields to include in the data object
-    const data = {
-        clearing_status: data1?.clearing_status,
-        comment_on_docs: data1?.comment_on_docs,
-        customer_ref: data1?.customer_ref,
-        destination: data1?.destination,
-        goods_desc: data1?.goods_desc,
-        port_of_entry: data1?.port_of_entry,
-        port_of_exit: data1?.port_of_exit,
-        document_upload: data1?.document_upload,
-    };
-
-    // Define keys to exclude from rendering
-    const excludedKeys = ['Comment', 'Dimension', 'Hazardous']; // Add keys you want to exclude
-
-    // Filter out excluded keys from data
-    const filteredData = Object.fromEntries(
-        Object.entries(data).filter(([key]) => !excludedKeys.includes(key))
-    );
-
-    return (
-     <>
-   
-     {/* <p>jgsdfkdg</p></> */}
-        <div>
-            <Topbar />
-            <Navbar />
-            <section className="formDetails">
-                <Container className="mt-5">
-                    <h4 className="empyDetailHead">Custom Clearance Details</h4>
-                    <Row>
-                        {Object.entries(filteredData).map(([key, value]) => (
-                            <Col key={key} lg={4} className="mb-4">
-                                <Form.Group className="mb-3">
-                                    <Form.Label className='text-capitalize'>{key.replace(/_/g, ' ')}</Form.Label>
-                                    <Form.Control type="text" placeholder={value} readOnly />
-                                </Form.Group>
-                            </Col>
-                        ))}
-                    </Row>
-                </Container>
-            </section>
-            <Footer />
-        </div>
-        </>
-    );
+  const getdata = () => {
+    window.scrollTo(0, 0);
+  };
+  const location = useLocation();
+  const data1 = location?.state?.data;
+  console.log(data1);
+  const data = {
+    clearing_status: data1?.clearing_status,
+    comment_on_document: data1?.comment_on_docs,
+    customer_reference: data1?.customer_ref,
+    destination: data1?.destination,
+    goods_description: data1?.goods_desc,
+    port_of_entry: data1?.port_of_entry_name,
+    port_of_exit: data1?.port_of_exit_name,
+    document_upload: data1?.document_upload,
+  };
+  const excludedKeys = ["Comment", "Dimension", "Hazardous"]; // Add keys you want to exclude
+  const filteredData = Object.fromEntries(
+    Object.entries(data).filter(([key]) => !excludedKeys.includes(key))
+  );
+  return (
+    <>
+      <div>
+        <Topbar />
+        <Navbar />
+        <section class="sec_freight">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="page-banner full-row">
+                  <div class="container">
+                    <div class="row align-items-center">
+                      <div class="col-md-6">
+                        <h3 class="fre_det_hd">Custom Clearance Details</h3>
+                      </div>
+                      <div class="col-md-6">
+                        <nav class="float-start float-md-end">
+                          <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item">
+                              <a href="">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                              <Link to={'/Custom-clearence'}>Clearance Details</Link>
+                            </li>
+                          </ol>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="">
+          <div className="container">
+            <div className="row mt-4">
+              <div className="col-md-4">
+                <div className="card desti_card">
+                  <div className="card-body">
+                    <div className="">
+                      <h6 className="orgin_hd">Shipper Details</h6>
+                      <span className="line"></span>
+                    </div>
+                    <div className="main_det">
+                      <div class="table-responsive">
+                        <table class="det_show">
+                          <tbody>
+                            <tr>
+                              <td class="fright_num">
+                                <p class="client_para1">Shipper:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">Asia Direct</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Contact Person:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">Tushar Gupta</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Cell:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">1234567890</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Telephone:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">0000000000</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1 mb-2">Email:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1 mb-2">
+                                  asiadirect@gmail.com
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="ship_hd">Pickup Address</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Str Add:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">000000</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Address1:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">000000</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Town:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">000000</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">City:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">Noida</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Country:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">India</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1 mb-2">Postal Code:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1 mb-2">000252</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="ship_hd">Export details</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Exporter:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">Asia Direct</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Export Code:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">204101</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Vat/Tax No:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">0000000000000</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* <div className="col-md-4">
+                <div className="card desti_card">
+                  <div className="card-body">
+                    <div className="">
+                      <h6 className="orgin_hd">Consignee Details</h6>
+                      <span className="line"></span>
+                    </div>
+                    <div className="main_det">
+                      <div class="table-responsive">
+                        <table class="det_show">
+                          <tbody>
+                            <tr>
+                              <td class="fright_num">
+                                <p class="client_para1">Consignee:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">Asia Direct</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Contact Person:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">Tushar Gupta</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Cell:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">1234567890</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Telephone:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">0000000000</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1 mb-2">Email:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1 mb-2">
+                                  asiadirect@gmail.com
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="ship_hd">Delivery Address</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Str Add:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">000000</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Address1:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">000000</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Town:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">000000</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">City:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">Gunagazhou</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Country:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">China</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1 mb-2">Postal Code:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1 mb-2">30253</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="ship_hd">Export details</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Exporter:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">Asia Direct</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Export Code:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">5461500</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Vat/Tax No:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1">00000000000000</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+              <div className="col-md-4">
+                <div className="card desti_card">
+                  <div className="card-body">
+                    <div className="">
+                      <h6 className="orgin_hd">Booking Information</h6>
+                      <span className="line"></span>
+                    </div>
+                    <div className="main_det">
+                      <div class="table-responsive">
+                        <table class="det_show">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <p className="ship_hd">POL Information</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="fright_num">
+                                <p class="client_para1">Place of loading:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Port of Loading:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="instr_td">
+                                <p className="client_para1 mb-2">
+                                  Instructions:
+                                </p>
+                              </td>
+                              <td>
+                                <p className="client_para1 mb-2"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="ship_hd">Transit Information</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Freight Option:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Efficiency:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Incoterms:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Insurance:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1 mb-2">Warehouse:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1 mb-2"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="ship_hd">POD Information</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Place of delivery:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Port of Discharge:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="instr_td">
+                                <p className="client_para1 mb-2">
+                                  Instructions:
+                                </p>
+                              </td>
+                              <td>
+                                <p className="client_para1 mb-2"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="ship_hd">Comment</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row my-4">
+              <div className="col-md-4">
+                <div className="card desti_card1">
+                  <div className="card-body">
+                    <div className="">
+                      <h6 className="orgin_hd">Cargo Details</h6>
+                      <span className="line"></span>
+                    </div>
+                    <div className="main_det">
+                      <div class="table-responsive">
+                        <table class="det_show">
+                          <tbody>
+                            <tr>
+                              <td class="fright_num">
+                                <p class="client_para1">Product Description:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Hazardous:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Industry:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Packaging:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">No of Packages:</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Dimensions(cbm):</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Weight(kgs):</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p class="client_para1">Vol weight(kgs):</p>
+                              </td>
+                              <td>
+                                <p class="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              {/* <td>
+                              <p class="client_para1">Chargeable weight:</p>
+                            </td>
+                            <td>
+                              <p class="client_para1"></p>
+                            </td> */}
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* <div className="col-md-4">
+                <div className="card desti_card1">
+                  <div className="card-body">
+                    <div className="">
+                      <h6 className="orgin_hd">Shipping Estimate</h6>
+                      <span className="line"></span>
+                    </div>
+                    <div className="main_det">
+                      <div className="table-responsive">
+                        <table className="det_show">
+                          <thead>
+                            <tr>
+                              <td className="ship_hd1"></td>
+                              <td className="ship_hd2">Cost</td>
+                              <td className="ship_hd3">Billing</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="ship_hd">
+                                Freight
+                                <br />
+                                <p className="client_para1 mb-3"></p>
+                              </td>
+                              <td>
+                                <p className="client_para1 mb-3"></p>
+                              </td>
+                              <td>
+                                <p className="client_para1 mb-3"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="ship_hd">
+                                Origin Charges
+                                <br />
+                                <p className="client_para1">Collection</p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="client_para1">Warehousing</p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="client_para1 mb-3">
+                                  Origin Handling
+                                </p>
+                              </td>
+                              <td>
+                                <p className="client_para1 mb-3"></p>
+                              </td>
+                              <td>
+                                <p className="client_para1 mb-3"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="ship_hd">
+                                Destination Charges
+                                <br />
+                                <p className="client_para1">Delivery</p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="client_para1">Warehousing</p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <p className="client_para1">
+                                  Destination Handling
+                                </p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                              <td>
+                                <p className="client_para1"></p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+              <div className="col-md-4">
+                <div className="card desti_card">
+                  <div className="card-body">
+                    <div className="">
+                      <h6 className="orgin_hd">Attachments</h6>
+                      <span className="line"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <Container className="mt-5">
+                        <Row>
+                            {Object.entries(filteredData).map(([key, value]) => (
+                                <Col key={key} lg={4} className="">
+                                    <Form.Group className="mb-3">
+                                        <Form.Label className='text-capitalize'>{key.replace(/_/g, ' ')}</Form.Label>
+                                        <Form.Control type="text" placeholder={value} readOnly />
+                                    </Form.Group>
+                                </Col>
+                            ))}
+                        </Row>
+                    </Container> */}
+          </div>
+        </section>
+        <Footer />
+      </div>
+    </>
+  );
 }

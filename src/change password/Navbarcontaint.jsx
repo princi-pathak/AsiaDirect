@@ -43,7 +43,7 @@ export default function Navbarcontaint() {
     handlevalidate(data)
   }
 const apihit=()=>{
-  console.log('jgsdjkf')
+ 
 }
  
 

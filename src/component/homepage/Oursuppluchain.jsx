@@ -1,34 +1,60 @@
 import React from "react";
-import Slider from "react-slick"
-import image2 from '../../assestss/slide5.jpg'
-import image3 from '../../assestss/slidenew1.jpg'
-import image4 from '../../assestss/slidenew3.jpeg'
+import Slider from "react-slick";
+import shipImg from "../../assestss/slide5.jpg";
+import cargoImg from "../../assestss/cargoCon.jpg";
+import customImg from "../../assestss/custom.jpg";
 import { useNavigate } from "react-router-dom";
+import ecommerceImg from "../../assestss/ecommerce.webp";
 export default function Oursuppluchain() {
-  
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const showShipMode = () => {
-    navigate("/shippingmode")
-  }
-  const hyabndleclickCustom = () =>{
-    navigate('/custom-Faq')
-  }
+    navigate("/shippingmode");
+  };
+  const hyabndleclickCustom = () => {
+    navigate("/custom-Faq");
+  };
+  const handleclickconsoli = () => {
+    navigate("/CargoConsolidration");
+  };
+  const handleclickEcomm = () => {
+    navigate("/E-commerce");
+  };
+  const PrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <button
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      >
+        preNew
+      </button>
+    );
+  };
 
-  const handleclickconsoli =()=>{
-    navigate('/CargoConsolidration')
-  }
-  const handleclickEcomm =()=>{
-    navigate('/E-commerce')
-  }
-
-  var settings = {
+  // Custom Next Button
+  const NextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <button
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      >
+        nextNew
+      </button>
+    );
+  };
+  const settings = {
     dots: false,
     infinite: true,
     speed: 3000,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -36,48 +62,50 @@ export default function Oursuppluchain() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: false
-        }
+          dots: false,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div>
-      <section className="blogHome pb80 wow fadeInDown">
+      <section className="blogHome pb50 wow fadeInDown">
         <div className="container">
+          <div className="row" style={{ position: "relative" }}>
+            <div className="btnBlogAfter">
+              <button>Our Blogs</button>
+            </div>
+          </div>
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 pt50">
               <div id="news-slider" className="owl-carousel">
-
                 <Slider {...settings}>
                   <div className="mx-2">
                     <div className="post-slide">
-                      <div className="post-img">
-                        <img src={image3} alt='hellow' />
+                      <div className="post-img" onClick={showShipMode}>
+                        <img src={shipImg} alt="hellow" />
                         <p className="over-layer">
                           <i className="fa fa-link" />
                         </p>
                       </div>
                       <div className="post-content">
                         <h3 className="post-title">
-                          <p>
-                          Shipping Modes: Your Choices
-                          </p>
+                          <p>Shipping Modes: Your Choices</p>
                         </h3>
                         <p className="post-date" onClick={showShipMode}>
                           {" "}
@@ -88,17 +116,15 @@ export default function Oursuppluchain() {
                   </div>
                   <div className="mx-2">
                     <div className="post-slide">
-                      <div className="post-img">
-                        <img src={image2} alt='hellow' />
+                      <div className="post-img" onClick={hyabndleclickCustom}>
+                        <img src={customImg} alt="hellow" />
                         <p className="over-layer">
                           <i className="fa fa-link" />
                         </p>
                       </div>
                       <div className="post-content">
                         <h3 className="post-title">
-                          <p>
-                          Customs Clearing: The costs & the challenges
-                          </p>
+                          <p>Customs Clearing: The costs & the challenges</p>
                         </h3>
                         <a className="post-date" onClick={hyabndleclickCustom}>
                           {" "}
@@ -109,17 +135,15 @@ export default function Oursuppluchain() {
                   </div>
                   <div className="mx-2">
                     <div className="post-slide">
-                      <div className="post-img">
-                        <img src={image3} alt='hellow' />
+                      <div className="post-img" onClick={handleclickconsoli}>
+                        <img src={cargoImg} alt="hellow" />
                         <p className="over-layer">
                           <i className="fa fa-link" />
                         </p>
                       </div>
                       <div className="post-content">
                         <h3 className="post-title">
-                          <p>
-                          Cargo Consolidation
-                          </p>
+                          <p>Cargo Consolidation</p>
                         </h3>
                         <a className="post-date" onClick={handleclickconsoli}>
                           {" "}
@@ -128,72 +152,25 @@ export default function Oursuppluchain() {
                       </div>
                     </div>
                   </div>
-
                   <div className="mx-2">
                     <div className="post-slide">
-                      <div className="post-img">
-                        <img src={image4} alt='hellow' />
+                      <div className="post-img" onClick={handleclickEcomm}>
+                        <img src={ecommerceImg} alt="hellow" />
                         <p className="over-layer">
                           <i className="fa fa-link" />
                         </p>
                       </div>
                       <div className="post-content">
                         <h3 className="post-title">
-                          <p>
-                          E-commerce Support from China
-                          </p>
+                          <p>E-commerce Support from China</p>
                         </h3>
                         <a className="post-date" onClick={handleclickEcomm}>
                           {" "}
-                          Read More <i className="	fa fa-long-arrow-right"  />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* <div className="mx-2">
-                    <div className="post-slide">
-                      <div className="post-img">
-                        <img src={image1} alt='hellow' />
-                        <a href="#" className="over-layer">
-                          <i className="fa fa-link" />
-                        </a>
-                      </div>
-                      <div className="post-content">
-                        <h3 className="post-title">
-                          <a href="#">
-                            Logistics vs. Supply Chain: What's the Difference?
-                          </a>
-                        </h3>
-                        <a className="post-date">
-                          {" "}
                           Read More <i className="	fa fa-long-arrow-right" />
                         </a>
                       </div>
                     </div>
                   </div>
-
-                  <div className="mx-2">
-                    <div className="post-slide">
-                      <div className="post-img">
-                        <img src={image5} alt='hellow' />
-                        <a href="#" className="over-layer">
-                          <i className="fa fa-link" />
-                        </a>
-                      </div>
-                      <div className="post-content">
-                        <h3 className="post-title">
-                          <a href="#">
-                            Logistics vs. Supply Chain: What's the Difference?
-                          </a>
-                        </h3>
-                        <a className="post-date">
-                          {" "}
-                          Read More <i className="	fa fa-long-arrow-right" />
-                        </a>
-                      </div>
-                    </div>
-                  </div> */}
                 </Slider>
               </div>
             </div>
@@ -201,5 +178,5 @@ export default function Oursuppluchain() {
         </div>
       </section>
     </div>
-  )
+  );
 }

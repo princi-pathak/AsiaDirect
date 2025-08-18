@@ -1,25 +1,36 @@
+
 import React, { useEffect, useState } from 'react'
 import image1 from '../../assestss/logo.png'
 import image2 from '../../assestss/subscribe-1.png'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+
 export default function Footer() {
   const [data, setData] = useState({})
-  const getdata = () => {
-    axios.get(`${process.env.REACT_APP_BASE_URL}get-social-links`).then((response) => {
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  const getdata = async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}get-social-links`)
       setData(response.data.data)
-    }).catch((error) => {
-      console.log(error.response.data)
-    })
+    } catch (error) {
+      console.log(error.response?.data?.message)
+      // toast.error(error.response?.data?.message || 'An error occurred while fetching social links.')
+      // setError('Failed to load social links.')
+    } finally {
+      setLoading(false)
+    }
   }
+ 
   useEffect(() => {
     getdata()
   }, [])
-  console.log(data)
+
   return (
     <div>
       <footer>
-        <section className="footerUpper">
+        {/* <section className="footerUpper">
           <div className="container">
             <div className="row subsBg wow fadeInDown">
               <div className="col-lg-8">
@@ -32,50 +43,57 @@ export default function Footer() {
                 </div>
               </div>
               <div className="col-lg-4">
-                <div className="footerImg">
-                  <img src={image2} alt="" />
+                <div className="footerImg" >
+                  <img src={image2} alt="Subscribe" /> 
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         <div className="footerContent">
           <div className="container">
-            <div className="row borderFotter">
+            <div className="row">
               <div className="col-lg-6 col-sm-6">
                 <div className="footerLogoContent">
-                  <div className="footerLogo">
-                    <img src={image1} alt="" />
-                  </div>
+                  <Link className="footerLogo" to={'/'}>
+                    <img src={image1} alt="Logo" />
+                  </Link>
                   <p>
-                    Asia Direct: Southern Africa's leading Procurement & Logistics Provider for Medical, Furniture, Automotive, Agricultural & Mining with Offices in South Africa,Botswana, Namibia, Zambia & Zimbabwe.
+                    Asia Direct: Southern Africa's leading Procurement & Logistics Provider for Medical, Furniture, Automotive, Agricultural & Mining with Offices in South Africa, Botswana, Namibia, Zambia & Zimbabwe.
                   </p>
-                  {
-                    <>
-                      <ul className="footerIconSocial">
+                  {!loading && !error && (
+                    <ul className="footerIconSocial">
+                      {data?.facebook_link && (
                         <li>
-                          <a href={data?.facebook_link}>
+                          <a href={data?.facebook_link} target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-facebook" />
                           </a>
                         </li>
+                      )}
+                      {data?.linkedin_link && (
                         <li>
-                          <a href={data?.linkedin_link}>
+                          <a href={data?.linkedin_link} target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-skype text-white" />
                           </a>
                         </li>
+                      )}
+                      {data?.twitter_link && (
                         <li>
-                          <a href={data?.twitter_link}>
+                          <a href={data?.twitter_link} target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-twitter" />
                           </a>
                         </li>
+                      )}
+                      {data?.instagram_link && (
                         <li>
-                          <a href={data?.instagram_link}>
+                          <a href={data?.instagram_link} target="_blank" rel="noopener noreferrer">
                             <i className="fa fa-instagram" />
                           </a>
                         </li>
-                      </ul>
-                    </>
-                  }
+                      )}
+                    </ul>
+                  )}
+                  {error && <p className="error-message">{error}</p>}
                 </div>
               </div>
               <div className="col-lg-6 col-sm-6">
@@ -83,21 +101,25 @@ export default function Footer() {
                   <h5>Categories</h5>
                   <ul>
                     <li>
-                      <NavLink>Shipping</NavLink>
+                      <NavLink to={'/shippingmode'}>Shipping</NavLink>
                     </li>
                     <li>
-                      <NavLink>Product Sourcing</NavLink>
+                      <NavLink to={'/contact-us'}>Query</NavLink>
                     </li>
                     <li>
                       <NavLink to={'/customClear'}>Customs clearing</NavLink>
                     </li>
-                    <li>
+                    <li className='drop_item1'>
                       <NavLink to={'/warehouse'}>Warehousing</NavLink>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
+            </div>
+            
+            <div className="bottFoot">
+              <div className="container">
             <div className="row mt-3">
               <div className="col-md-6">
                 <p className="copyPara">
@@ -116,6 +138,7 @@ export default function Footer() {
                   </ul>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>

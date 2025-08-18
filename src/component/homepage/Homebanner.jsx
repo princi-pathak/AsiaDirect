@@ -8,21 +8,21 @@ export default function Homebanner() {
 
     useEffect(() => {
         AOS.init({
-          disable: "phone",
-          duration: 700,
-          easing: "ease-out-cubic",
+            disable: "phone",
+            duration: 700,
+            easing: "ease-out-cubic",
         });
-      }, []);
+    }, []);
 
-const userid = JSON.parse(localStorage.getItem("data"))
-    const navigate=useNavigate()
-const hanldeclicknavi=()=>{
-    if(userid===null||undefined){
-        navigate('/login')
-    }else{
-        navigate('/addfreight')
+    const userid = JSON.parse(localStorage.getItem("data"))
+    const navigate = useNavigate()
+    const hanldeclicknavi = () => {
+        if (userid === null || undefined) {
+            navigate('/login')
+        } else {
+            navigate('/addfreight')
+        }
     }
-}
     var settings = {
         dots: false,
         infinite: true,
@@ -30,7 +30,7 @@ const hanldeclicknavi=()=>{
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        arrows:true,
+        arrows: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -59,51 +59,80 @@ const hanldeclicknavi=()=>{
         ]
     };
     return (
-        <div className='bannerHome item '>
+        <div className='bannerHome item banner_section'>
+            {/* <div class="pattern-2 bounce-y"></div> */}
             <Slider {...settings}>
                 <div className='image111' >
-                <div data-aos="fade-down-right">
-                    <div className="" style={{ margin: "80px 80px", width: "600px" }}>
-                        <p className='text-white fw-bolder' style={{fontSize:"3rem"}}>See how truly integrated
-                            logistics delivers</p>
-                        <p className='text-white fs-5'>With truly integrated logistics there’s always a new way to keep your goods moving and
-                            your business growing.</p>
-                        <button className='btn text-white py-3 px-4 fw-bolder' onClick={hanldeclicknavi} style={{ backgroundColor: "#ce1d22", }}>Add Freight <i className="fi fi-rr-arrow-right"></i></button>
-                    </div>
+                    <div data-aos="fade-down-right">
+                        <div className='banner_text'>
+                            <div className="home_ban">
+                                <div className='row justify-content-center'>
+                                    <div className='col-md-10'>
+                                        <p className='text-white fw-bolder home_para' style={{ fontSize: "3rem" }}>See how truly integrated
+                                            logistics delivers</p>
+                                        <p className='text-white fs-5 short_para'>With truly integrated logistics there’s always a new way to keep your goods moving and
+                                            your business growing.</p>
+                                        <div className='text-center'>
+                                            <button className='btn text-white fw-bolder' onClick={hanldeclicknavi} style={{ backgroundColor: "#ce1d22", padding: "10px 20px" }}>Add Freight <i className="fi fi-rr-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='image113'>
-                <div className="" style={{ margin: "80px 80px", width: "600px" }}>
-                        <p className='text-white fw-bolder' style={{fontSize:"3rem"}}>See how truly integrated
-                            logistics delivers</p>
-                        <p className='text-white fs-5'>With truly integrated logistics there’s always a new way to keep your goods moving and
-                            your business growing.</p>
-                        <button className='btn text-white py-3 px-4 fw-bolder' onClick={hanldeclicknavi} style={{ backgroundColor: "#ce1d22", }}>Add Freight <i className="fi fi-rr-arrow-right"></i></button>
+                    <div className='banner_text'>
+                        <div className="home_ban">
+                            <div className='row justify-content-center'>
+                                <div className='col-md-10'>
+                                    <p className='text-white fw-bolder home_para' style={{ fontSize: "3rem" }}>See how truly integrated
+                                        logistics delivers</p>
+                                    <p className='text-white fs-5 short_para'>With truly integrated logistics there’s always a new way to keep your goods moving and
+                                        your business growing.</p>
+                                    <div className='text-center'>
+                                        <button className='btn text-white fw-bolder' onClick={hanldeclicknavi} style={{ backgroundColor: "#ce1d22", padding: "10px 20px" }}>Add Freight <i className="fi fi-rr-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='image114'>
-                <div className="" style={{ margin: "80px 80px", width: "600px" }}>
-                        <p className='text-white fw-bolder' style={{fontSize:"3rem"}}>See how truly integrated
-                            logistics delivers</p>
-                        <p className='text-white fs-5'>With truly integrated logistics there’s always a new way to keep your goods moving and
-                            your business growing.</p>
-                        <button className='btn text-white py-3 px-4 fw-bolder' onClick={hanldeclicknavi} style={{ backgroundColor: "#ce1d22", }}>Add Freight <i className="fi fi-rr-arrow-right"></i></button>
+                    <div className='banner_text'>
+                        <div className="home_ban">
+                            <div className='row justify-content-center'>
+                                <div className='col-md-10'>
+                                    <p className='text-white fw-bolder home_para' style={{ fontSize: "3rem" }}>See how truly integrated
+                                        logistics delivers</p>
+                                    <p className='text-white fs-5 short_para'>With truly integrated logistics there’s always a new way to keep your goods moving and
+                                        your business growing.</p>
+                                    <div className='text-center'>
+                                        <button className='btn text-white fw-bolder' onClick={hanldeclicknavi} style={{ backgroundColor: "#ce1d22", padding: "10px 20px" }}>Add Freight <i className="fi fi-rr-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='image115 '>
-                <div className="" style={{ margin: "80px 80px", width: "600px" }}>
-                        <p className='text-white fw-bolder' style={{fontSize:"3rem"}}>See how truly integrated
-                            logistics delivers</p>
-                        <p className='text-white fs-5'>With truly integrated logistics there’s always a new way to keep your goods moving and
-                            your business growing.</p>
-                        <button className='btn text-white py-3 px-4 fw-bolder' onClick={hanldeclicknavi} style={{ backgroundColor: "#ce1d22", }}>Add Freight <i className="fi fi-rr-arrow-right"></i></button>
+                    <div className='banner_text'>
+                        <div className="home_ban">
+                            <div className='row justify-content-center'>
+                                <div className='col-md-10'>
+                                    <p className='text-white fw-bolder home_para' style={{ fontSize: "3rem" }}>See how truly integrated
+                                        logistics delivers</p>
+                                    <p className='text-white fs-5 short_para'>With truly integrated logistics there’s always a new way to keep your goods moving and
+                                        your business growing.</p>
+                                    <div className='text-center'>
+                                        <button className='btn text-white fw-bolder' onClick={hanldeclicknavi} style={{ backgroundColor: "#ce1d22", padding: "10px 20px" }}>Add Freight <i className="fi fi-rr-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
             </Slider>
         </div>
     )
 }
-
-

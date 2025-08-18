@@ -19,7 +19,6 @@ export default function LoginForm() {
     })
     const [error, setError] = useState([])
     const navigate = useNavigate()
-    console.log(process.env.REACT_APP_BASE_URL)
 
     const handlechange = (e) => {
         const { name, value } = e.target
@@ -48,18 +47,16 @@ export default function LoginForm() {
 
     const apihit = () => {
         axios.post(`${process.env.REACT_APP_BASE_URL}user-forgot-password`, { email: data.email }).then((response) => {
-            console.log(response.data)
            localStorage.setItem("token",response.data.token)
             toast.success(response.data.msg)
-            
-            
         }).catch((error) => {
-            console.log(error.response.data)
             toast.error(error.response.data.msg)
         })
     }
+    
     return (
         <div>
+
             <section className="loginSec">
                 <div className="container">
                     <div className="row">

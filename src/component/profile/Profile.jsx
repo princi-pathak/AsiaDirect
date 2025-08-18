@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Topbar from '../Topbar'
 import Navbar from '../homepage/Navbar'
 import Footer from '../homepage/Footer'
@@ -10,14 +10,19 @@ import { ToastContainer, toast } from 'react-toastify'
 
 export default function Profile() {
 
-  const [userData,setUserData]=useState({})
+  const [userData, setUserData] = useState({})
+
   const navigate = useNavigate()
-  useEffect(()=>{
+
+  useEffect(() => {
+    fetchData();
     window.scrollTo(0, 0)
-    },[])
+  }, [])
+
   const handleclicknavi = () => {
     navigate('/update-profile')
   }
+
   const location = useLocation()
   console.log(location?.state?.dataloc)
   const userdata = JSON.parse(localStorage.getItem('data'))
@@ -25,17 +30,12 @@ export default function Profile() {
   const fetchData = () => {
     const user = JSON.parse(localStorage.getItem('data'));
     axios.post(`${process.env.REACT_APP_BASE_URL}client-details`, {
-        client_id: user?.id
-    }).then((response)=>{
+      client_id: user?.id
+    }).then((response) => {
       console.log(response.data.data)
-      setUserData(response.data.data)
-    }).catch((error)=>{console.log(error.response.data)})
-};
-
-useEffect(() => {
-    fetchData();
-}, []);
-
+      setUserData(response?.data?.data)
+    }).catch((error) => { toast.error(error.response.data.message) })
+  };
   return (
     <div>
       <Topbar />
@@ -49,10 +49,10 @@ useEffect(() => {
             <div className="row">
               <div className="col-lg-12">
                 <h1>Profile Details</h1>
-                <h5>
+                {/* <h5>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. illo quae
                   vero{" "}
-                </h5>
+                </h5> */}
               </div>
             </div>
           </div>
@@ -64,11 +64,10 @@ useEffect(() => {
                 <div className="leftProfile">
                   <div className="leftProfileImg">
                     {
-                      userData? (
-                        <img src={`${process.env.REACT_APP_BASE_URL_image}${userData?.profile}`} alt="fdgdfg" style={{ objectFit: "cover" }} />
-                       
-                      ):(
-                        <img src={logoprofile} alt="fdgdfg" style={{ objectFit: "cover" }} />
+                      userData.profile ? (
+                        <img src={`${process.env.REACT_APP_BASE_URL_image}${userData?.profile}`} alt="apifdgdfg" style={{ objectFit: "cover" }} />
+                      ) : (
+                        <img src={logoprofile} alt="tushardgdfg" style={{ objectFit: "cover" }} />
                       )
                     }
                   </div>
@@ -90,37 +89,34 @@ useEffect(() => {
                       <span>Cell Phone:</span> {userdata.cellphone}
                     </p>
                     <p>
-                    
                       {
-                      userData? (
-                        <>
-                        <span>Address 1:</span>{userData?.address_1}
-                        </>
-                       
-                      ):(
-                        <>
-                        <span>Address 1:</span>{userdata?.address_1}
-                        </>
-                      )
-                    }
-                
+                        userData ? (
+                          <>
+                            <span>Address 1:</span>{userData?.address_1}
+                          </>
+
+                        ) : (
+                          <>
+                            <span>Address 1:</span>{userdata?.address_1}
+                          </>
+                        )
+                      }
                     </p>
                     <p>
                       {" "}
                       {
-                      userData? (
-                        <>
-                        <span>Address 2:</span>{userData?.address_2}
-                        </>
-                       
-                      ):(
-                        <>
-                        <span>Address 1:</span>{userdata?.address_2}
-                        </>
-                      )
-                    }
+                        userData ? (
+                          <>
+                            <span>Address 2:</span>{userData?.address_2}
+                          </>
+
+                        ) : (
+                          <>
+                            <span>Address 2:</span>{userdata?.address_2}
+                          </>
+                        )
+                      }
                     </p>
-                  
                   </div>
                 </div>
               </div>
@@ -128,26 +124,13 @@ useEffect(() => {
                 <div className="profileRight">
                   <div className="profileSummary">
                     <h5>Profile Summary</h5>
-                    <p>
+                    {/* <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                       magni ex quis repellendus temporibus accusamus architecto facere
                       corporis corrupti obcaecati similique incidunt minus, vel
                       dolores placeat commodi blanditiis nihil mollitia?
-                    </p>
+                    </p> */}
                     <div className="row">
-                      <div className="col-lg-6">
-                        <div className="parantClientRf">
-                          <div className="me-3">
-                            <p>
-                              {" "}
-                              <strong>client Referance :</strong>{" "}
-                            </p>
-                          </div>
-                          <div>
-                            <p>{userdata.client_ref}</p>
-                          </div>
-                        </div>
-                      </div>
                       <div className="col-lg-6">
                         <div className="parantClientRf">
                           <div className="me-3">
@@ -157,12 +140,10 @@ useEffect(() => {
                             </p>
                           </div>
                           <div>
-                            <p>{userdata.city}</p>
+                            <p>{ userData ? userData.city :  userdata.city}</p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="row">
                       <div className="col-lg-6">
                         <div className="parantClientRf">
                           <div className="me-3">
@@ -172,7 +153,7 @@ useEffect(() => {
                             </p>
                           </div>
                           <div>
-                            <p>{userdata.province}</p>
+                            <p>{userData ? userData.province :  userdata.province}</p>
                           </div>
                         </div>
                       </div>
@@ -185,12 +166,10 @@ useEffect(() => {
                             </p>
                           </div>
                           <div>
-                            <p>{userdata.country}</p>
+                            <p>{userData.country_name	?userData.country_name	:userdata.country_name	}</p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="row">
                       <div className="col-lg-6">
                         <div className="parantClientRf">
                           <div className="me-3">
@@ -200,7 +179,7 @@ useEffect(() => {
                             </p>
                           </div>
                           <div>
-                            <p>{userdata.code}</p>
+                            <p>{userData.code?userData.code:userdata.code}</p>
                           </div>
                         </div>
                       </div>
@@ -213,22 +192,7 @@ useEffect(() => {
                             </p>
                           </div>
                           <div>
-                            <p>{userdata.company_id}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-lg-6">
-                        <div className="parantClientRf">
-                          <div className="me-3">
-                            <p>
-                              {" "}
-                              <strong>Importers Referance :</strong>{" "}
-                            </p>
-                          </div>
-                          <div>
-                            <p>{userdata.importers_ref} </p>
+                            <p>{userData.company_id?userData.company_id:userdata.company_id}</p>
                           </div>
                         </div>
                       </div>
@@ -237,19 +201,32 @@ useEffect(() => {
                           <div className="me-3">
                             <p>
                               {" "}
-                              <strong>Tax Referance :</strong>{" "}
+                              <strong>Importers Reference :</strong>{" "}
                             </p>
                           </div>
                           <div>
-                            <p>{userdata.tax_ref}</p>
+                            <p>{userData.importers_ref?userData.importers_ref:userdata.importers_ref}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-lg-6">
+                        <div className="parantClientRf">
+                          <div className="me-3">
+                            <p>
+                              {" "}
+                              <strong>Tax Reference :</strong>{" "}
+                            </p>
+                          </div>
+                          <div>
+                            <p> {userdata.tax_ref?userdata.tax_ref:userData.tax_ref}</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className='d-flex text-align-center'>
-                  <button className='btn  mb-3 px-5 mx-5' style={{ backgroundColor: "#1b2346", color: "white" }} onClick={handleclicknavi}>Update Profile</button>
+                  <div className='d-flex text-align-center'>
+                    <button className='fre_up_btn' onClick={handleclicknavi}>Update Profile</button>
+                  </div>
                 </div>
               </div>
             </div>

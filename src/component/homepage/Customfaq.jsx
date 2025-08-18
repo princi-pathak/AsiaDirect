@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import shipFreight from "../../assestss/freight.jpg" // corrected typo in the path
-import faqImg from "../../assestss/faqImg.jpeg" // corrected typo in the path
+import faqImg from "../../assestss/custom.jpg" // corrected typo in the path
 import Topbar from '../Topbar';
 
 export default function Customfaq() {

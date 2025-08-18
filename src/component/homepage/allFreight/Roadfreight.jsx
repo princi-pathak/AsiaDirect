@@ -5,6 +5,7 @@ import plane from "../../../assestss/check.jpg"
 import cap from "../../../assestss/road.png"
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import roadImg from "../../../assestss/roadImg.jpg";
 
 
 const Roadfreight = () => {
@@ -16,13 +17,13 @@ const Roadfreight = () => {
         <>
             <Navbar />
             <section
-                className=" bannerBg RoadBanner">
+                className=" bannerBg" style={{backgroundImage:`url(${roadImg})`}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <h1>Road Freight</h1>
                             <h5>
-                            Road Freight Services are the backbone of commerce in South Africa and the SADC regions. 
+                                Road Freight Services are the backbone of commerce in South Africa and the SADC regions.
                             </h5>
                         </div>
                     </div>
@@ -30,7 +31,7 @@ const Roadfreight = () => {
             </section>
             <section className="pt80 pb80">
                 <div className="container">
-                    <div className="row d-flex">
+                    <div className="row">
                         <div className="col-lg-6">
                             <div data-aos="fade-right" className="aos-init aos-animate">
                                 <div className="digitalTrusted pe25">
@@ -138,7 +139,7 @@ const Roadfreight = () => {
                                 <img src={cap} alt="" />
                                 <h2> Dedicated Fleet</h2>
                                 <p className="paraSafe">
-                                Our modern, well-maintained fleet is at your disposal, ensuring your goods are transported under the best conditions.
+                                    Our modern, well-maintained fleet is at your disposal, ensuring your goods are transported under the best conditions.
                                 </p>
                             </div>
                         </div>
@@ -147,7 +148,7 @@ const Roadfreight = () => {
                                 <img src={cap} alt="" />
                                 <h2>    	Safety and Compliance</h2>
                                 <p className="paraSafe">
-                                We prioritize the safety of your cargo and comply with all regional transportation regulations, ensuring your goods are in good hands.
+                                    We prioritize the safety of your cargo and comply with all regional transportation regulations, ensuring your goods are in good hands.
                                 </p>
                             </div>
                         </div>

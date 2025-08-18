@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import expressImg from "../../assestss/seaBg.jpg"
-import truck from "../../assestss/truck.png"
-import shipFreight from "../../assestss/freight.jpg"
-import economic from "../../assestss/economic.png"
-import schedule from "../../assestss/schedule.png"
-import bannerImage from "../../assestss/ecommerce.webp"
+// import expressImg from "../../assestss/seaBg.jpg"
+// import truck from "../../assestss/truck.png"
+// import shipFreight from "../../assestss/freight.jpg"
+// import economic from "../../assestss/economic.png"
+// import schedule from "../../assestss/schedule.png"
+import ecommerceImg from "../../assestss/ecommerce.webp"
 import Topbar from '../Topbar'
 export default function Ecommercesupportfrom() {
     useEffect(() => {
@@ -17,13 +17,13 @@ export default function Ecommercesupportfrom() {
             <Topbar />
             <Navbar />
             <section
-                className="bannerBg" style={{ backgroundImage: `url(${bannerImage})`}}>
+                className="bannerBg" style={{ backgroundImage: `url(${ecommerceImg})` }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <h1> E-Commerce</h1>
                             <h5>
-                                Asia Direct   is your go-to partner for supporting your e-commerce store from China. With our strategic warehouse locations and robust freight services, we make it easy for you to fulfill client orders efficiently. Here’s how we can help
+                                Asia Direct is your go-to partner for supporting your e-commerce store from China. With our strategic warehouse locations and robust freight services, we make it easy for you to fulfill client orders efficiently. Here's how we can help
                             </h5>
                         </div>
                     </div>
@@ -43,14 +43,14 @@ export default function Ecommercesupportfrom() {
                         </div>
                         <div className="col-lg-4">
                             <div className="serviceEcard">
-                                <h5> Sea Freight</h5>
+                                <h5>Sea Freight</h5>
                                 <p>An economical option for larger shipments, sea freight is ideal for stocking up on inventory without breaking the bank.</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="serviceEcard">
-                                <h5> Express Courier </h5>
-                                <p> Need something delivered ASAP? Our express courier options have got you covered </p>
+                                <h5>Express Courier</h5>
+                                <p>Need something delivered ASAP? Our express courier options have got you covered </p>
                             </div>
                         </div>
                     </div>
@@ -73,8 +73,8 @@ export default function Ecommercesupportfrom() {
                         </div>
                         <div className="col-lg-6">
                             <div className="costContent">
-                                <h5> Custom Products </h5>
-                                <p> For items that require customization, having a ready supply can reduce lead times significantly. </p>
+                                <h5>Custom Products</h5>
+                                <p>For items that require customization, having a ready supply can reduce lead times significantly. </p>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@ export default function Ecommercesupportfrom() {
                         <div className="col-lg-6">
                             <div className="consolidated">
                                 <h5> Customized Solutions  </h5>
-                                <p> Whether it’s air, sea, or road, we tailor our services to your business needs.</p>
+                                <p> Whether it's air, sea, or road, we tailor our services to your business needs.</p>
                             </div>
                         </div>
                         <div className="col-lg-6">
@@ -114,7 +114,7 @@ export default function Ecommercesupportfrom() {
                             </div>
                         </div>
                         <div className="col-lg-12 mt-4">
-                            <p>Support your e-commerce store with AsiaDirect’s comprehensive freight services. Visit <a style={{color:"#d01b20"}} href="#">www.asiadirect.africa</a>  to optimize your logistics today!</p>
+                            <p>Support your e-commerce store with AsiaDirect's comprehensive freight services. Visit <a style={{ color: "#d01b20" }} href="#">www.asiadirect.africa</a>  to optimize your logistics today!</p>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,8 @@
-
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import image1 from '../../assestss/logo.png';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import image1 from "../../assestss/logo.png";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
   const [addFreightVisible, setAddFreightVisible] = useState(true);
@@ -11,28 +10,28 @@ export default function Navbar() {
 
   const handleNavigate = () => {
     setAddFreightVisible(false);
-    if (localStorage.getItem('data') === null || undefined) {
-      navigate('/login');
+    if (localStorage.getItem("data") === null || undefined) {
+      navigate("/login");
       toast.error("!!! Please Login !!!");
     } else {
       setAddFreightVisible(false); // Hide the button when navigating to '/addfreight'
-      navigate('/addfreight');
+      navigate("/addfreight");
     }
   };
   // const handleNavigateTracking = () => {
   //   navigate('/Tracking');
   // };
 
-  const userId = JSON.parse(localStorage.getItem('data'))?.id;
+  const userId = JSON.parse(localStorage.getItem("data"))?.id;
 
   const handleNavigatecleanence = () => {
-    navigate('/Add-Custom-clearence')
-  }
+    navigate("/Add-Custom-clearence");
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container">
-          <Link className="navbar-brand" to={'/'}>
+          <Link className="navbar-brand py-0 nav_img" to={"/"}>
             <img src={image1} alt="hello" />
           </Link>
           <button
@@ -44,24 +43,25 @@ export default function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            <i className="fi fi-br-menu-burger navbar-toggler-icon"></i>
           </button>
-          <div className="collapse navbar-collapse menu" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse menu"
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
-              <li className="nav-item headNav" >
+              <li className="nav-item headNav">
                 <NavLink activeClassName="active" to={"/"} aria-current="page">
                   Home
                 </NavLink>
               </li>
-              {
-                userId && (
-                  <li className="nav-item headNav">
-                    <NavLink activeClassName="active" to={'/freight-details'}>
-                      Freights
-                    </NavLink>
-                  </li>
-                )
-              }
+              {userId && (
+                <li className="nav-item headNav">
+                  <NavLink activeClassName="active" to={"/freight-details"}>
+                    Freights
+                  </NavLink>
+                </li>
+              )}
 
               <li className="nav-item headNav">
                 <NavLink activeClassName="active" to={"/Tracking"}>
@@ -76,39 +76,62 @@ export default function Navbar() {
                 </li>
               )} */}
 
-              {userId && (
+              {userId ? (
                 <li className="nav-item headNav">
-                  <NavLink activeClassName="active" to={'/Custom-clearence'}>
+                  <NavLink activeClassName="active" to={"/Custom-clearence"}>
+                    Custom Clearance
+                  </NavLink>
+                </li>
+              ) : (
+                <li className="nav-item headNav">
+                  <NavLink activeClassName="active" to={"/CustomClearance"}>
                     Custom Clearance
                   </NavLink>
                 </li>
               )}
+              {userId?(
+                <div className="dropdown invoiceDrop">
+                <button
+                  className="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Billing
+                </button>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to={'/invoices'} >
+                      Invoices & Credits Transaction
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item"to={'/TransctionDetails'}>
+                    Statement 
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to={'/TransctionAllocation'}>
+                      Transaction Allocation
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              ):("")}
+              
             </ul>
           </div>
-
           <div className="callNav">
             {addFreightVisible === true ? (
-              <button
-                className="btn text-white fw-bolder px-4 py-2"
-                onClick={handleNavigate}
-                style={{ backgroundColor: "#ce1d22" }}
-              >
+              <button className="btn btn_add_web" onClick={handleNavigate}>
                 Add Freight
               </button>
             ) : (
-              <button
-                className="btn text-white fw-bolder px-4 py-2"
-                onClick={handleNavigatecleanence}
-                style={{ backgroundColor: "#ce1d22" }}
-              >
-                Add clearance
-              </button>
-            )
-            }
+              ""
+            )}
           </div>
         </div>
       </nav>
     </div>
   );
 }
-
