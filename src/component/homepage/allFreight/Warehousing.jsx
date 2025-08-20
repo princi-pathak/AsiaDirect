@@ -5,7 +5,7 @@ import cap from "../../../assestss/ware.png";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import wareImg from "../../../assestss/wareImg.jpg";
-
+import { useNavigate } from "react-router-dom"
 const Warehousing = () => {
   const getdata = () => {
     window.scrollTo(0, 0);
@@ -13,7 +13,7 @@ const Warehousing = () => {
   useEffect(() => {
     getdata();
   }, []);
-
+const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -39,7 +39,7 @@ const Warehousing = () => {
                 <div className="digitalTrusted pe25">
                   <h1 className="safeHead">Warehousing </h1>
                   <p className="paraSafe mt-4">
-                    Asia Direct offers state-of-the-art Warehousing Solutions
+                    Asia Direct - Africa offers state-of-the-art Warehousing Solutions
                     tailored to the dynamic needs of businesses in South Africa
                     and beyond. Our facilities are designed to provide secure,
                     efficient, and scalable storage options that integrate
@@ -70,12 +70,12 @@ const Warehousing = () => {
       <section className="whyChooseAir pb50">
         <div className="container">
           <div className="row">
-            <h2> Why Choose Asia Direct for Warehousing?</h2>
+            <h2> Why Choose Asia Direct - Africa for Warehousing?</h2>
           </div>
           <div className="row ">
             <div className="parentWhyChoose">
               <div className="airPlaneicon">
-                <img src={plane} alt="" />
+                <i class="fa fa-check-square-o checkIcon" aria-hidden="true"></i>
               </div>
               <div className="contetnPlain">
                 <h5> Strategic Locations</h5>
@@ -88,7 +88,7 @@ const Warehousing = () => {
             </div>
             <div className="parentWhyChoose">
               <div className="airPlaneicon">
-                <img src={plane} alt="" />
+                <i class="fa fa-check-square-o checkIcon" aria-hidden="true"></i>
               </div>
               <div className="contetnPlain">
                 <h5> Advanced Security</h5>
@@ -101,7 +101,7 @@ const Warehousing = () => {
             </div>
             <div className="parentWhyChoose">
               <div className="airPlaneicon">
-                <img src={plane} alt="" />
+                <i class="fa fa-check-square-o checkIcon" aria-hidden="true"></i>
               </div>
               <div className="contetnPlain">
                 <h5> Customizable Storage</h5>
@@ -114,7 +114,7 @@ const Warehousing = () => {
             </div>
             <div className="parentWhyChoose">
               <div className="airPlaneicon">
-                <img src={plane} alt="" />
+                <i class="fa fa-check-square-o checkIcon" aria-hidden="true"></i>
               </div>
               <div className="contetnPlain">
                 <h5> Integrated Services</h5>
@@ -136,8 +136,8 @@ const Warehousing = () => {
           </div>
           <div className="row pt50">
             <div className="col-lg-4">
-              <div className="cardFright">
-                <img src={cap} alt="" />
+              <div className="cardFright airFreightCard">
+                <div className="iconPlainFreCard"><i className="fi fi-rs-warehouse-alt" aria-hidden="true"></i></div>
                 <h2> Smart Storage Solutions</h2>
                 <p className="paraSafe">
                   Utilize our smart warehousing to improve inventory efficiency
@@ -146,8 +146,8 @@ const Warehousing = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="cardFright">
-                <img src={cap} alt="" />
+              <div className="cardFright airFreightCard">
+                <div className="iconPlainFreCard"><i className="fi fi-rs-warehouse-alt" aria-hidden="true"></i></div>
                 <h2> Inventory Management</h2>
                 <p className="paraSafe">
                   With our advanced systems, keep track of your stock in
@@ -156,8 +156,8 @@ const Warehousing = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="cardFright">
-                <img src={cap} alt="" />
+              <div className="cardFright airFreightCard">
+                <div className="iconPlainFreCard"><i className="fi fi-rs-warehouse-alt" aria-hidden="true"></i></div>
                 <h2>Value-Added Services</h2>
                 <p className="paraSafe">
                   From kitting and packaging to labeling and dispatch, we offer
@@ -166,8 +166,8 @@ const Warehousing = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="cardFright">
-                <img src={cap} alt="" />
+              <div className="cardFright airFreightCard">
+                <div className="iconPlainFreCard"><i className="fi fi-rs-warehouse-alt" aria-hidden="true"></i></div>
                 <h2> Eco-Friendly Practices</h2>
                 <p className="paraSafe">
                   We’re committed to sustainability, employing eco-friendly
@@ -181,9 +181,15 @@ const Warehousing = () => {
             <div className="col-lg-12">
               <h2>Your Partner in Growth</h2>
               <p className="mt-3">
-                At Asia Direct, we’re more than just a warehousing provider;
+                At Asia Direct - Africa, we’re more than just a warehousing provider;
                 we’re your partner in growth
               </p>
+               <button
+                class="btn_add_web"
+                onClick={() => navigate("/Contact-us")}
+              >
+                Get in Touch <i class="	fa fa-long-arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>

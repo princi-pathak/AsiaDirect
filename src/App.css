@@ -635,6 +635,7 @@ ul.footerIconSocial a {
 
 .traceSpace {
   padding: 25px;
+  position: relative;
 }
 
 .traceSpace h2 {
@@ -698,6 +699,7 @@ ul.footerIconSocial a {
 .digiTrust img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 .digiTrust {
@@ -2670,7 +2672,6 @@ ul.footerIconSocial a {
 
 .trackSec .traceSpace {
   padding: 50px 30px;
-  background: #f2f2f2;
   margin-top: 25px;
 }
 
@@ -3509,6 +3510,7 @@ button.btn.btn-danger.mt-3 {
 
 .trackSec {
   padding-top: 60px;
+  position: relative;
 }
 
 .timelineNew .MuiTimelineOppositeContent-root {
@@ -3550,30 +3552,26 @@ button#dropdownMenuButton1 {
   border: unset;
 }
 
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+.tabSea .Mui-selected {
   color: var(--maroon) !important;
 }
 
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
-  font-weight: 600;
-}
-
-button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+.tabSea .MuiButtonBase-root {
   font-size: 14px;
   font-weight: 600;
   text-transform: math-auto;
 }
 
-.css-1aquho2-MuiTabs-indicator {
+.MuiTabs-indicator {
   background-color: var(--maroon) !important;
 }
 
-.css-1gsv261 {
+.tabSea .css-1gsv261 {
   border-bottom: 1px solid;
   border-color: var(--maroon);
 }
 
-.MuiBox-root.css-19kzrtu {
+.tabSea .css-19kzrtu {
   padding: 0;
 }
 
@@ -3703,12 +3701,12 @@ div#mui-p-62588-P-1 {
 }
 
 .conntectingWord {
-  background-image: url("./assestss/slimLine.jpg");
+  background-image: url("./assestss/seaFreightMid.jpg");
   background-size: cover;
   background-position: center;
   height: 200px;
   background-blend-mode: overlay;
-  background-color: #1b2245a1;
+  background-color: #1b2245e3;
   display: flex;
   align-items: center;
   background-attachment: fixed;
@@ -5328,15 +5326,34 @@ p.text-danger {
 }
 
 .iconPlainFreCard i {
-  font-size: 40px;
+  font-size: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--maroon);
 }
-/* .airFreightCard:hover .iconPlainFreCard{
-  background: var(--maroon);
+.trackSec .Toastify__toast-container {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.airFreightCard:hover i{
-  color: #fff;
-} */
+.autoComplete fieldset {
+  border: 1px solid #bbbbbb !important;
+  width: 100%;
+}
+
+.autoComplete input {
+  border: unset !important;
+  padding: 1px !important;
+  margin-bottom: unset !important;
+}
+ 
+
+.autoComplete .MuiAutocomplete-root {
+  width: 100%;
+  background: #ffff;
+}
+.autoComplete .MuiInputBase-root {
+  padding: 0px 10px !important;
+}

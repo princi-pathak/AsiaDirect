@@ -5,6 +5,8 @@ import Navbar from "../homepage/Navbar";
 import Footer from "../homepage/Footer";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 export default function Addclearing() {
   const [error, setError] = useState({});
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ export default function Addclearing() {
     comment_on_docs: "",
     added_by: "",
     document: "",
-    document_name: ""
+    document_name: "",
   });
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,12 +44,11 @@ export default function Addclearing() {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
     console.log(data.industry);
-
   };
   const handleInputChangefile = (e) => {
-    const file = e.target.file
-    setSelectedImage(file)
-  }
+    const file = e.target.file;
+    setSelectedImage(file);
+  };
   const handleFreightModeChange = (e) => {
     const { value } = e.target;
     setFreightMode(value);
@@ -83,21 +84,21 @@ export default function Addclearing() {
   const handleapi = () => {
     console.log(data.industry);
     const formdata = new FormData();
-    formdata.append("freight", data?.freight)
-    formdata.append("freight_option", data.freight_option)
-    formdata.append("is_Import_Export", data.is_Import_Export)
-    formdata.append("is_cong_shipp", data.is_cong_shipp)
-    formdata.append("goods_desc", data.goods_desc)
-    formdata.append("nature_of_goods", data.nature_of_goods)
-    formdata.append("packing_type", data.packing_type)
-    formdata.append("total_dimension", data.total_dimension)
-    formdata.append("total_box", data.total_box)
-    formdata.append("total_weight", data.total_weight)
-    formdata.append("loading_country", data.loading_country)
-    formdata.append("discharge_country", data.discharge_country)
-    formdata.append("port_of_discharge", data.port_of_discharge)
-    formdata.append("port_of_loading", data.port_of_loading)
-    formdata.append("added_by", "2")
+    formdata.append("freight", data?.freight);
+    formdata.append("freight_option", data.freight_option);
+    formdata.append("is_Import_Export", data.is_Import_Export);
+    formdata.append("is_cong_shipp", data.is_cong_shipp);
+    formdata.append("goods_desc", data.goods_desc);
+    formdata.append("nature_of_goods", data.nature_of_goods);
+    formdata.append("packing_type", data.packing_type);
+    formdata.append("total_dimension", data.total_dimension);
+    formdata.append("total_box", data.total_box);
+    formdata.append("total_weight", data.total_weight);
+    formdata.append("loading_country", data.loading_country);
+    formdata.append("discharge_country", data.discharge_country);
+    formdata.append("port_of_discharge", data.port_of_discharge);
+    formdata.append("port_of_loading", data.port_of_loading);
+    formdata.append("added_by", "2");
     formdata.append("user_id", userid?.id);
     formdata.append("customer_ref", data?.customer_ref);
     formdata.append("destination", data?.destination);
@@ -140,6 +141,14 @@ export default function Addclearing() {
         toast.errror(error.response.data.data);
       });
   };
+  const destinations = [
+    { label: "South Africa" },
+    { label: "Thailand" },
+    { label: "Dubai" },
+    { label: "Singapore" },
+    { label: "United States" },
+    { label: "United Kingdom" },
+  ];
 
   return (
     <div>
@@ -183,7 +192,6 @@ export default function Addclearing() {
                   <h3 className="mb-3">Custom Clearance Details</h3>
                   <div className="row">
                     <div className="col-md-6 mb-3">
-
                       <h5>Freight</h5>
                       <select
                         className="form-control"
@@ -196,40 +204,69 @@ export default function Addclearing() {
                         <option value="Road">Road</option>
                         <option value="Rail">Rail</option>
                       </select>
-
                     </div>
                     {freightMode === "Air" && (
                       <div className="col-md-6 mb-3">
                         <label htmlFor="">Air Freight Option </label>
-                        <input
+                        {/* <input
                           type="text"
                           className="form-control"
                           onChange={handleInputChange}
                           name="freight_option"
                           placeholder="Air Freight Option"
-                        />
+                        /> */}
+                        <div>
+                          <select name="enquiryType" required>
+                            <option value="">Select...</option>
+                            <option value="South Africa">Economy</option>
+                            <option value="Thailand">Express</option>
+                            <option value="Dubai">Cargo Priority</option>
+                          </select>
+                        </div>
                       </div>
                     )}
                     {freightMode === "Sea" && (
                       <div className="col-md-6 mb-3">
                         <label htmlFor="">Sea Freight Option</label>
-                        <input
+                        {/* <input
                           type="text"
                           className="form-control"
                           onChange={handleInputChange}
                           name="freight_option"
                           placeholder="Enter sea Name"
-                        />
+                        /> */}
+                        <div>
+                          <select name="enquiryType" required>
+                            <option value="">Select...</option>
+                            <option value="South Africa">Indian Ocean</option>
+                            <option value="Thailand">Pacific Ocean</option>
+                            <option value="Dubai">Atlantic Ocean</option>
+                          </select>
+                        </div>
                       </div>
                     )}
                     <div className="col-md-6 mb-3">
                       <h5>Destination</h5>
-                      <input
+                      {/* <input
                         type="text"
                         className="form-control"
                         onChange={handleInputChange}
                         name="destination"
-                      />
+                      /> */}
+                      <div className="autoComplete">
+                        <Autocomplete
+                          disablePortal
+                          options={destinations}
+                          getOptionLabel={(option) => option.label}
+                          renderInput={(params) => (
+                            <TextField
+                              {...params}
+                              placeholder="Select Destination"
+                              required
+                            />
+                          )}
+                        />
+                      </div>
                       <p className="text-danger mb-0"> {error.destination}</p>
                     </div>
                     <div className="col-md-6 mb-3">
@@ -237,7 +274,6 @@ export default function Addclearing() {
                         <div className="">
                           <h5>Is this</h5>
                           <div className="shipRefer d-flex align-items-center">
-
                             <input
                               type="radio"
                               id="stausone"
@@ -246,7 +282,9 @@ export default function Addclearing() {
                               value="import"
                               onChange={handleInputChange}
                             />
-                            <label htmlFor="stausone" className="mb-0">Import</label>
+                            <label htmlFor="stausone" className="mb-0">
+                              Import
+                            </label>
 
                             <input
                               type="radio"
@@ -256,8 +294,9 @@ export default function Addclearing() {
                               value="export"
                               onChange={handleInputChange}
                             />
-                            <label htmlFor="staustwo" className="mb-0">Export</label>
-
+                            <label htmlFor="staustwo" className="mb-0">
+                              Export
+                            </label>
                           </div>
                         </div>
                       </div>
@@ -266,7 +305,6 @@ export default function Addclearing() {
                       <div className="mb-3">
                         <h5>Are You The</h5>
                         <div className="shipRefer d-flex align-items-center">
-
                           <input
                             type="radio"
                             id="stausonee"
@@ -275,7 +313,9 @@ export default function Addclearing() {
                             value="Shipper"
                             onChange={handleInputChange}
                           />
-                          <label htmlFor="stausone" className="mb-0">Shipper</label>
+                          <label htmlFor="stausone" className="mb-0">
+                            Shipper
+                          </label>
 
                           <input
                             type="radio"
@@ -285,13 +325,14 @@ export default function Addclearing() {
                             value="Consignee"
                             onChange={handleInputChange}
                           />
-                          <label htmlFor="staustwo" className="mb-0">Consignee</label>
+                          <label htmlFor="staustwo" className="mb-0">
+                            Consignee
+                          </label>
                         </div>
                         <p className="text-danger mb-0">
                           {" "}
                           {error.is_cong_shipp}
                         </p>
-
                       </div>
                     </div>
                   </div>
@@ -301,9 +342,9 @@ export default function Addclearing() {
                     <div className="">
                       <h3 className="mb-3">Port Clearing Details</h3>
                     </div>
-                    <div className="col-md-6 mb-3">
+                    <div className="col-md-6 mb-3 autoComplete">
                       <h5>Port of Loading Country</h5>
-                      <select
+                      {/* <select
                         className="form-select"
                         onChange={handleInputChange}
                         name="loading_country"
@@ -320,13 +361,34 @@ export default function Addclearing() {
                               </>
                             );
                           })}
-                      </select>
+                      </select> */}
+                      <Autocomplete
+                        options={country || []}
+                        getOptionLabel={(option) => option.country_name || ""}
+                        onChange={(e, value) => {
+                          // value = whole selected object {country_id, country_name}
+                          handleInputChange({
+                            target: {
+                              name: "loading_country",
+                              value: value?.country_id || "",
+                            },
+                          });
+                        }}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            placeholder="Port of Loading Country"
+                            required
+                          />
+                        )}
+                        sx={{ width: 300 }}
+                      />
                       <p className="text-danger mb-0">{error.port_of_exit}</p>
                       <p className="text-danger mb-0">{error.port_of_exit}</p>
                     </div>
-                    <div className="col-md-6 mb-3">
+                    <div className="col-md-6 mb-3 autoComplete">
                       <h5>Port of Discharge Country</h5>
-                      <select
+                      {/* <select
                         className="form-select"
                         onChange={handleInputChange}
                         name="discharge_country"
@@ -343,7 +405,26 @@ export default function Addclearing() {
                               </>
                             );
                           })}
-                      </select>
+                      </select> */}
+                      <Autocomplete
+                        options={country || []}
+                        getOptionLabel={(option) => option.country_name || ""}
+                        onChange={(event, newValue) => {
+                          handleInputChange({
+                            target: {
+                              name: "discharge_country",
+                              value: newValue ? newValue.country_id : "",
+                            },
+                          });
+                        }}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            placeholder="Port of Discharge Country"
+                            variant="outlined"
+                          />
+                        )}
+                      />
                     </div>
                     <div className="col-md-6 mb-3">
                       <h5>Port of Loading</h5>
@@ -367,115 +448,109 @@ export default function Addclearing() {
                 </div>
                 <div className="borderShip">
                   <div className="row">
-                <div className="">
-                  <h3 className="mb-3">Cargo Details</h3>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <h5>Product Description</h5>
-                  <input
-                    className="form-control"
-                    onChange={handleInputChange}
-                    name="goods_desc"
-                  ></input>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <h5>Nature of Goods</h5>
-                  <select
-                    className="form-select"
-                    onChange={handleInputChange}
-                    name="nature_of_goods"
-                  >
-                    <option> Select...</option>
-                    <option> General Cargo</option>
-                    <option> Battery</option>
-                    <option> Liquid</option>
-                    <option> Powder</option>
-                    <option> Harzadous</option>
-                  </select>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <h5>Packing Type</h5>
-                  <select
-                    className="form-select"
-                    onChange={handleInputChange}
-                    name="packing_type"
-                  >
-                    <option>Select...</option>
-                    <option>Box</option>
-                    <option>Crate</option>
-                    <option>Pallet</option>
-                    <option>Bags</option>
-                  </select>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <h5>Total Dimension</h5>
-                  <input
-                    className="form-control"
-                    onChange={handleInputChange}
-                    placeholder="0.00"
-                    name="total_dimension"
-                  ></input>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <h5>num. of Boxes</h5>
-                  <input
-                    className="form-control"
-                    onChange={handleInputChange}
-                    placeholder="0.00"
-                    name="total_box"
-                  ></input>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <h5>Total weight</h5>
-                  <input
-                    className="form-control"
-                    onChange={handleInputChange}
-                    placeholder="0.00"
-                    name="total_weight"
-                  ></input>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <h5>Add Attachment</h5>
-                  <select
-                    onChange={handleInputChange}
-                    name="document_name"
-                  >
-                    <option>Select...</option>
-                    <option>Packing List</option>
-                    <option>Licenses/Permits</option>
-                    <option>Product Literature</option>
-                    <option>Other documents</option>
-                  </select>
-                </div>
-                <div className="col-md-6 mb-3">
-                  <h5>Add Documents</h5>
-                  <input
-                    type="file"
-                    onChange={handleInputChangefile}
-                    name="document"
-                  >
-                  </input>
-                </div>
-                <div className="col-md-12 mb-3">
-                  <h5>Comment on Docs</h5>
-                  <textarea
-                    type="textarea"
-                    rows="4"
-                    className="form-control"
-                    onChange={handleInputChange}
-                    name="comment_on_docs"
-                  />
-                </div>
-               
+                    <div className="">
+                      <h3 className="mb-3">Cargo Details</h3>
+                    </div>
+                    <div className="col-md-6 mb-3">
+                      <h5>Product Description</h5>
+                      <input
+                        className="form-control"
+                        onChange={handleInputChange}
+                        name="goods_desc"
+                      ></input>
+                    </div>
+                    <div className="col-md-6 mb-3">
+                      <h5>Nature of Goods</h5>
+                      <select
+                        className="form-select"
+                        onChange={handleInputChange}
+                        name="nature_of_goods"
+                      >
+                        <option> Select...</option>
+                        <option> General Cargo</option>
+                        <option> Battery</option>
+                        <option> Liquid</option>
+                        <option> Powder</option>
+                        <option> Harzadous</option>
+                      </select>
+                    </div>
+                    <div className="col-md-6 mb-3">
+                      <h5>Packing Type</h5>
+                      <select
+                        className="form-select"
+                        onChange={handleInputChange}
+                        name="packing_type"
+                      >
+                        <option>Select...</option>
+                        <option>Box</option>
+                        <option>Crate</option>
+                        <option>Pallet</option>
+                        <option>Bags</option>
+                      </select>
+                    </div>
+                    <div className="col-md-6 mb-3">
+                      <h5>Total Dimension</h5>
+                      <input
+                        className="form-control"
+                        onChange={handleInputChange}
+                        placeholder="0.00"
+                        name="total_dimension"
+                      ></input>
+                    </div>
+                    <div className="col-md-6 mb-3">
+                      <h5>num. of Boxes</h5>
+                      <input
+                        className="form-control"
+                        onChange={handleInputChange}
+                        placeholder="0.00"
+                        name="total_box"
+                      ></input>
+                    </div>
+                    <div className="col-md-6 mb-3">
+                      <h5>Total weight</h5>
+                      <input
+                        className="form-control"
+                        onChange={handleInputChange}
+                        placeholder="0.00"
+                        name="total_weight"
+                      ></input>
+                    </div>
+                    <div className="col-md-6 mb-3">
+                      <h5>Add Attachment</h5>
+                      <select onChange={handleInputChange} name="document_name">
+                        <option>Select...</option>
+                        <option>Packing List</option>
+                        <option>Licenses/Permits</option>
+                        <option>Product Literature</option>
+                        <option>Other documents</option>
+                      </select>
+                    </div>
+                    <div className="col-md-6 mb-3">
+                      <h5>Add Documents</h5>
+                      <input
+                        type="file"
+                        onChange={handleInputChangefile}
+                        name="document"
+                      ></input>
+                    </div>
+                    <div className="col-md-12 mb-3">
+                      <h5>Comment on Docs</h5>
+                      <textarea
+                        type="textarea"
+                        rows="4"
+                        className="form-control"
+                        onChange={handleInputChange}
+                        name="comment_on_docs"
+                      />
+                    </div>
 
-                <div className="text-center">
-                  <button className="btn btnFreight2" onClick={handleclick}>
-                    Add Clearance
-                  </button>
+                    <div className="text-center">
+                      <button className="btn btnFreight2" onClick={handleclick}>
+                        Add Clearance
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                </div>
-                </div>
-
               </div>
             </div>
           </div>

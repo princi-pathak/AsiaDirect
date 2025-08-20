@@ -34,10 +34,10 @@ const AirFreight = () => {
                 <div className="digitalTrusted pe25">
                   <h2 className="safeHead">
                     {" "}
-                    Air Freight Services at Asia Direct
+                    Air Freight Services at Asia Direct - Africa
                   </h2>
                   <p className="paraSafe mt-4">
-                    At Asia Direct, we understand that time is of the essence.
+                    At Asia Direct - Africa, we understand that time is of the essence.
                     Our Air Freight Services are designed to meet your most
                     demanding logistics needs, providing a swift and secure
                     transportation solution that connects you to destinations
@@ -68,7 +68,7 @@ const AirFreight = () => {
       <section className="whyChooseAir pb50">
         <div className="container">
           <div className="row">
-            <h2>Why Choose Asia Direct for Air Freight?</h2>
+            <h2>Why Choose Asia Direct - Africa for Air Freight?</h2>
           </div>
           <div className="row ">
             <div className="parentWhyChoose">
@@ -115,7 +115,7 @@ const AirFreight = () => {
                 <h5> Global Reach </h5>
                 <p>
                   {" "}
-                  No destination is out of reach with Asia Direct. Our services
+                  No destination is out of reach with Asia Direct - Africa. Our services
                   span the globe, ensuring your products can be delivered to
                   nearly any location, no matter how remote.
                 </p>
@@ -236,15 +236,16 @@ const AirFreight = () => {
             <div className="col-lg-12">
               <h2>Committed to Excellence</h2>
               <p className="mt-3">
-                At Asia Direct, we’re committed to delivering excellence in
+                At Asia Direct - Africa, we’re committed to delivering excellence in
                 every aspect of our air freight services.
               </p>
+              <button
+                class="btn_add_web"
+                onClick={() => navigate("/Contact-us")}
+              >
+                Get in Touch <i class="	fa fa-long-arrow-right"></i>
+              </button>
             </div>
-          </div>
-          <div>
-            <button class="btn_add_web" onClick={() => navigate("/Contact-us")}>
-              Get in Touch <i class="	fa fa-long-arrow-right"></i>
-            </button>
           </div>
         </div>
       </section>

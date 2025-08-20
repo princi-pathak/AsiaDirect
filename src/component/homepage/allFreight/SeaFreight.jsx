@@ -14,6 +14,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import GrassIcon from "@mui/icons-material/Grass";
 import AnimationIcon from "@mui/icons-material/Animation";
+import { useNavigate } from "react-router-dom";
 const SeaFreight = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,13 +24,13 @@ const SeaFreight = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
       <section
         className="bannerBg seaBanner"
-       style={{ backgroundImage: `url(${seaImg})` }}
+        style={{ backgroundImage: `url(${seaImg})` }}
       >
         <div className="container">
           <div className="row">
@@ -52,7 +53,7 @@ const SeaFreight = () => {
                 <div className="digitalTrusted pe25">
                   <h2 className="safeHead">
                     {" "}
-                    Sea Freight Services at Asia Direct
+                    Sea Freight Services at Asia Direct - Africa
                   </h2>
                   <p className="paraSafe mt-4">
                     Navigating the vast oceans to connect continents, Asia
@@ -89,10 +90,13 @@ const SeaFreight = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <h2> Why Asia Direct for Sea Freight?</h2>
+              <h2> Why Asia Direct - Africa for Sea Freight?</h2>
               <div className="parentWhyChoose">
                 <div className="airPlaneicon">
-                  <img src={plane} alt="" />
+                  <i
+                    class="fa fa-check-square-o checkIcon"
+                    aria-hidden="true"
+                  ></i>
                 </div>
                 <div className="contetnPlain">
                   <h5>Strategic Locations</h5>
@@ -106,7 +110,10 @@ const SeaFreight = () => {
               </div>
               <div className="parentWhyChoose">
                 <div className="airPlaneicon">
-                  <img src={plane} alt="" />
+                  <i
+                    class="fa fa-check-square-o checkIcon"
+                    aria-hidden="true"
+                  ></i>
                 </div>
                 <div className="contetnPlain">
                   <h5> Cost-Effectiveness</h5>
@@ -120,7 +127,10 @@ const SeaFreight = () => {
               </div>
               <div className="parentWhyChoose">
                 <div className="airPlaneicon">
-                  <img src={plane} alt="" />
+                  <i
+                    class="fa fa-check-square-o checkIcon"
+                    aria-hidden="true"
+                  ></i>
                 </div>
                 <div className="contetnPlain">
                   <h5> Capacity and Flexibility</h5>
@@ -135,7 +145,10 @@ const SeaFreight = () => {
               </div>
               <div className="parentWhyChoose">
                 <div className="airPlaneicon">
-                  <img src={plane} alt="" />
+                  <i
+                    class="fa fa-check-square-o checkIcon"
+                    aria-hidden="true"
+                  ></i>
                 </div>
                 <div className="contetnPlain">
                   <h5>Integrated Logistics: </h5>
@@ -149,7 +162,10 @@ const SeaFreight = () => {
               </div>
               <div className="parentWhyChoose">
                 <div className="airPlaneicon">
-                  <img src={plane} alt="" />
+                  <i
+                    class="fa fa-check-square-o checkIcon"
+                    aria-hidden="true"
+                  ></i>
                 </div>
                 <div className="contetnPlain">
                   <h5> Sustainability</h5>
@@ -171,8 +187,10 @@ const SeaFreight = () => {
           </div>
           <div className="row pt50">
             <div className="col-lg-4">
-              <div className="cardFright">
-                <img src={cap} alt="" />
+              <div className="cardFright airFreightCard">
+                <div className="iconPlainFreCard">
+                  <i class="fi fi-rr-ship" aria-hidden="true"></i>
+                </div>
                 <h2> Direct Services from Asia</h2>
                 <p className="paraSafe">
                   Leverage our direct shipping services from major Asian ports,
@@ -182,8 +200,10 @@ const SeaFreight = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="cardFright">
-                <img src={cap} alt="" />
+              <div className="cardFright airFreightCard">
+                <div className="iconPlainFreCard">
+                  <i class="fi fi-rr-ship" aria-hidden="true"></i>
+                </div>
                 <h2> Customized Solutions</h2>
                 <p className="paraSafe">
                   Whether you’re shipping standard containers, oversized
@@ -193,8 +213,10 @@ const SeaFreight = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="cardFright">
-                <img src={cap} alt="" />
+              <div className="cardFright airFreightCard">
+                <div className="iconPlainFreCard">
+                  <i class="fi fi-rr-ship" aria-hidden="true"></i>
+                </div>
                 <h2> Advanced Tracking</h2>
                 <p className="paraSafe">
                   Stay informed with our state-of-the-art tracking systems that
@@ -203,8 +225,10 @@ const SeaFreight = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="cardFright">
-                <img src={cap} alt="" />
+              <div className="cardFright airFreightCard">
+                <div className="iconPlainFreCard">
+                  <i class="fi fi-rr-ship" aria-hidden="true"></i>
+                </div>
                 <h2> Expert Support </h2>
                 <p className="mt-3 paraSafe">
                   Our team of experts is well-versed in the intricacies of
@@ -220,17 +244,29 @@ const SeaFreight = () => {
         <div className="container">
           <div className=" row ">
             <div className="col-lg-12">
-              <h2> Connecting the World with Asia Direct</h2>
-              <p className="mt-3">
-                At Asia Direct, we bridge the gap between markets, delivering
-                your goods safely across the seas.
-              </p>
+              <div className="d-flex justify-content-between">
+                <div>
+                  <h2> Connecting the World with Asia Direct - Africa</h2>
+                  <p className="mt-3">
+                    At Asia Direct - Africa, we bridge the gap between markets,
+                    delivering your goods safely across the seas.
+                  </p>
+                </div>
+                <div className="align-self-center">
+                  <button
+                    class="btn_add_web"
+                    onClick={() => navigate("/Contact-us")}
+                  >
+                    Get in Touch <i class="	fa fa-long-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="tabSea pt50">
+      <section className="tabSea pt50 pb50">
         <div className="container">
           <div className="row ">
             <h2>Benefits </h2>
@@ -258,7 +294,7 @@ const SeaFreight = () => {
                         for the space you use, making it a smart choice for
                         smaller shipments or if you’re looking to save on costs
                       </p>
-                      <h5>Benefits of LCL with Asia Direct:</h5>
+                      <h5>Benefits of LCL with Asia Direct - Africa:</h5>
                     </div>
                     <div class="row pt50">
                       <div class="col-lg-4">
@@ -314,7 +350,7 @@ const SeaFreight = () => {
                   handling and timing of your cargo, and it can be more
                   cost-effective for bigger shipments.
                 </p>
-                <h5>Benefits of FCL with Asia Direct</h5>
+                <h5>Benefits of FCL with Asia Direct - Africa</h5>
                 <div class="row pt50">
                   <div class="row">
                     <div class="col-lg-4">
@@ -363,11 +399,21 @@ const SeaFreight = () => {
           <div className="row mt-4">
             <h5>Tailored to Your Needs</h5>
             <p className="mt-3 paraSafe">
-              Whether you choose LCL or FCL, Asia Direct tailors sea freight
-              services to your specific needs. We ensure that your goods are
-              shipped in the most efficient, secure, and cost-effective manner,
-              with a commitment to quality service that sets us apart.
+              Whether you choose LCL or FCL, Asia Direct - Africa tailors sea
+              freight services to your specific needs. We ensure that your goods
+              are shipped in the most efficient, secure, and cost-effective
+              manner, with a commitment to quality service that sets us apart.
             </p>
+          </div>
+          <div className="row">
+            <div>
+              <button
+                class="btn_add_web"
+                onClick={() => navigate("/Contact-us")}
+              >
+                Get in Touch <i class="	fa fa-long-arrow-right"></i>
+              </button>
+            </div>
           </div>
         </div>
       </section>
