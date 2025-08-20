@@ -118,7 +118,11 @@ export default function Navbar() {
                 </ul>
               </div>
               ):("")}
-              
+               <li className="nav-item headNav">
+                <NavLink activeClassName="active" to={"/Contact-us"}>
+                  Contact Us
+                </NavLink>
+              </li>
             </ul>
           </div>
           <div className="callNav">

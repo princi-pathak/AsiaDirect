@@ -3729,7 +3729,7 @@ div#mui-p-9830-P-1 {
 }
 
 .capability.pt50.pb50 {
-  background: #fff7f7;
+  background: #f9f9f9;
 }
 
 .complience {
@@ -4488,6 +4488,7 @@ a:hover {
   color: #000;
   font-size: 14px;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .box1::placeholder {
@@ -4793,7 +4794,7 @@ input[type="number"] {
 .btn_add_web:focus {
   box-shadow: none !important;
 }
-.btn_add_web:hover{
+.btn_add_web:hover {
   background-color: var(--maroon);
 }
 .list_bd {
@@ -5124,6 +5125,7 @@ p.text-danger {
 .imgNewCard img {
   height: 100%;
   width: 100%;
+  border-radius: 5px;
 }
 .imgNewCard {
   position: absolute;
@@ -5162,6 +5164,7 @@ p.text-danger {
   width: 100%;
   left: 0px;
   top: 0px;
+  border-radius: 5px;
 }
 
 .newCard:hover .iconFright i {
@@ -5191,6 +5194,7 @@ p.text-danger {
   border-top: 1px solid var(--primary-200, #fff6f6);
   box-shadow: 0 12px 60px 0 #2c19170a;
   padding: 20px;
+  border-radius: 5px;
 }
 
 .cardFright h2,
@@ -5295,3 +5299,44 @@ p.text-danger {
 .blogHome .post-img {
   cursor: pointer;
 }
+.checkIcon {
+  font-size: 25px;
+  color: var(--maroon);
+}
+.asiaContact select {
+  width: 100%;
+  display: block;
+  margin-bottom: 18px;
+  border-radius: 50px !important;
+  border: 1px solid lightgray !important;
+  font-size: 16px !important;
+  padding: 10px 15px !important;
+}
+.popiaList strong {
+  display: block;
+  margin-bottom: 5px;
+}
+.iconPlainFreCard {
+  height: 65px;
+  width: 65px;
+  background: #fff7f7;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  transition: 0.7s;
+}
+
+.iconPlainFreCard i {
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--maroon);
+}
+/* .airFreightCard:hover .iconPlainFreCard{
+  background: var(--maroon);
+}
+.airFreightCard:hover i{
+  color: #fff;
+} */

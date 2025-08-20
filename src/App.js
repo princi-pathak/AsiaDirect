@@ -26,7 +26,7 @@ import Forgotpassword from './component/Login/Forgotpassword';
 import Forgottenpaswwordnew from './component/Login/Forgottenpaswwordnew';
 import Calculateclearence from './component/Custom clearence/Calculateclearence';
 import Myclearence from './component/Custom clearence/Myclearence';
-import Contactus from './component/Cms pages/Contactus';
+import Dispute from './component/Cms pages/Dispute';
 import Aboutus from './component/Cms pages/Aboutus';
 import Privacypolicy from './component/Cms pages/Privacypolicy';
 import TermsandCondition from './component/Cms pages/TermsandCondition';
@@ -54,6 +54,9 @@ import Invoiceclient from './component/invoices/Invoiceclient';
 import TransctionDetails from './component/invoices/TransctionDetails';
 import TransctionAllocation from './component/invoices/TransctionAllocation';
 import Waybill from './component/order/Waybill';
+import Contactus from './component/homepage/Contactus';
+ 
+ 
 function App() {
   console.log("2-9")
   const [text,setText] =useState("")
@@ -79,7 +82,7 @@ function App() {
           <Route path='/Tracking-status' element={<Trackingtimeline />} />
           <Route path='/My-profile' element={<Profile />} />
           <Route path='/animation' element={<Animation />} />
-          <Route path='/contact-us' element={<Contactus />} />
+          <Route path='/dispute' element={<Dispute />} />
           <Route path='/Download-pdf' element={<Downloadpdf />} />
           <Route path='/update-profile' element={<Updateprofile />} />
           <Route path='/clearence-details' element={<Customdetails />} />
@@ -90,10 +93,11 @@ function App() {
           <Route path='/ResetPassword' element={<Forgottenpaswwordnew />} />
           <Route path='/calculate-clearence' element={<Calculateclearence />} />
           <Route path='/my-clearence' element={<Myclearence />} />
-          {/* <Route path='/Contact-us' element={<Contactus />} /> */}
+          <Route path='/Contact-us' element={<Contactus />} />
           <Route path='/About-us' element={<Aboutus />} />
           <Route path='/Privacy-policy' element={<Privacypolicy />} />
           <Route path='/Terms-condition' element={<TermsandCondition />} />
+         
           <Route path='/testing' element={<Uiforms />} />
           {/* <Route path='*' element={<Universalpage />} /> */}
           <Route path='/airFreight' element={<AirFreight />} />

@@ -104,7 +104,7 @@ export default function Footer() {
                       <NavLink to={'/shippingmode'}>Shipping</NavLink>
                     </li>
                     <li>
-                      <NavLink to={'/contact-us'}>Query</NavLink>
+                      <NavLink to={'/dispute'}>Dispute</NavLink>
                     </li>
                     <li>
                       <NavLink to={'/customClear'}>Customs clearing</NavLink>
@@ -135,6 +135,7 @@ export default function Footer() {
                     <li style={{borderRight:"none"}}>
                       <Link to={'/Privacy-policy'}>Privacy policy</Link>
                     </li>
+                   
                   </ul>
                 </div>
               </div>
