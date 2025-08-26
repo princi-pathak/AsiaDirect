@@ -127,7 +127,7 @@ export default function Trackingtimeline() {
           <div className="container">
             <div className="row justify-content-center">
               <div className="justify-content-center">
-                <Link to={'/order-details'}>
+                <Link className="backArrow" to={'/order-details'}>
                 <ArrowBack />
                 </Link>
               </div>

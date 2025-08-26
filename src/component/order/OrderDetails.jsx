@@ -1574,19 +1574,17 @@ export default function OrderDetails() {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: 1050,
-              height: 500,
+              width: 750,
               bgcolor: "background.paper",
-              border: "2px solid #000",
               boxShadow: 24,
-              overflow: "scroll",
-              p: 4,
+          
             }}
           >
             <div className="d-flex justify-content-between">
-              <div>
+              <div className="customHeader">
                 <h5>Update Order List</h5>
               </div>
+
               <div>
                 {/* <button
                   className="fs-2 px-3 rounded-circle bg-dark text-white"
@@ -1598,221 +1596,224 @@ export default function OrderDetails() {
                 </button> */}
               </div>
             </div>
-            <div className="d-flex justify-content-between">
+            {/* <div className="d-flex justify-content-between">
               <div className="text-center mb-2 mb-4"></div>
-              {/* <div>
+              <div>
                 <button
                   className="fs-2 px-3 rounded-circle bg-dark text-white"
                   onClick={handleclickfunc3}
                 >
                   +
                 </button>
-              </div> */}
+              </div> 
             </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Product Description </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  value={objectdata.product_description}
-                  placeholder="Product Description"
-                  name="product_description"
-                  onChange={handleChangeedit}
-                  required
-                />
+            */}
+            <div className="frightFormSec manageModal">
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Product Description </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    value={objectdata.product_description}
+                    placeholder="Product Description"
+                    name="product_description"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">Hazardous </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    className="w-100"
+                    name="Hazardous"
+                    value={objectdata.Hazardous}
+                    placeholder="Hazardous"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
               </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Hazardous </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  className="w-100"
-                  name="Hazardous"
-                  value={objectdata.Hazardous}
-                  placeholder="Hazardous"
-                  onChange={handleChangeedit}
-                  required
-                />
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Date Received </label>
+                  <input
+                    type="date"
+                    id="clientName w-100"
+                    className="w-100 py-2 px-3 rounded"
+                    name="date_received"
+                    value={objectdata.date_received}
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">Package Type </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    value={objectdata.package_type}
+                    placeholder="Package Type"
+                    className="w-100"
+                    name="package_type"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Date Received </label>
-                <input
-                  type="date"
-                  id="clientName w-100"
-                  className="w-100 py-2 px-3 rounded"
-                  name="date_received"
-                  value={objectdata.date_received}
-                  onChange={handleChangeedit}
-                  required
-                />
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Packages </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    value={objectdata.packages}
+                    placeholder="Package"
+                    name="packages"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">Dimension </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    className="w-100"
+                    value={objectdata.dimension}
+                    name="dimension"
+                    placeholder="Dimension"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
               </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Package Type </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  value={objectdata.package_type}
-                  placeholder="Package Type"
-                  className="w-100"
-                  name="package_type"
-                  onChange={handleChangeedit}
-                  required
-                />
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Weight </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    value={objectdata.weight}
+                    className="w-100"
+                    placeholder="Weight"
+                    name="weight"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">Warehouse Ref. </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    className="w-100"
+                    value={objectdata.warehouse_ref}
+                    placeholder="Warehouse Reference"
+                    name="warehouse_ref"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Packages </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  value={objectdata.packages}
-                  placeholder="Package"
-                  name="packages"
-                  onChange={handleChangeedit}
-                  required
-                />
+
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">supplier </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    name="supplier"
+                    value={objectdata.supplier}
+                    placeholder="Supplier"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">
+                    Warehouse Receipt Number{" "}
+                  </label>
+                  <input
+                    type="text"
+                    value={objectdata.warehouse_receipt_number}
+                    id="contactPerson"
+                    className="w-100"
+                    placeholder="Warehouse reciept number"
+                    name="warehouse_receipt_number"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
               </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Dimension </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  className="w-100"
-                  value={objectdata.dimension}
-                  name="dimension"
-                  placeholder="Dimension"
-                  onChange={handleChangeedit}
-                  required
-                />
+
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Tracking Number </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    value={objectdata.tracking_number}
+                    placeholder="Tracking number"
+                    name="tracking_number"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Supplier Address </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    value={objectdata.supplier_address}
+                    name="supplier_address"
+                    placeholder="Supplier Address"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Weight </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  value={objectdata.weight}
-                  className="w-100"
-                  placeholder="Weight"
-                  name="weight"
-                  onChange={handleChangeedit}
-                  required
-                />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Warehouse Ref. </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  className="w-100"
-                  value={objectdata.warehouse_ref}
-                  placeholder="Warehouse Reference"
-                  name="warehouse_ref"
-                  onChange={handleChangeedit}
-                  required
-                />
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Supplier Contact </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    value={objectdata.Supplier_Contact}
+                    placeholder="Supplier Contact"
+                    name="Supplier_Contact"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">supplier Email </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    value={objectdata.supplier_Email}
+                    name="supplier_Email"
+                    placeholder="Supplier Email"
+                    onChange={handleChangeedit}
+                    required
+                  />
+                </div>
               </div>
             </div>
 
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">supplier </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  name="supplier"
-                  value={objectdata.supplier}
-                  placeholder="Supplier"
-                  onChange={handleChangeedit}
-                  required
-                />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Warehouse Receipt Number </label>
-                <input
-                  type="text"
-                  value={objectdata.warehouse_receipt_number}
-                  id="contactPerson"
-                  className="w-100"
-                  placeholder="Warehouse reciept number"
-                  name="warehouse_receipt_number"
-                  onChange={handleChangeedit}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Tracking Number </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  value={objectdata.tracking_number}
-                  placeholder="Tracking number"
-                  name="tracking_number"
-                  onChange={handleChangeedit}
-                  required
-                />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Supplier Address </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  value={objectdata.supplier_address}
-                  name="supplier_address"
-                  placeholder="Supplier Address"
-                  onChange={handleChangeedit}
-                  required
-                />
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Supplier Contact </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  value={objectdata.Supplier_Contact}
-                  placeholder="Supplier Contact"
-                  name="Supplier_Contact"
-                  onChange={handleChangeedit}
-                  required
-                />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="clientName">supplier Email </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  value={objectdata.supplier_Email}
-                  name="supplier_Email"
-                  placeholder="Supplier Email"
-                  onChange={handleChangeedit}
-                  required
-                />
-              </div>
-              <div className="col-3 my-2">
-                <button
-                  onClick={handlepostdataedit}
-                  className="btn btn-secondary"
-                >
-                  Update
-                </button>
-              </div>
+            <div className="text-center my-3">
+              <button onClick={handlepostdataedit} className=" btn btn_add_web">
+                Update
+              </button>
             </div>
           </Box>
         </Modal>
@@ -1825,14 +1826,15 @@ export default function OrderDetails() {
               transform: "translate(-50%, -50%)",
               bgcolor: "background.paper",
               boxShadow: 24,
-              p: 4,
+
+              width: "900px",
             }}
           >
-            <div className="d-flex justify-content-between">
+            <div className="customHeader  d-flex justify-content-between">
               <h5>Warehouse Order List</h5>
               <div>
                 <button
-                  className="fs-2 px-3 rounded-circle bg-dark text-white"
+                  className="circlePlus"
                   onClick={() => {
                     handleclickfunc();
                   }}
@@ -1841,61 +1843,65 @@ export default function OrderDetails() {
                 </button>
               </div>
             </div>
-            <div className="table-responsive mt-2">
-              <table className="table mt-4 table-striped tableICon">
-                <thead>
-                  <tr>
-                    <th scope="col">Sr.No.</th>
-                    <th scope="col">Package</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Weight (kgs)</th>
-                    <th scope="col">Dim (Cbm)</th>
-                    <th scope="col">Packs</th>
-                    <th scope="col">Waybill</th>
-                    <th scope="col">Received</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody style={{ border: "none" }}>
-                  {clickdata &&
-                    clickdata.length > 0 &&
-                    clickdata.map((item, index) => {
-                      console.log(item);
-                      return (
-                        <>
-                          <tr className="border-bottom" key={index}>
-                            <th>{index + 1}</th>
-                            <td>{item.package_type}</td>
-                            <td className="col-2">
-                              {item.product_description}{" "}
-                            </td>
-                            <td>{item.weight}</td>
-                            <td>{item.dimension}</td>
-                            <td>{item.packages}</td>
-                            <td>{item.tracking_number}</td>
-                            <td>
-                              {new Date(item.date_received).toLocaleDateString(
-                                "EN-gb"
-                              )}
-                            </td>
-                            <td>
-                              <Delete
-                                onClick={() => {
-                                  handledeleteitem(item.warehouse_products_id);
-                                }}
-                              />
-                              <Edit
-                                onClick={() => {
-                                  handledeleteit(item.warehouse_products_id);
-                                }}
-                              />
-                            </td>
-                          </tr>
-                        </>
-                      );
-                    })}
-                </tbody>
-              </table>
+            <div className="tableModal">
+              <div className="table-responsive">
+                <table className="table  table-striped tableICon">
+                  <thead>
+                    <tr>
+                      <th scope="col">Sr.No.</th>
+                      <th scope="col">Package</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Weight (kgs)</th>
+                      <th scope="col">Dim (Cbm)</th>
+                      <th scope="col">Packs</th>
+                      <th scope="col">Waybill</th>
+                      <th scope="col">Received</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody style={{ border: "none" }}>
+                    {clickdata &&
+                      clickdata.length > 0 &&
+                      clickdata.map((item, index) => {
+                        console.log(item);
+                        return (
+                          <>
+                            <tr key={index}>
+                              <td>{index + 1}</td>
+                              <td>{item.package_type}</td>
+                              <td className="col-2">
+                                {item.product_description}{" "}
+                              </td>
+                              <td>{item.weight}</td>
+                              <td>{item.dimension}</td>
+                              <td>{item.packages}</td>
+                              <td>{item.tracking_number}</td>
+                              <td>
+                                {new Date(
+                                  item.date_received
+                                ).toLocaleDateString("EN-gb")}
+                              </td>
+                              <td className="wareAction">
+                                <Delete
+                                  onClick={() => {
+                                    handledeleteitem(
+                                      item.warehouse_products_id
+                                    );
+                                  }}
+                                />
+                                <Edit
+                                  onClick={() => {
+                                    handledeleteit(item.warehouse_products_id);
+                                  }}
+                                />
+                              </td>
+                            </tr>
+                          </>
+                        );
+                      })}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </Box>
         </Modal>
@@ -1906,219 +1912,213 @@ export default function OrderDetails() {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: 650,
-              height: 530,
               bgcolor: "background.paper",
-              overflow: "scroll",
-              border: "2px solid #000",
               boxShadow: 24,
-              p: 4,
             }}
           >
-            <div className="d-flex justify-content-between">
-              <div className="text-center my-2 mb-4">Add Warehouse Order</div>
+            <div className=" customHeader d-flex justify-content-between">
+              <h5 className="text-center">Add Warehouse Order</h5>
               <div>
-                <button
-                  className="fs-2 px-3 rounded-circle bg-dark text-white"
-                  onClick={handleclickfunc3}
-                >
+                <button className="circlePlus" onClick={handleclickfunc3}>
                   +
                 </button>
               </div>
             </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Product Description </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  placeholder="Product Description"
-                  name="product_description"
-                  onChange={handleChange}
-                  required
-                />
+            <div className="frightFormSec manageModal">
+              <div className="row mt-3 ">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Product Description </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    placeholder="Product Description"
+                    name="product_description"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">Hazardous </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    className="w-100"
+                    name="Hazardous"
+                    placeholder="Hazardous"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Hazardous </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  className="w-100"
-                  name="Hazardous"
-                  placeholder="Hazardous"
-                  onChange={handleChange}
-                  required
-                />
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Date Received </label>
+                  <input
+                    type="date"
+                    id="clientName w-100"
+                    className="w-100 py-2 px-3 rounded"
+                    name="date_received"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">Package Type </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    placeholder="Package Type"
+                    className="w-100"
+                    name="package_type"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Date Received </label>
-                <input
-                  type="date"
-                  id="clientName w-100"
-                  className="w-100 py-2 px-3 rounded"
-                  name="date_received"
-                  onChange={handleChange}
-                  required
-                />
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Packages </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    placeholder="Package"
+                    name="packages"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">Dimension </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    className="w-100"
+                    name="dimension"
+                    placeholder="Dimension"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Package Type </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  placeholder="Package Type"
-                  className="w-100"
-                  name="package_type"
-                  onChange={handleChange}
-                  required
-                />
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Weight </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    placeholder="Weight"
+                    name="weight"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">Warehouse Ref. </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    className="w-100"
+                    placeholder="Warehouse Reference"
+                    name="warehouse_ref"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Packages </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  placeholder="Package"
-                  name="packages"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Dimension </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  className="w-100"
-                  name="dimension"
-                  placeholder="Dimension"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Weight </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  placeholder="Weight"
-                  name="weight"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Warehouse Ref. </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  className="w-100"
-                  placeholder="Warehouse Reference"
-                  name="warehouse_ref"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            </div>
 
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">supplier </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  name="supplier"
-                  placeholder="Supplier"
-                  onChange={handleChange}
-                  required
-                />
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">supplier </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    name="supplier"
+                    placeholder="Supplier"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="contactPerson">
+                    Warehouse Receipt Number{" "}
+                  </label>
+                  <input
+                    type="text"
+                    id="contactPerson"
+                    className="w-100"
+                    placeholder="Warehouse reciept number"
+                    name="warehouse_receipt_number"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
-              <div className="col-lg-6">
-                <label htmlFor="contactPerson">Warehouse Receipt Number </label>
-                <input
-                  type="text"
-                  id="contactPerson"
-                  className="w-100"
-                  placeholder="Warehouse reciept number"
-                  name="warehouse_receipt_number"
-                  onChange={handleChange}
-                  required
-                />
+
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Tracking Number </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    placeholder="Tracking number"
+                    name="tracking_number"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Supplier Address </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    name="supplier_address"
+                    placeholder="Supplier Address"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">Supplier Contact </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    placeholder="Supplier Contact"
+                    name="Supplier_Contact"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="col-lg-6">
+                  <label htmlFor="clientName">supplier Email </label>
+                  <input
+                    type="text"
+                    id="clientName w-100"
+                    className="w-100"
+                    name="supplier_Email"
+                    placeholder="Supplier Email"
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
             </div>
-
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Tracking Number </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  placeholder="Tracking number"
-                  name="tracking_number"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Supplier Address </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  name="supplier_address"
-                  placeholder="Supplier Address"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+            <div className="text-center">
+              <button
+                className="btn btn_add_web my-3"
+                onClick={handleclickpostdataitem}
+              >
+                Add Item
+              </button>
             </div>
-            <div className="row mt-3">
-              <div className="col-lg-6">
-                <label htmlFor="clientName">Supplier Contact </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  placeholder="Supplier Contact"
-                  name="Supplier_Contact"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="col-lg-6">
-                <label htmlFor="clientName">supplier Email </label>
-                <input
-                  type="text"
-                  id="clientName w-100"
-                  className="w-100"
-                  name="supplier_Email"
-                  placeholder="Supplier Email"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="row mt-3"></div>
-
-            <Button
-              className="mt-3 btn"
-              style={{ backgroundColor: "#1b2245" }}
-              onClick={handleclickpostdataitem}
-            >
-              Add Item
-            </Button>
           </Box>
         </Modal>
         <Modal open={showModald5} onClose={handleUpdateClose5}>
@@ -2130,80 +2130,81 @@ export default function OrderDetails() {
               transform: "translate(-50%, -50%)",
               width: 750,
               bgcolor: "background.paper",
-              border: "2px solid #000",
               boxShadow: 24,
-              p: 4,
             }}
           >
-            <p className="fs-4 fw-bold">Filter</p>
-            <div className="row d-flex mb-3">
-              <div className="col-6">
-                <h5 className="labelTitle">Collection from</h5>
-                <select
-                  className="py-2 w-100"
-                  name="origin"
-                  onChange={handechangefilter}
-                >
-                  <option value="">Select...</option>
-                  {country?.map((item) => (
-                    <option key={item.id} value={item.id}>
-                      {item.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="col-6">
-                <h5 className="labelTitle">Destination</h5>
-                <select
-                  className="py-2 w-100"
-                  name="destination"
-                  onChange={handechangefilter}
-                >
-                  <option value="">Select...</option>
-                  {country?.map((item) => (
-                    <option key={item.id} value={item.id}>
-                      {item.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <div className="customHeader">
+              <h5>Filter</h5>
             </div>
-            <div className="row d-flex mb-3">
-              <div className="col-6 ">
-                <h5 className="labelTitle">Start Date</h5>
+            <div className="frightFormSec manageModal">
+              <div className="row d-flex mb-3">
+                <div className="col-6">
+                  <h5 className="labelTitle">Collection from</h5>
+                  <select
+                    className="py-2 w-100"
+                    name="origin"
+                    onChange={handechangefilter}
+                  >
+                    <option value="">Select...</option>
+                    {country?.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col-6">
+                  <h5 className="labelTitle">Destination</h5>
+                  <select
+                    className="py-2 w-100"
+                    name="destination"
+                    onChange={handechangefilter}
+                  >
+                    <option value="">Select...</option>
+                    {country?.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div className="row d-flex mb-3">
+                <div className="col-6 ">
+                  <h5 className="labelTitle">Start Date</h5>
 
-                <input
-                  className="py-2 w-100"
-                  type="date"
-                  name="startDate"
-                  onChange={handechangefilter}
-                ></input>
+                  <input
+                    className="py-2 w-100"
+                    type="date"
+                    name="startDate"
+                    onChange={handechangefilter}
+                  ></input>
+                </div>
+                <div className="col-6 ">
+                  <h5 className="labelTitle">End Date</h5>
+                  <input
+                    className="py-2 w-100"
+                    type="date"
+                    name="endDate"
+                    onChange={handechangefilter}
+                  ></input>
+                </div>
               </div>
-              <div className="col-6 ">
-                <h5 className="labelTitle">End Date</h5>
-                <input
-                  className="py-2 w-100"
-                  type="date"
-                  name="endDate"
-                  onChange={handechangefilter}
-                ></input>
-              </div>
-            </div>
-            <div className="row d-flex mb-3">
-              <div className="col-6">
-                <h5 className="labelTitle">Freight</h5>
-                <select
-                  className="py-2 w-100"
-                  name="freight"
-                  onChange={handechangefilter}
-                >
-                  <option>Select...</option>
-                  <option value="Sea">Sea</option>
-                  <option value="Air">Air</option>
-                  <option value="Sea">Sea</option>
-                </select>
-              </div>
-              {/* <div className="col-6">
+              <div className="row d-flex mb-3">
+                <div className="col-6">
+                  <h5 className="labelTitle">Freight</h5>
+                  <select
+                    className="py-2 w-100"
+                    name="freight"
+                    onChange={handechangefilter}
+                  >
+                    <option>Select...</option>
+                    <option value="Sea">Sea</option>
+                    <option value="Air">Air</option>
+                    <option value="Sea">Sea</option>
+                  </select>
+                </div>
+                {/* <div className="col-6">
                 <h5 className="labelTitle">Freight Type</h5>
                 <select
                   className="py-2 w-100"
@@ -2215,26 +2216,27 @@ export default function OrderDetails() {
                   <option value="normal">Consolidation</option>
                 </select>
               </div> */}
-              <div className="col-6">
-                <h5 className="labelTitle">Freight Type</h5>
-                <select
-                  className="py-2 w-100"
-                  name="type"
-                  onChange={handechangefilter}
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    Select Co
-                  </option>
-                  <option value="express">Express</option>
-                  <option value="normal">Consolidation</option>
-                </select>
-              </div>
+                <div className="col-6">
+                  <h5 className="labelTitle">Freight Type</h5>
+                  <select
+                    className="py-2 w-100"
+                    name="type"
+                    onChange={handechangefilter}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Select Co
+                    </option>
+                    <option value="express">Express</option>
+                    <option value="normal">Consolidation</option>
+                  </select>
+                </div>
 
-              <div className="d-flex justify-content-center">
-                <button onClick={postapi} className="mt-4 btn_add_web">
-                  Apply
-                </button>
+                <div className="d-flex justify-content-center">
+                  <button onClick={postapi} className="mt-4 btn_add_web">
+                    Apply
+                  </button>
+                </div>
               </div>
             </div>
             <div className="row d-flex"></div>

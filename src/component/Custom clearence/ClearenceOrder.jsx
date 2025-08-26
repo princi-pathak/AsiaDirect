@@ -4,6 +4,7 @@ import SidebarWeb from "../homepage/SidebarwWeb";
 import NavbarWeb from "../homepage/NavbarWeb";
 import Arrow from "../../assestss/Group 2.png";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import FooterWeb from "../homepage/FooterWeb";
 const pageSize = 5;
 export default function ClearanceOrder() {
   const [data1, setData1] = useState([]);
@@ -175,6 +176,7 @@ export default function ClearanceOrder() {
           </div>
         </div>
       </section>
+      <FooterWeb />
     </>
   );
 }

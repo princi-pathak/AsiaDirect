@@ -588,32 +588,30 @@ export default function Managefreight() {
                                         </div>
                                       </td>
                                       <td>
-                                        
-                                          <div
-                                            className="country_mnge"
-                                            onClick={() => {
-                                              handleclicknavigfh(item.id);
-                                            }}
-                                          >
-                                            <img
-                                              src={`${process.env.REACT_APP_FLAGURL}${item.flag_url_f}`}
-                                              className="flag_img"
-                                            />
-                                            {item?.collection_from_country}
-                                            <img
-                                              src={Arrow}
-                                              className="flag_img1"
-                                            />
-                                            <img
-                                              src={`${process.env.REACT_APP_FLAGURL}${item.flag_url_d}`}
-                                              className="flag_img"
-                                            />
-                                            {item?.delivery_to_country}
-                                            <span className="fright_type">
-                                              ({item?.freight})
-                                            </span>
-                                          </div>
-                                      
+                                        <div
+                                          className="country_mnge"
+                                          onClick={() => {
+                                            handleclicknavigfh(item.id);
+                                          }}
+                                        >
+                                          <img
+                                            src={`${process.env.REACT_APP_FLAGURL}${item.flag_url_f}`}
+                                            className="flag_img"
+                                          />
+                                          {item?.collection_from_country}
+                                          <img
+                                            src={Arrow}
+                                            className="flag_img1"
+                                          />
+                                          <img
+                                            src={`${process.env.REACT_APP_FLAGURL}${item.flag_url_d}`}
+                                            className="flag_img"
+                                          />
+                                          {item?.delivery_to_country}
+                                          <span className="fright_type">
+                                            ({item?.freight})
+                                          </span>
+                                        </div>
                                       </td>
                                       <td className="text-center">
                                         <p
@@ -705,7 +703,6 @@ export default function Managefreight() {
                                           </div>
                                         </div>
                                       </td>
- 
                                     </tr>
                                   );
                                 })}
@@ -1525,11 +1522,12 @@ export default function Managefreight() {
             transform: "translate(-50%, -50%)",
             width: 750,
             bgcolor: "background.paper",
-            border: "2px solid #000",
             boxShadow: 24,
-            p: 4,
           }}
         >
+          <div className="customHeader">
+            <h5>Update Freight </h5>
+          </div>
           <section className="frightFormSec manageModal">
             <div className="container ps-0">
               <div className="frightFormSec my-0">
@@ -1574,7 +1572,7 @@ export default function Managefreight() {
                       <div className="parentShipper">
                         <div className="childshipper">
                           <div className="d-flex">
-                            <div className="me-2"> 
+                            <div className="me-2">
                               <input
                                 type="radio"
                                 id="origin1"
@@ -2188,7 +2186,7 @@ export default function Managefreight() {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-6 mt-3">
+                      <div className="col-6">
                         <h5>licenses</h5>
                         <input
                           type="file"
@@ -2198,7 +2196,7 @@ export default function Managefreight() {
                           multiple
                         />
                       </div>
-                      <div className="col-6 mt-3">
+                      <div className="col-6">
                         <h5>Other Documents</h5>
                         <input
                           type="file"
@@ -2209,21 +2207,20 @@ export default function Managefreight() {
                         />
                       </div>
                     </div>
-
-                    <div className="text-center">
-                      <button
-                        type="submit"
-                        className="fre_up_btn"
-                        onClick={handleclicknavi}
-                      >
-                        Update Freight
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
+          <div className="text-center my-3">
+            <button
+              type="submit"
+              className="btn btn_add_web"
+              onClick={handleclicknavi}
+            >
+              Update Freight
+            </button>
+          </div>
         </Box>
       </Modal>
       <Modal open={formData5} onClose={handleUpdateClose5}>
@@ -2235,95 +2232,99 @@ export default function Managefreight() {
             transform: "translate(-50%, -50%)",
             width: 750,
             bgcolor: "background.paper",
-            border: "2px solid #000",
             boxShadow: 24,
-            p: 4,
           }}
         >
-          <p className="fs-4 fw-bold">Filter</p>
-          <div className="row d-flex mb-3">
-            <div className="col-6">
-              <h5 className="labelTitle">Collection from</h5>
-              <select
-                className="py-2 w-100"
-                name="origin"
-                onChange={handechangefilter}
-              >
-                <option value="">Select...</option>
-                {country?.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="col-6">
-              <h5 className="labelTitle">Destination</h5>
-              <select
-                className="py-2 w-100"
-                name="destination"
-                onChange={handechangefilter}
-              >
-                <option value="">Select...</option>
-                {country?.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="customHeader">
+            <h5>Filter</h5>
           </div>
-          <div className="row d-flex mb-3">
-            <div className="col-6 ">
-              <h5 className="labelTitle">Start Date</h5>
-              <input
-                className="py-2 w-100"
-                type="date"
-                name="startDate"
-                onChange={handechangefilter}
-              ></input>
+          <div className="frightFormSec manageModal">
+            <div className="row d-flex mb-3">
+              <div className="col-6">
+                <h5 className="labelTitle">Collection from</h5>
+                <select
+                  className="py-2 w-100"
+                  name="origin"
+                  onChange={handechangefilter}
+                >
+                  <option value="">Select...</option>
+                  {country?.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="col-6">
+                <h5 className="labelTitle">Destination</h5>
+                <select
+                  className="py-2 w-100"
+                  name="destination"
+                  onChange={handechangefilter}
+                >
+                  <option value="">Select...</option>
+                  {country?.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-            <div className="col-6 ">
-              <h5 className="labelTitle">End Date</h5>
-              <input
-                className="py-2 w-100"
-                type="date"
-                name="endDate"
-                onChange={handechangefilter}
-              ></input>
+            <div className="row d-flex mb-3">
+              <div className="col-6 ">
+                <h5 className="labelTitle">Start Date</h5>
+                <input
+                  className="py-2 w-100"
+                  type="date"
+                  name="startDate"
+                  onChange={handechangefilter}
+                ></input>
+              </div>
+              <div className="col-6 ">
+                <h5 className="labelTitle">End Date</h5>
+                <input
+                  className="py-2 w-100"
+                  type="date"
+                  name="endDate"
+                  onChange={handechangefilter}
+                ></input>
+              </div>
             </div>
+            <div className="row d-flex mb-3">
+              <div className="col-6">
+                <h5 className="labelTitle">Freight</h5>
+                <select
+                  className="py-2 w-100"
+                  name="freight"
+                  onChange={handechangefilter}
+                >
+                  <option>Select...</option>
+                  <option value="Sea">Sea</option>
+                  <option value="Air">Air</option>
+                  <option value="Sea">Sea</option>
+                </select>
+              </div>
+              <div className="col-6">
+                <h5 className="labelTitle">Freight Type</h5>
+                <select
+                  className="py-2 w-100"
+                  name="type"
+                  onChange={handechangefilter}
+                >
+                  <option value="">Select Co</option>
+                  <option value="express">Express</option>
+                  <option value="normal">Consolidation</option>
+                </select>
+              </div>
+            </div>
+            <div className="row d-flex"></div>
           </div>
-          <div className="row d-flex mb-3">
-            <div className="col-6">
-              <h5 className="labelTitle">Freight</h5>
-              <select
-                className="py-2 w-100"
-                name="freight"
-                onChange={handechangefilter}
-              >
-                <option>Select...</option>
-                <option value="Sea">Sea</option>
-                <option value="Air">Air</option>
-                <option value="Sea">Sea</option>
-              </select>
-            </div>
-            <div className="col-6">
-              <h5 className="labelTitle">Freight Type</h5>
-              <select
-                className="py-2 w-100"
-                name="type"
-                onChange={handechangefilter}
-              >
-                <option value="">Select Co</option>
-                <option value="express">Express</option>
-                <option value="normal">Consolidation</option>
-              </select>
-            </div>
-            <button onClick={postapi} className="btn btn-primary mt-3 w-25">
+          <div className="text-center mb-3">
+            <button onClick={postapi} className="btn btn_add_web">
               Apply
             </button>
           </div>
-          <div className="row d-flex"></div>
         </Box>
       </Modal>
 

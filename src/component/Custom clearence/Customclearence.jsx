@@ -10,6 +10,7 @@ import { Modal, Box, Typography, Button } from "@mui/material";
 import SidebarWeb from "../homepage/SidebarwWeb";
 import NavbarWeb from "../homepage/NavbarWeb";
 import Arrow from "../../assestss/Group 2.png";
+import FooterWeb from "../homepage/FooterWeb";
 const pageSize = 5;
 export default function Customclearence() {
   const navigate = useNavigate();
@@ -515,24 +516,24 @@ export default function Customclearence() {
                           >
                             <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                               <div className="modal-content">
-                                <div className="modal-header">
-                                  <h1
+                                <div className="customHeader">
+                                  <h5
                                     className="modal-title"
                                     id="exampleModalLabel"
                                   >
                                     Update Custom Clearance
-                                  </h1>
-                                  <button
+                                  </h5>
+                                  {/* <button
                                     type="button"
                                     className="btn-close"
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
-                                  />
+                                  /> */}
                                 </div>
                                 <div className="modal-body">
-                                  <section className="frightFormSec my-0">
+                                  <section className="frightFormSec manageModal my-0">
                                     <div className="row">
-                                      <div className="col-md-6">
+                                      <div className="col-md-12">
                                         <label htmlFor="" className="text-dark">
                                           Freight
                                         </label>
@@ -1100,6 +1101,7 @@ export default function Customclearence() {
             </div>
           </div>
         </section>
+        <FooterWeb />
       </>
     </div>
   );

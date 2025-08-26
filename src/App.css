@@ -1301,8 +1301,8 @@ ul.footerIconSocial a {
 
 /* freight add */
 .manageModal {
-  padding: 0px 0px !important;
-  height: 500px;
+  padding: 0px 10px 0px 10px !important;
+  max-height: 500px;
   overflow-x: hidden;
   overflow-y: auto;
   margin: 0px !important;
@@ -1332,6 +1332,7 @@ ul.footerIconSocial a {
 .frightFormSec label {
   margin-bottom: 10px;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .btnFreight1 {
@@ -3024,13 +3025,7 @@ td {
   white-space: nowrap;
 }
 
-.modal-header {
-  background: var(--maroon);
-}
-
-.modal-header h1 {
-  color: #ffff !important;
-}
+ 
 
 button.btn-close {
   background-color: #ffff;
@@ -3082,17 +3077,7 @@ th {
 td {
   white-space: nowrap;
 }
-
-.modal-header {
-  background: var(--maroon);
-}
-
-.modal-header h1 {
-  color: #ffff !important;
-  font-weight: 600;
-  font-size: 22px;
-}
-
+ 
 button.btn-close {
   background-color: #ffff;
   opacity: 1;
@@ -3361,7 +3346,7 @@ input[type="tel"]:focus {
 }
 
 button[type="submit"] {
-  background-color: var(--blue);
+  background-color: var(--maroon);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -3374,7 +3359,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: var(--maroon);
+  background-color: var(--blue);
 }
 
 /*16-5-2024 */
@@ -3490,7 +3475,7 @@ button.btn.btn-danger.mt-3 {
 .timelineNew
   .MuiTypography-root.MuiTypography-h6.css-2ulfj5-MuiTypography-root {
   color: var(--maroon);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -3505,6 +3490,7 @@ button.btn.btn-danger.mt-3 {
 span.MuiTimelineDot-root {
   background: #01821b;
   border: unset;
+  margin: 0px 0px;
 }
 
 span.MuiTimelineDot-root svg {
@@ -4063,7 +4049,7 @@ label[data-shrink="false"]
   font-weight: 600;
 }
 .borderShip h5 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -5428,4 +5414,51 @@ button.btn.allFreFilter {
 input[type="radio"] + label {
   font-weight: 500;
 }
- 
+
+.table-responsive td {
+  border-bottom: unset !important;
+  font-size: 15px;
+}
+td.wareAction svg {
+  height: 20px;
+  width: 20px;
+}
+.table-responsive th {
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #bbbbbb;
+}
+button.circlePlus {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+.backArrow {
+  color: var(--blue);
+}
+.autoComplete input {
+  padding: 10px 0px !important;
+}
+.tableModal {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+}
+.customHeader {
+ padding: 12px;
+ width: 100%;
+  border-bottom: 1px solid #bbbbbb;
+  margin-bottom: 10px;
+}
+.customHeader h5{
+  font-weight: 600;
+}
+
+.childshipper label {
+    font-weight: 500;
+}
