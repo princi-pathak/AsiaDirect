@@ -10,6 +10,7 @@ import { Button, Modal } from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import SidebarWeb from "../homepage/SidebarwWeb";
 import NavbarWeb from "../homepage/NavbarWeb";
+import FooterWeb from "../homepage/FooterWeb";
 const pageSize = 5;
 export default function Managefreight() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,13 +29,13 @@ export default function Managefreight() {
   const [estimate, setEstimate] = useState();
   const [apidata, setApidata] = useState([]);
   const [inputvali, setInputvali] = useState({
-    user_id:"",
-    origin:"",
-    destination:"",
-    startDate:"",
+    user_id: "",
+    origin: "",
+    destination: "",
+    startDate: "",
     endDate: "",
     freightType: "",
-    freightSpeed:""
+    freightSpeed: "",
   });
   const [quantdata, setQuantdata] = useState({});
   const [files, setFiles] = useState(null);
@@ -423,17 +424,20 @@ export default function Managefreight() {
       freightType: inputvali.freight,
       freightSpeed: inputvali.type,
     };
-    console.log(datapost)
-    axios.post(`${process.env.REACT_APP_BASE_URL}client-freights`,datapost).then((response)=>{
-      if(response.data.success===true){
-        setData(response.data.data)
-        handleUpdateClose5()
-        console.log(response.data.data)
-      }
-      console.log(response.data.data)
-    }).catch((error)=>{
-      console.log(error.response.data)
-    })
+    console.log(datapost);
+    axios
+      .post(`${process.env.REACT_APP_BASE_URL}client-freights`, datapost)
+      .then((response) => {
+        if (response.data.success === true) {
+          setData(response.data.data);
+          handleUpdateClose5();
+          console.log(response.data.data);
+        }
+        console.log(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
   return (
     <div>
@@ -460,12 +464,12 @@ export default function Managefreight() {
                           ></input>
                         </div>
                         <div>
-                          <Button
-                            className="btn btn-scondary btn_add_web mx-2"
+                          <button
+                            className="btn allFreFilter btn_add_web  mx-2"
                             onClick={openmodal}
                           >
                             Filter
-                          </Button>
+                          </button>
                         </div>
                         <div>
                           <select
@@ -516,168 +520,34 @@ export default function Managefreight() {
                                   return (
                                     <tr key={index}>
                                       <td className="list_bd">
-                                        <div className="d-flex justify-content-between align-items-center">
-                                          <div className="d-flex align-items-center">
-                                            <p
-                                              className="client_nm"
-                                              onClick={() => {
-                                                handleclicknavigfh(item.id);
-                                              }}
-                                            >
-                                              {item.client_name}
-                                            </p>
-                                            <p
-                                              className="fright_no mx-2 fs-6"
-                                              onClick={() => {
-                                                handleclicknavigfh(item.id);
-                                              }}
-                                            >
-                                              {" "}
-                                              {item.freight_number}
-                                            </p>
-                                          </div>
-                                          <div className="">
-                                            <p className="port_date">
-                                              {new Date(
-                                                item.created_at
-                                              ).toLocaleDateString("en-GB")}
-                                            </p>
-                                          </div>
+                                        <div className="d-flex">
+                                          <p
+                                            className="client_nm"
+                                            onClick={() => {
+                                              handleclicknavigfh(item.id);
+                                            }}
+                                          >
+                                            {item.client_name}
+                                          </p>
+                                          <p
+                                            className="fright_no mx-2"
+                                            onClick={() => {
+                                              handleclicknavigfh(item.id);
+                                            }}
+                                          >
+                                            {" "}
+                                            {item.freight_number}
+                                          </p>
                                         </div>
                                         <div className="">
-                                          <div className="row">
-                                            <div className="col-md-3">
-                                              <div className="">
-                                                <p
-                                                  className="origin"
-                                                  onClick={() => {
-                                                    handleclicknavigfh(item.id);
-                                                  }}
-                                                >
-                                                  {item.product_desc}
-                                                </p>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-5">
-                                              <div
-                                                className="country_mnge"
-                                                onClick={() => {
-                                                  handleclicknavigfh(item.id);
-                                                }}
-                                              >
-                                                <img
-                                                  src={`${process.env.REACT_APP_FLAGURL}${item.flag_url_f}`}
-                                                  className="flag_img"
-                                                />
-                                                {item?.collection_from_country}
-                                                <img
-                                                  src={Arrow}
-                                                  className="flag_img1"
-                                                />
-                                                <img
-                                                  src={`${process.env.REACT_APP_FLAGURL}${item.flag_url_d}`}
-                                                  className="flag_img"
-                                                />
-                                                {item?.delivery_to_country}
-                                                <span className="fright_type">
-                                                  ({item?.freight})
-                                                </span>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-2">
-                                              <div className="text-center">
-                                                <p
-                                                  className="origin"
-                                                  onClick={() => {
-                                                    handleclicknavigfh(item.id);
-                                                  }}
-                                                >
-                                                  {item.nature_of_goods}
-                                                </p>
-                                              </div>
-                                            </div>
-                                            <div className="col-md-2 pe-0">
-                                              <div className="text-end">
-                                                <div className="dropdown">
-                                                  <a
-                                                    href=""
-                                                    type="button"
-                                                    className="act_btn dropdown-toggle"
-                                                    data-bs-toggle="dropdown"
-                                                    aria-expanded="false"
-                                                  >
-                                                    Action
-                                                  </a>
-                                                  <div
-                                                    className="dropdown-menu drop_down"
-                                                    aria-labelledby="dropdownMenuButton1"
-                                                  >
-                                                    <div className="btnManageFreight">
-                                                      <div className="drpIcons dropdown-item item_drop">
-                                                        {item?.status == 4 ? (
-                                                          <Link
-                                                            className="text-primary text-dark"
-                                                            onClick={() => {
-                                                              hanldedhgjdh(
-                                                                item.id
-                                                              );
-                                                            }}
-                                                          >
-                                                            <i class="fi fi-br-download dr"></i>
-                                                            Download PDF
-                                                          </Link>
-                                                        ) : (
-                                                          <Link className="text-danger"></Link>
-                                                        )}
-                                                      </div>
-                                                      <div className="drpIcons dropdown-item item_drop">
-                                                        {item.status === "2" ? (
-                                                          <p></p>
-                                                        ) : (
-                                                          <a
-                                                            className="link_bdy"
-                                                            href="https://chat.whatsapp.com/C1SiwQek53B434FSz4BjQo"
-                                                            target="_blank"
-                                                          >
-                                                            <WhatsAppIcon className="text-success" />
-                                                            Whatsapp
-                                                          </a>
-                                                        )}
-                                                      </div>
-                                                      <div className="drpIcons dropdown-item item_drop">
-                                                        <p
-                                                          className="link_bdy mb-0"
-                                                          onClick={() => {
-                                                            handledelete(
-                                                              item.id
-                                                            );
-                                                          }}
-                                                        >
-                                                          <i className="fa fa-trash icon_align" />
-                                                          Delete
-                                                        </p>
-                                                      </div>
-                                                      {item.status === "2" ? (
-                                                        <p></p>
-                                                      ) : (
-                                                        <div
-                                                          className="drpIcons dropdown-item item_drop drop_item1"
-                                                          onClick={() => {
-                                                            updatefunction(
-                                                              item.id
-                                                            );
-                                                          }}
-                                                        >
-                                                          <i className="fa fa-edit icon_align" />
-                                                          Edit
-                                                        </div>
-                                                      )}
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
+                                          <p
+                                            className="origin"
+                                            onClick={() => {
+                                              handleclicknavigfh(item.id);
+                                            }}
+                                          >
+                                            {item.product_desc}
+                                          </p>
                                         </div>
                                         <div className="">
                                           {item.status == 0 ? (
@@ -717,6 +587,125 @@ export default function Managefreight() {
                                           )}
                                         </div>
                                       </td>
+                                      <td>
+                                        
+                                          <div
+                                            className="country_mnge"
+                                            onClick={() => {
+                                              handleclicknavigfh(item.id);
+                                            }}
+                                          >
+                                            <img
+                                              src={`${process.env.REACT_APP_FLAGURL}${item.flag_url_f}`}
+                                              className="flag_img"
+                                            />
+                                            {item?.collection_from_country}
+                                            <img
+                                              src={Arrow}
+                                              className="flag_img1"
+                                            />
+                                            <img
+                                              src={`${process.env.REACT_APP_FLAGURL}${item.flag_url_d}`}
+                                              className="flag_img"
+                                            />
+                                            {item?.delivery_to_country}
+                                            <span className="fright_type">
+                                              ({item?.freight})
+                                            </span>
+                                          </div>
+                                      
+                                      </td>
+                                      <td className="text-center">
+                                        <p
+                                          className="origin"
+                                          onClick={() => {
+                                            handleclicknavigfh(item.id);
+                                          }}
+                                        >
+                                          {item.nature_of_goods}
+                                        </p>
+                                      </td>
+                                      <td className="text-end">
+                                        <p className="port_date">
+                                          {new Date(
+                                            item.created_at
+                                          ).toLocaleDateString("en-GB")}
+                                        </p>
+                                        <div className="text-end">
+                                          <div className="dropdown">
+                                            <a
+                                              href=""
+                                              type="button"
+                                              className="act_btn dropdown-toggle"
+                                              data-bs-toggle="dropdown"
+                                              aria-expanded="false"
+                                            >
+                                              Action
+                                            </a>
+                                            <div
+                                              className="dropdown-menu drop_down"
+                                              aria-labelledby="dropdownMenuButton1"
+                                            >
+                                              <div className="btnManageFreight">
+                                                <div className="drpIcons dropdown-item item_drop">
+                                                  {item?.status == 4 ? (
+                                                    <Link
+                                                      className="text-primary text-dark"
+                                                      onClick={() => {
+                                                        hanldedhgjdh(item.id);
+                                                      }}
+                                                    >
+                                                      <i class="fi fi-br-download dr"></i>
+                                                      Download PDF
+                                                    </Link>
+                                                  ) : (
+                                                    <Link className="text-danger"></Link>
+                                                  )}
+                                                </div>
+                                                <div className="drpIcons dropdown-item item_drop">
+                                                  {item.status === "2" ? (
+                                                    <p></p>
+                                                  ) : (
+                                                    <a
+                                                      className="link_bdy"
+                                                      href="https://chat.whatsapp.com/C1SiwQek53B434FSz4BjQo"
+                                                      target="_blank"
+                                                    >
+                                                      <WhatsAppIcon className="text-success" />
+                                                      Whatsapp
+                                                    </a>
+                                                  )}
+                                                </div>
+                                                <div className="drpIcons dropdown-item item_drop">
+                                                  <p
+                                                    className="link_bdy mb-0"
+                                                    onClick={() => {
+                                                      handledelete(item.id);
+                                                    }}
+                                                  >
+                                                    <i className="fa fa-trash icon_align" />
+                                                    Delete
+                                                  </p>
+                                                </div>
+                                                {item.status === "2" ? (
+                                                  <p></p>
+                                                ) : (
+                                                  <div
+                                                    className="drpIcons dropdown-item item_drop drop_item1"
+                                                    onClick={() => {
+                                                      updatefunction(item.id);
+                                                    }}
+                                                  >
+                                                    <i className="fa fa-edit icon_align" />
+                                                    Edit
+                                                  </div>
+                                                )}
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </td>
+ 
                                     </tr>
                                   );
                                 })}
@@ -1584,8 +1573,8 @@ export default function Managefreight() {
                       <h5 className="labelTitle">Origin</h5>
                       <div className="parentShipper">
                         <div className="childshipper">
-                          <div className="row">
-                            <div className="col-md-2 pe-0">
+                          <div className="d-flex">
+                            <div className="me-2"> 
                               <input
                                 type="radio"
                                 id="origin1"
@@ -1609,8 +1598,8 @@ export default function Managefreight() {
                       </div>
                       <div className="parentShipper">
                         <div className="childshipper">
-                          <div className="row">
-                            <div className="col-md-2 pe-0">
+                          <div className="d-flex">
+                            <div className="me-2">
                               <input
                                 type="radio"
                                 id="origin2"
@@ -1633,8 +1622,8 @@ export default function Managefreight() {
                       </div>
                       <div className="parentShipper">
                         <div className="childshipper">
-                          <div className="row">
-                            <div className="col-md-2 pe-0">
+                          <div className="d-flex">
+                            <div className="me-2">
                               <input
                                 type="radio"
                                 id="origin3"
@@ -1657,8 +1646,8 @@ export default function Managefreight() {
                       </div>
                       <div className="parentShipper">
                         <div className="childshipper">
-                          <div className="row">
-                            <div className="col-md-2 pe-0">
+                          <div className="d-flex">
+                            <div className="me-2">
                               <input
                                 type="radio"
                                 id="origin4"
@@ -1686,8 +1675,8 @@ export default function Managefreight() {
                       <h5 className="labelTitle">Destination</h5>
                       <div className="parentShipper">
                         <div className="childshipper">
-                          <div className="row">
-                            <div className="col-md-2 pe-0">
+                          <div className="d-flex">
+                            <div className="me-2">
                               <input
                                 type="radio"
                                 id="Destination1"
@@ -1710,8 +1699,8 @@ export default function Managefreight() {
                       </div>
                       <div className="parentShipper">
                         <div className="childshipper">
-                          <div className="row">
-                            <div className="col-md-2 pe-0">
+                          <div className="d-flex">
+                            <div className="me-2">
                               <input
                                 type="radio"
                                 id="Destination2"
@@ -1735,8 +1724,8 @@ export default function Managefreight() {
                       </div>
                       <div className="parentShipper">
                         <div className="childshipper">
-                          <div className="row">
-                            <div className="col-md-2 pe-0">
+                          <div className="d-flex">
+                            <div className="me-2">
                               <input
                                 type="radio"
                                 id="Destination3"
@@ -1759,8 +1748,8 @@ export default function Managefreight() {
                       </div>
                       <div className="parentShipper">
                         <div className="childshipper">
-                          <div className="row">
-                            <div className="col-md-2 pe-0">
+                          <div className="d-flex">
+                            <div className="me-2">
                               <input
                                 type="radio"
                                 id="Destination4"
@@ -2287,7 +2276,6 @@ export default function Managefreight() {
           <div className="row d-flex mb-3">
             <div className="col-6 ">
               <h5 className="labelTitle">Start Date</h5>
-
               <input
                 className="py-2 w-100"
                 type="date"
@@ -2308,7 +2296,11 @@ export default function Managefreight() {
           <div className="row d-flex mb-3">
             <div className="col-6">
               <h5 className="labelTitle">Freight</h5>
-              <select className="py-2 w-100" name="freight" onChange={handechangefilter}>
+              <select
+                className="py-2 w-100"
+                name="freight"
+                onChange={handechangefilter}
+              >
                 <option>Select...</option>
                 <option value="Sea">Sea</option>
                 <option value="Air">Air</option>
@@ -2317,19 +2309,26 @@ export default function Managefreight() {
             </div>
             <div className="col-6">
               <h5 className="labelTitle">Freight Type</h5>
-              <select className="py-2 w-100" name="type" onChange={handechangefilter}>
+              <select
+                className="py-2 w-100"
+                name="type"
+                onChange={handechangefilter}
+              >
                 <option value="">Select Co</option>
                 <option value="express">Express</option>
                 <option value="normal">Consolidation</option>
               </select>
             </div>
-            <button onClick={postapi} className="btn btn-primary mt-3 w-25">Apply</button>
+            <button onClick={postapi} className="btn btn-primary mt-3 w-25">
+              Apply
+            </button>
           </div>
           <div className="row d-flex"></div>
         </Box>
       </Modal>
 
       <ToastContainer />
+      <FooterWeb />
     </div>
   );
 }

@@ -151,7 +151,7 @@ export default function UpdateProfile() {
                     <div className="row">
                         <div className="col-lg-12">
                             <h1>Profile </h1>
-                            <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. illo quae vero{" "}</h5>
+                            
                         </div>
                     </div>
                 </div>

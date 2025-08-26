@@ -578,7 +578,7 @@
 //                                                         );
 //                                                       }}
 //                                                     >Track Order</i> */}
-                                                    
+
 //                                                   </div>
 //                                                     </div>
 //                                                   </div>
@@ -946,6 +946,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { Box, Modal } from "@mui/material";
 import { Button } from "react-bootstrap";
 import { Delete, Edit } from "@mui/icons-material";
+import FooterWeb from "../homepage/FooterWeb";
 const pageSize = 5;
 export default function OrderDetails() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -953,7 +954,7 @@ export default function OrderDetails() {
   const [showModal, setShowModal] = useState(false);
   const [showModal3, setShowModal3] = useState(false);
   const [openmodal99, setOpenmodal99] = useState(false);
-  const [objectdata,setObjectdata]=useState({})
+  const [objectdata, setObjectdata] = useState({});
   const [showModald5, setShowModald5] = useState(false);
   const [assignwarehouseid, setAssignwarehouseid] = useState(null);
   const [clickdata, setClickdata] = useState([]);
@@ -973,7 +974,7 @@ export default function OrderDetails() {
   const navigaet = useNavigate();
   const handleUpdateClose = () => setShowModal(false);
   const handleUpdateClose3 = () => setShowModal3(false);
-  const handleUpdateClose99 = () =>setOpenmodal99(false);
+  const handleUpdateClose99 = () => setOpenmodal99(false);
   const openmodalhandle = () => setOpenmodal99(true);
   const updatefunction = (warehouse_assign_order_id, item) => {
     setShowModal(true);
@@ -1163,13 +1164,13 @@ export default function OrderDetails() {
   const handledeleteit = (productId) => {
     const dataget = clickdata.filter((item) => {
       return item.warehouse_products_id === productId;
-    })
-    setObjectdata(dataget[0])
-    openmodalhandle()
-console.log(productId)
-console.log(objectdata)
-// handleUpdateClose()
-  }
+    });
+    setObjectdata(dataget[0]);
+    openmodalhandle();
+    console.log(productId);
+    console.log(objectdata);
+    // handleUpdateClose()
+  };
   const handledeleteitem = (warehouse_products_id) => {
     const datadelete = {
       warehouse_products_id: warehouse_products_id,
@@ -1218,13 +1219,12 @@ console.log(objectdata)
   const handleChangeedit = (e) => {
     const { name, value } = e.target;
     setObjectdata({ ...objectdata, [name]: value });
-  }
+  };
 
-
-  const handlepostdataedit =async () => {
+  const handlepostdataedit = async () => {
     const datapost = {
-      warehouse_products_id : objectdata.warehouse_products_id, // Ensure this is passed to identify the product
-      product_description : objectdata.product_description,
+      warehouse_products_id: objectdata.warehouse_products_id, // Ensure this is passed to identify the product
+      product_description: objectdata.product_description,
       Hazardous: objectdata.Hazardous,
       date_received: objectdata.date_received,
       package_type: objectdata.package_type,
@@ -1238,17 +1238,18 @@ console.log(objectdata)
       supplier_address: objectdata.supplier_address,
       Supplier_Contact: objectdata.Supplier_Contact,
       supplier_Email: objectdata.supplier_Email,
-    }
-    const response = await axios.post(`${process.env.REACT_APP_BASE_URL}updateWarehouseProduct`, datapost)
-    .then((response) => {
-      toast.success(response.data.message);
-      handleUpdateClose99()
-      getrefreshdata(assignwarehouseid);
-    }).catch((error) => {
-      toast.error(error.response.data.message);
-    })
-
-    }
+    };
+    const response = await axios
+      .post(`${process.env.REACT_APP_BASE_URL}updateWarehouseProduct`, datapost)
+      .then((response) => {
+        toast.success(response.data.message);
+        handleUpdateClose99();
+        getrefreshdata(assignwarehouseid);
+      })
+      .catch((error) => {
+        toast.error(error.response.data.message);
+      });
+  };
   return (
     <div>
       <NavbarWeb />
@@ -1290,7 +1291,10 @@ console.log(objectdata)
                       </div>
                       <div className="card border-0">
                         <div className="card-body">
-                          <div className="table-responsive">
+                          <div
+                            className="table-responsive"
+                            style={{ minHeight: "50vh" }}
+                          >
                             <table className="table table-striped tableICon">
                               <tbody>
                                 {currentdata &&
@@ -1313,104 +1317,113 @@ console.log(objectdata)
                                       <>
                                         <tr key={index}>
                                           <td className="list_bd">
-                                            <div className="d-flex justify-content-between align-items-center">
-                                              <div className="d-flex align-items-center">
-                                                <p
-                                                  className="client_nm"
-                                                  onClick={() => {
-                                                    handleclickorder(item.id);
-                                                  }}
-                                                >
-                                                  {item.full_name}
-                                                </p>
-                                                <p
-                                                  className="fright_no mx-2 fs-6"
-                                                  onClick={() => {
-                                                    handleclickorder(item.id);
-                                                  }}
-                                                >
-                                                  {item.freight_number} /{" "}
-                                                  {item.order_id}
-                                                </p>
-                                              </div>
-                                              <div
-                                                className="fright_no mx-2 fs-6"
+                                            <div className="d-flex align-items-center">
+                                              <p
+                                                className="client_nm"
                                                 onClick={() => {
                                                   handleclickorder(item.id);
                                                 }}
                                               >
-                                                <p className="port_date">
-                                                  {new Date(
-                                                    item.created_at
-                                                  ).toLocaleDateString("en-GB")}
-                                                </p>
-                                              </div>
+                                                {item.full_name}
+                                              </p>
+                                              <p
+                                                className="fright_no mx-2"
+                                                onClick={() => {
+                                                  handleclickorder(item.id);
+                                                }}
+                                              >
+                                                {item.freight_number} /{" "}
+                                                {item.order_id}
+                                              </p>
                                             </div>
                                             <div className="">
-                                              <div className="row">
-                                                <div className="col-md-3">
-                                                  <div className="">
-                                                    <p className="origin">
-                                                      {item.product_desc}
-                                                    </p>
-                                                  </div>
-                                                </div>
-                                                <div
-                                                  className="col-md-5"
-                                                  onClick={() => {
-                                                    handleclickorder(item.id);
-                                                  }}
+                                              <p className="origin">
+                                                {item.product_desc}
+                                              </p>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div
+                                              onClick={() => {
+                                                handleclickorder(item.id);
+                                              }}
+                                            >
+                                              <div className="country_mnge justify-content-start">
+                                                <img
+                                                  src={`${process.env.REACT_APP_FLAGURL}${item.collection_from_country_flag_url}`}
+                                                  alt="flag img"
+                                                  className="flag_img"
+                                                />
+                                                {item.collection_from_country}
+                                                <img
+                                                  src={Arrow}
+                                                  className="flag_img1"
+                                                />
+                                                <img
+                                                  src={`${process.env.REACT_APP_FLAGURL}${item.delivery_to_country_flag_url}`}
+                                                  alt="flag img"
+                                                  className="flag_img"
+                                                />
+                                                {item.delivery_to_country}{" "}
+                                                &nbsp;
+                                                <span className="fright_type">
+                                                  - ({item.freight})
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <p className="origin">
+                                              {item.nature_of_goods}
+                                            </p>
+                                          </td>
+
+                                          <td>
+                                            <div
+                                              className="fright_no mx-2 fs-6"
+                                              onClick={() => {
+                                                handleclickorder(item.id);
+                                              }}
+                                            >
+                                              <p className="port_date">
+                                                {new Date(
+                                                  item.created_at
+                                                ).toLocaleDateString("en-GB")}
+                                              </p>
+                                            </div>
+
+                                            <div className="d-flex justify-content-end">
+                                              <div className="dropdown">
+                                                <a
+                                                  href=""
+                                                  type="button"
+                                                  className="act_btn dropdown-toggle"
+                                                  data-bs-toggle="dropdown"
+                                                  aria-expanded="false"
                                                 >
-                                                  <div className="country_mnge">
-                                                    <img
-                                                      src={`${process.env.REACT_APP_FLAGURL}${item.collection_from_country_flag_url}`}
-                                                      alt="flag img"
-                                                      className="flag_img"
-                                                    />
-                                                    {
-                                                      item.collection_from_country
-                                                    }
-                                                    <img
-                                                      src={Arrow}
-                                                      className="flag_img1"
-                                                    />
-                                                    <img
-                                                      src={`${process.env.REACT_APP_FLAGURL}${item.delivery_to_country_flag_url}`}
-                                                      alt="flag img"
-                                                      className="flag_img"
-                                                    />
-                                                    {item.delivery_to_country}
-                                                    <span className="fright_type">
-                                                      ({item.freight})
-                                                    </span>
-                                                  </div>
-                                                </div>
-                                                <div className="col-md-2">
-                                                  <div className="text-center">
-                                                    <p className="origin">
-                                                      {item.nature_of_goods}
-                                                    </p>
-                                                  </div>
-                                                </div>
-                                                <div className="col-md-2 d-flex justify-content-end">
-                                                  <div className="dropdown">
-                                                    <a
-                                                      href=""
-                                                      type="button"
-                                                      className="act_btn dropdown-toggle"
-                                                      data-bs-toggle="dropdown"
-                                                      aria-expanded="false"
-                                                    >
-                                                      Action
-                                                    </a>
-                                                    <div
-                                                      className="dropdown-menu drop_down"
-                                                      aria-labelledby="dropdownMenuButton1"
-                                                    >
-                                                      <div className="btnManageFreight">
-                                                        <div className="drpIcons dropdown-item item_drop">
-                                                          <div
-                                                            className=" "
+                                                  Action
+                                                </a>
+                                                <div
+                                                  className="dropdown-menu drop_down"
+                                                  aria-labelledby="dropdownMenuButton1"
+                                                >
+                                                  <div className="btnManageFreight">
+                                                    <div className="drpIcons dropdown-item item_drop">
+                                                      <div
+                                                        className=" "
+                                                        onClick={() => {
+                                                          setAssignwarehouseid(
+                                                            item.warehouse_assign_order_id
+                                                          );
+                                                          updatefunction(
+                                                            item.warehouse_assign_order_id,
+                                                            item
+                                                          );
+                                                        }}
+                                                      >
+                                                        {item.warehouse_status ==
+                                                        1 ? (
+                                                          <i
                                                             onClick={() => {
                                                               setAssignwarehouseid(
                                                                 item.warehouse_assign_order_id
@@ -1420,72 +1433,62 @@ console.log(objectdata)
                                                                 item
                                                               );
                                                             }}
-                                                          >
-                                                            {item.warehouse_status ==
-                                                            1 ? (
-                                                              <i
-                                                                onClick={() => {
-                                                                  setAssignwarehouseid(
-                                                                    item.warehouse_assign_order_id
-                                                                  );
-                                                                  updatefunction(
-                                                                    item.warehouse_assign_order_id,
-                                                                    item
-                                                                  );
-                                                                }}
-                                                                className="fi fi-ss-warehouse-alt"
-                                                                style={{
-                                                                  cursor:
-                                                                    "pointer",
-                                                                }}
-                                                              />
-                                                            ) : (
-                                                              <p
-                                                                onClick={() => {
-                                                                  handleclickschangestatus11(
-                                                                    item.freight_id,
-                                                                    item.ORDER_ID
-                                                                  );
-                                                                  console.log(
-                                                                    "ASDFG"
-                                                                  );
-                                                                }}
-                                                                className="fi fi-ss-warehouse-alt fright_no mx-2 fs-6"
-                                                                style={{
-                                                                  cursor:
-                                                                    "pointer",
-                                                                }}
-                                                              ></p>
-                                                            )}
-                                                            Send Warehouse
-                                                          </div>
-                                                        </div>
-
-                                                        <div className="drpIcons dropdown-item item_drop">
-                                                          Assin for Clearing
-                                                        </div>
-                                                        <div className="drpIcons dropdown-item item_drop">
-                                                          <div
-                                                            className=""
+                                                            className="fi fi-ss-warehouse-alt"
+                                                            style={{
+                                                              cursor: "pointer",
+                                                            }}
+                                                          />
+                                                        ) : (
+                                                          <p
                                                             onClick={() => {
-                                                              handleclcick(
-                                                                item.id,
-                                                                item.order_id
+                                                              handleclickschangestatus11(
+                                                                item.freight_id,
+                                                                item.ORDER_ID
+                                                              );
+                                                              console.log(
+                                                                "ASDFG"
                                                               );
                                                             }}
-                                                          >
-                                                            <i
-                                                              className="fi fi-br-track"
-                                                              style={{
-                                                                cursor:
-                                                                  "pointer",
-                                                              }}
-                                                            />
-                                                            Track order
-                                                          </div>
-                                                        </div>
-                                                      
-                                                        {/* <div className="drpIcons dropdown-item item_drop">
+                                                            className="fi fi-ss-warehouse-alt fright_no mx-2 fs-6"
+                                                            style={{
+                                                              cursor: "pointer",
+                                                            }}
+                                                          ></p>
+                                                        )}
+                                                        Send Warehouse
+                                                      </div>
+                                                    </div>
+
+                                                    <div className="drpIcons dropdown-item item_drop">
+                                                      <i
+                                                        className="fi fi-rs-document-signed"
+                                                        style={{
+                                                          cursor: "pointer",
+                                                        }}
+                                                      />
+                                                      Assin for Clearing
+                                                    </div>
+                                                    <div className="drpIcons dropdown-item item_drop">
+                                                      <div
+                                                        className=""
+                                                        onClick={() => {
+                                                          handleclcick(
+                                                            item.id,
+                                                            item.order_id
+                                                          );
+                                                        }}
+                                                      >
+                                                        <i
+                                                          className="fi fi-br-track"
+                                                          style={{
+                                                            cursor: "pointer",
+                                                          }}
+                                                        />
+                                                        Track order
+                                                      </div>
+                                                    </div>
+
+                                                    {/* <div className="drpIcons dropdown-item item_drop">
                                                           <div className="">
                                                             <i
                                                               className="fi fi-br-copy"
@@ -1503,7 +1506,7 @@ console.log(objectdata)
                                                             Copy
                                                           </div>
                                                         </div> */}
-                                                        {/* <div className="drpIcons dropdown-item item_drop">
+                                                    {/* <div className="drpIcons dropdown-item item_drop">
                                                           <div className="">
                                                             <i
                                                               className="fi fi-br-query"
@@ -1521,8 +1524,6 @@ console.log(objectdata)
                                                             Query
                                                           </div>
                                                         </div> */}
-                                                      </div>
-                                                    </div>
                                                   </div>
                                                 </div>
                                               </div>
@@ -1565,6 +1566,7 @@ console.log(objectdata)
             </div>
           </div>
         </section>
+        <FooterWeb />
         <Modal open={openmodal99} onClose={handleUpdateClose99}>
           <Box
             sx={{
@@ -1573,16 +1575,18 @@ console.log(objectdata)
               left: "50%",
               transform: "translate(-50%, -50%)",
               width: 1050,
-              height:500,
+              height: 500,
               bgcolor: "background.paper",
               border: "2px solid #000",
               boxShadow: 24,
-              overflow:"scroll",
+              overflow: "scroll",
               p: 4,
             }}
           >
             <div className="d-flex justify-content-between">
-              <div><h5>Update Order List</h5></div>
+              <div>
+                <h5>Update Order List</h5>
+              </div>
               <div>
                 {/* <button
                   className="fs-2 px-3 rounded-circle bg-dark text-white"
@@ -1802,8 +1806,13 @@ console.log(objectdata)
                 />
               </div>
               <div className="col-3 my-2">
-              <button onClick={handlepostdataedit} className="btn btn-secondary">Update</button>
-                </div>
+                <button
+                  onClick={handlepostdataedit}
+                  className="btn btn-secondary"
+                >
+                  Update
+                </button>
+              </div>
             </div>
           </Box>
         </Modal>
@@ -1814,15 +1823,13 @@ console.log(objectdata)
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: 1050,
               bgcolor: "background.paper",
-              border: "2px solid #000",
               boxShadow: 24,
               p: 4,
             }}
           >
             <div className="d-flex justify-content-between">
-              <div>Warehouse Order List</div>
+              <h5>Warehouse Order List</h5>
               <div>
                 <button
                   className="fs-2 px-3 rounded-circle bg-dark text-white"
@@ -2225,7 +2232,7 @@ console.log(objectdata)
               </div>
 
               <div className="d-flex justify-content-center">
-                <button onClick={postapi} className="btn btn-primary mt-3 w-25">
+                <button onClick={postapi} className="mt-4 btn_add_web">
                   Apply
                 </button>
               </div>

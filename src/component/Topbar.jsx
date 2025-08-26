@@ -142,7 +142,7 @@ export default function Topbar() {
                             <div>
                               {data.length === 0 ? (
                                 <p
-                                  className="fw-bold"
+                                  className="fw-bold text-center"
                                   style={{ marginTop: "100px" }}
                                 >
                                   No notifications
@@ -226,12 +226,12 @@ export default function Topbar() {
                         </li>
                         {/* <li><Link className="dropdown-item list_item drop_item1" onClick={handleclicklogout}>Logout</Link></li> */}
                         <li>
-                          <p
+                          <span
                             className="dropdown-item list_item"
                             onClick={handleclicklogout}
                           >
                             Logout
-                          </p>
+                          </span>
                         </li>
                       </ul>
                     </li>

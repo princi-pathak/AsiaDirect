@@ -124,7 +124,8 @@ export default function AddFreight() {
       apihit();
     }
   };
-  const totalcalc = parseInt(formData.totalDimension) * parseInt(formData.totalWeight);
+  const totalcalc =
+    parseInt(formData.totalDimension) * parseInt(formData.totalWeight);
   const apihit = () => {
     const data = new FormData();
     data.append("client_id", JSON.parse(localStorage.getItem("data"))?.id);
@@ -272,7 +273,7 @@ export default function AddFreight() {
                 <h3 className="mb-4">Freight Details</h3>
                 <div className="row">
                   <div className="col-lg-6">
-                    <div className="col-12">
+                    <div className="col-12 mainTool">
                       <h5>Date</h5>
                       <input
                         type="date"
@@ -281,8 +282,13 @@ export default function AddFreight() {
                         onChange={handleInputChange}
                         name="date"
                       />
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Enter the date the freight details are valid for
+                        </p>
+                      </div>
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-3 mainTool">
                       <h5>Freight Type</h5>
                       <select
                         name="freightOption"
@@ -296,35 +302,50 @@ export default function AddFreight() {
                         <option value="Rail">Rail</option>
                       </select>
                       <p className="text-danger mb-0">{error.freightOption}</p>
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Select the mode of transport for your shipment.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div className="col-lg-6">
+
+                  <div className="col-lg-6 mainTool">
                     <h5>Freight Options</h5>
                     <select name="type" onChange={handleInputChange}>
                       <option value="">Select...</option>
                       <option value="express">Express</option>
                       <option value="normal">Consolidation</option>
                     </select>
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Specify whether the freight is express or consolidated.
+                      </p>
+                    </div>
                   </div>
-                
                 </div>
-                <div className="col-lg-6 mt-3">
-                    <h5>Type</h5>
-                    <select
-                      type="text"
-                      name="fcl_lcl"
-                      onChange={handleInputChange}
-                    >
-                      <option>select...</option>
-                      <option value={"FCL"}>FCL</option>
-                      <option value={"LCL"}>LCL</option>
-                    </select>
+                <div className="col-lg-6 mt-3 mainTool">
+                  <h5>Type</h5>
+                  <select
+                    type="text"
+                    name="fcl_lcl"
+                    onChange={handleInputChange}
+                  >
+                    <option>select...</option>
+                    <option value={"FCL"}>FCL</option>
+                    <option value={"LCL"}>LCL</option>
+                  </select>
+                  <div className="toolSpace">
+                    <p className="toolText">
+                      Choose Full Container Load (FCL) or Less than Container
+                      Load (LCL).
+                    </p>
                   </div>
+                </div>
               </div>
               <div className="borderShip ">
                 <div className="row">
-                  <div className="col-lg-6">
+                  <div className="col-lg-6 mainTool">
                     <div className="">
                       <h5>Ready for Collection</h5>
                       <select
@@ -336,8 +357,13 @@ export default function AddFreight() {
                         <option value="No">No</option>
                       </select>
                     </div>
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Specify whether the goods are prepared for pickup.
+                      </p>
+                    </div>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="col-lg-6 mainTool">
                     <h5>Priority</h5>
                     <select name="priority" onChange={handleInputChange}>
                       <option value="">Select...</option>
@@ -345,6 +371,11 @@ export default function AddFreight() {
                       <option value="Medium">Medium</option>
                       <option value="Low">Low</option>
                     </select>
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Specify how urgently this shipment should be processed.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -554,7 +585,7 @@ export default function AddFreight() {
                 <div className="row">
                   <div className="col-lg-6">
                     <h5>Hazardous </h5>
-                    <div className="mt-3 shipRefer d-flex align-items-center">
+                    <div className="shipRefer d-flex align-items-center">
                       <input
                         type="radio"
                         id="shipper"
@@ -580,7 +611,7 @@ export default function AddFreight() {
                   <div className="col-lg-6">
                     <div className="">
                       <h5>You are the </h5>
-                      <div className="mt-3 shipRefer d-flex align-items-center">
+                      <div className="shipRefer d-flex align-items-center">
                         <input
                           type="radio"
                           id="shipper"
@@ -612,7 +643,7 @@ export default function AddFreight() {
                 </div>
                 <div className="row">
                   <div className="col-lg-6">
-                    <div className="col-lg-12">
+                    <div className="col-lg-12 mainTool">
                       <h5>Collection from</h5>
                       <select
                         name="collectionFrom"
@@ -632,9 +663,14 @@ export default function AddFreight() {
                             );
                           })}
                       </select>
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Specify the country from which goods will be picked up
+                        </p>
+                      </div>
                       <p className="text-danger mb-0">{error.collectionFrom}</p>
                     </div>
-                    <div className="col-lg-12 my-3">
+                    <div className="col-lg-12 my-3 mainTool">
                       <h5>Port of Loading</h5>
                       <input
                         type="text"
@@ -642,8 +678,13 @@ export default function AddFreight() {
                         placeholder="Port of Loading"
                         onChange={handleInputChange}
                       />
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Specify the loading port where goods will depart
+                        </p>
+                      </div>
                     </div>
-                    <div className="my-3">
+                    <div className="my-3 mainTool">
                       <h5>Collection Address</h5>
                       <input
                         type="text"
@@ -651,9 +692,15 @@ export default function AddFreight() {
                         placeholder="Collection Address"
                         onChange={handleInputChange}
                       />
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Enter the full address where the cargo will be
+                          collected.
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="col-12">
+                    <div className="col-12 mainTool">
                       <h5>Incoterm</h5>
                       <select
                         name="incoterm"
@@ -671,22 +718,35 @@ export default function AddFreight() {
                         <option value="FOB">FOB </option>
                       </select>
                       <p className="text-danger mb-0">{error.incoterm}</p>
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Specify the Incoterm for delivery and cost
+                          obligations.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-lg-6">
-                    <h5>Delivery To</h5>
-                    <select name="country" onChange={handleInputChange}>
-                      <option>Select...</option>
-                      {country &&
-                        country.length > 0 &&
-                        country.map((item, index) => (
-                          <option key={index} value={item.id}>
-                            {item.name}
-                          </option>
-                        ))}
-                    </select>
-                    <p className="text-danger mb-0">{error.country}</p>
-                    <div className="my-3">
+                  <div className="col-lg-6 ">
+                    <div className="mainTool">
+                      <h5>Delivery To</h5>
+                      <select name="country" onChange={handleInputChange}>
+                        <option>Select...</option>
+                        {country &&
+                          country.length > 0 &&
+                          country.map((item, index) => (
+                            <option key={index} value={item.id}>
+                              {item.name}
+                            </option>
+                          ))}
+                      </select>
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Specify the country of delivery for this shipment.
+                        </p>
+                      </div>
+                      <p className="text-danger mb-0">{error.country}</p>
+                    </div>
+                    <div className="my-3 mainTool">
                       <h5>Port of Discharge</h5>
                       <input
                         type="text"
@@ -694,8 +754,13 @@ export default function AddFreight() {
                         placeholder="Port of Discharge"
                         onChange={handleInputChange}
                       />
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Destination port where goods are unloaded.
+                        </p>
+                      </div>
                     </div>
-                    <div className="col-lg-12 my-3">
+                    <div className="col-lg-12 my-3 mainTool">
                       <h5>Delivery Address</h5>
                       <input
                         type="text"
@@ -703,6 +768,11 @@ export default function AddFreight() {
                         placeholder="Delivery Address"
                         onChange={handleInputChange}
                       />
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          The complete address where goods will be delivered.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -710,7 +780,7 @@ export default function AddFreight() {
               <div className="borderShip">
                 <h3 className="mb-4">Cargo details</h3>
                 <div className="row">
-                  <div className="col-lg-6">
+                  <div className="col-lg-6 mainTool">
                     <div className="shipRefer col-lg-12">
                       <h5>Product Description</h5>
                       <input
@@ -721,8 +791,13 @@ export default function AddFreight() {
                         onChange={handleInputChange}
                       />
                     </div>
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Details of the product being shipped.
+                      </p>
+                    </div>
                   </div>
-                  <div className="col-lg-6 mb-3">
+                  <div className="col-lg-6 mb-3 mainTool">
                     <h5>Commodity</h5>
                     <select
                       name="commodity"
@@ -744,9 +819,14 @@ export default function AddFreight() {
                           );
                         })}
                     </select>
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Specify the type of commodity being shipped.
+                      </p>
+                    </div>
                   </div>
                   {formData.shipperOrConsignee === "yes" ? (
-                    <div className="col-lg-12 ">
+                    <div className="col-lg-12 mainTool">
                       <h5>Nature of Goods</h5>
                       <select name="natureOfGoods" onChange={handleInputChange}>
                         <option value="">Select...</option>
@@ -756,13 +836,20 @@ export default function AddFreight() {
                         <option value="powders">Powders</option>
                         <option value="hazardous">Hazardous</option>
                       </select>
+                      <div className="toolSpace">
+                        <p className="toolText">
+                          Select the category of goods being transported. This
+                          information ensures proper packaging, handling, and
+                          compliance with shipping regulations.
+                        </p>
+                      </div>
                     </div>
                   ) : (
                     ""
                   )}
                 </div>
                 <div className="row">
-                  <div className="col-lg-6 mt-3">
+                  <div className="col-lg-6 mt-3 mainTool">
                     <h5>Package Type</h5>
                     <select name="packageType" onChange={handleInputChange}>
                       <option value="">Select...</option>
@@ -771,8 +858,13 @@ export default function AddFreight() {
                       <option value="pallet">Pallet</option>
                       <option value="bags">Bags</option>
                     </select>
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Select the type of packaging used for the shipment.
+                      </p>
+                    </div>
                   </div>
-                  <div className="col-lg-6 mt-3">
+                  <div className="col-lg-6 mt-3 mainTool">
                     <h5>Total Packages</h5>
                     <input
                       type="text"
@@ -781,10 +873,15 @@ export default function AddFreight() {
                       name="totalPackages"
                       onChange={handleInputChange}
                     />
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Enter the total number of packages in the shipment.
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-lg-6 mt-3">
+                  <div className="col-lg-6 mt-3 mainTool">
                     <h5>Total Dimension</h5>
                     <input
                       type="text"
@@ -793,8 +890,14 @@ export default function AddFreight() {
                       name="totalDimension"
                       onChange={handleInputChange}
                     />
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Enter the overall dimensions (L x W x H) of all packages
+                        combined.
+                      </p>
+                    </div>
                   </div>
-                  <div className="col-lg-6 mt-3">
+                  <div className="col-lg-6 mt-3 mainTool">
                     <h5>Total Weight</h5>
                     <input
                       type="text"
@@ -803,8 +906,13 @@ export default function AddFreight() {
                       name="totalWeight"
                       onChange={handleInputChange}
                     />
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Enter the combined weight of all packages.
+                      </p>
+                    </div>
                   </div>
-                  <div className="col-lg-6 mt-3">
+                  <div className="col-lg-6 mt-3 mainTool">
                     <h5>Auto Calculate</h5>
                     <input
                       type="text"
@@ -812,8 +920,13 @@ export default function AddFreight() {
                       name="autoCalculate"
                       onChange={handleInputChange}
                     />
+                    <div className="toolSpace">
+                      <p className="toolText">
+                      Enable to calculate values automatically.
+                      </p>
+                    </div>
                   </div>
-                 
+
                   {/* <div className="col-lg-6 mt-3">
                     <h5>Add attachments</h5>
                     <input
@@ -824,15 +937,15 @@ export default function AddFreight() {
                       multiple
                     />
                   </div> */}
-                    <div className="col-6 mt-3">
-                      <h5>Add attachments</h5>
-                      <input
-                        type="file"
-                        name="supplier_invoice"
-                        className="w-100 mb-3 rounded"
-                        onChange={handleFileChange4}
-                        multiple
-                      />
+                  <div className="col-6 mt-3 mainTool">
+                    <h5>Add attachments</h5>
+                    <input
+                      type="file"
+                      name="supplier_invoice"
+                      className="w-100 mb-3 rounded"
+                      onChange={handleFileChange4}
+                      multiple
+                    />
                     {/* <div className="col-6 mt-3">
                       <h5>Packing List</h5>
                       <input
@@ -843,6 +956,12 @@ export default function AddFreight() {
                         multiple
                       />
                     </div> */}
+                    <div className="toolSpace">
+                      <p className="toolText">
+                      Upload supporting cargo files.
+                      </p>
+                    </div>
+                    
                   </div>
                   {/* <div className="row">
                     <div className="col-6 mt-3">
@@ -866,8 +985,7 @@ export default function AddFreight() {
                       />
                     </div>
                   </div> */}
-             
-                  
+
                   <div className="text-center">
                     <button
                       type="submit"
@@ -881,6 +999,25 @@ export default function AddFreight() {
               </div>
             </div>
             <div className="col-lg-4">
+              <div
+                className="bookingProcess mt-0"
+                style={{ marginBottom: "25px" }}
+              >
+                <h5>
+                  Speed up your booking process by reusing details from a
+                  previous booking
+                </h5>
+                <button onClick={handleclickprevious} className="shadow">
+                  Show Previous Booking
+                </button>
+              </div>
+              {/* <div className="contractSec " style={{marginBottom:"25px"}}>
+                {/* <p>
+                  <i className="fi fi-rr-exclamation"></i> Lorem ipsum dolor sit
+                  amet consectetur adipisicing elit. Commodi vitae, rerum et,
+                  adipisci quos, minus ea quis impedit corporis harum debitis.
+                </p>  
+              </div> */}
               <div className="borderShip updateLoading mt-0">
                 <div className="row">
                   <div className="col-md-12">
@@ -982,28 +1119,13 @@ export default function AddFreight() {
                   </div>
                 </div>
               </div>
-              <div className="bookingProcess">
-                <h5>
-                  Speed up your booking process by reusing details from a
-                  previous booking
-                </h5>
-                <button onClick={handleclickprevious} className="shadow">
-                  Show Previous Booking
-                </button>
-              </div>
-              <div className="contractSec">
-                {/* <p>
-                  <i className="fi fi-rr-exclamation"></i> Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Commodi vitae, rerum et,
-                  adipisci quos, minus ea quis impedit corporis harum debitis.
-                </p> */}
-              </div>
+
               <div className="checkOffers">
                 <h5>Check Asia Direct offers for your next vessel</h5>
-                <h6>
+                <p>
                   Please enter your location and container details to see the
                   offers.
-                </h6>
+                </p>
                 <ul>
                   <li>
                     <i className="fi fi-rs-usd-circle"></i>{" "}

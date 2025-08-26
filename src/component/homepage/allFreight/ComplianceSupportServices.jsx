@@ -57,8 +57,7 @@ export default function ComplianceSupportServices() {
                 </div>
                 <div className="ourTargetPos">
                   <h5>
-                    Our team of experts provides unparalleled support in
-                    obtaining the necessary permits
+                  Our experts provide unmatched support in securing permits.
                   </h5>
                   <div className="ourTargetComma">
                     <i className="fi fi-rr-quote-right" />

@@ -63,7 +63,7 @@ export default function Notification() {
         <div className="container">
           {
             data.length > 0 ? (
-              <button className='mb-3 justify-content-end bg-primary btn text-white rounded' style={{ marginLeft: "93%" }} onClick={hanldeclickdelete}>Clear All</button>
+              <div className='newClearBtn'><button className='mb-3 justify-content-end  btn btn_add_web text-white rounded' onClick={hanldeclickdelete}>Clear All</button></div>
             ) : (
               <p className='text-center'>no notification</p>
             )

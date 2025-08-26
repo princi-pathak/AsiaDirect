@@ -44,15 +44,7 @@ export default function Contactus() {
       });
   };
   //  call
-  const phoneNumber = "+27104480733";
-
-  const handleCall = () => {
-    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-      window.location.href = `tel:${phoneNumber}`;
-    } else {
-      alert("Phone calling works only on mobile devices.");
-    }
-  };
+  
   // email
   const openGmail = () => {
     const email = "sa@asiadirect.africa";
@@ -282,9 +274,9 @@ export default function Contactus() {
                       </div>
                     </div>
 
-                    <Button className="btn_add_web" onClick={postdata}>
+                    <button className="btn_add_web" onClick={postdata}>
                       Submit
-                    </Button>
+                    </button>
                   </form>
                 </div>
                 <div class="col-md-3">
@@ -312,10 +304,10 @@ export default function Contactus() {
                         <div class="">
                           <i class="fi fi-rr-phone-call icon1"></i>
                         </div>
-                        <div onClick={handleCall} style={{ cursor: "pointer" }}>
+                        <div  style={{ cursor: "pointer" }}>
                           <h6 className="call_heading">Phone Number:</h6>
 
-                          <p className="para1">{phoneNumber}</p>
+                         <a href="tel:+27104480733"> <p className="para1">+271 0448 0733</p></a>
                         </div>
                       </div>
                       <div class="d-flex mb-3">

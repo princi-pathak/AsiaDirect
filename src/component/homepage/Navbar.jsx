@@ -99,19 +99,19 @@ export default function Navbar() {
                 >
                   Billing
                 </button>
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu" style={{padding:"0px 15px"}}>
                   <li>
-                    <Link className="dropdown-item" to={'/invoices'} >
+                    <Link className="dropdown-item  list_item" to={'/invoices'} >
                       Invoices & Credits Transaction
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item"to={'/TransctionDetails'}>
+                    <Link className="dropdown-item list_item"to={'/TransctionDetails'}>
                     Statement 
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to={'/TransctionAllocation'}>
+                    <Link className="dropdown-item list_item" to={'/TransctionAllocation'}>
                       Transaction Allocation
                     </Link>
                   </li>

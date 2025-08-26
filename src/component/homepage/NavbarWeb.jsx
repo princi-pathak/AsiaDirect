@@ -76,160 +76,132 @@ export default function Navbar() {
         console.log(error.response.data);
       });
   };
- 
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary dash_nav">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary dash_nav orderDetalDrop">
         <div className="container-fluid">
           <Link className="navbar-brand py-0" to={"/"}>
             <img src={image1} alt="hello" />
           </Link>
-          <div
-            className="count_flag ms-auto dropdown"
-            style={{ cursor: "pointer" }}
-          >
-            <a
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              className="count_drop"
+
+          <div className="d-flex">
+            <div
+              className="bell_icon mx-4 dropdown"
+              style={{ cursor: "pointer" }}
             >
-              <div className="">
-                <img src={Flag} className="flag_drop" />
-              </div>
-              <div className="ms-1">
-                <p className="pro_para1">EN</p>
-              </div>
-              <i className="fi fi-br-angle-small-down drop_icon"></i>
-            </a>
-            <div className="dropdown-menu">
-              <div>
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
-              </div>
-              <div>
-                <a className="dropdown-item" href="#">
-                  Another action
-                </a>
-              </div>
-              <div>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            className="bell_icon mx-4 dropdown"
-            style={{ cursor: "pointer" }}>
-            <i
-              className="fi fi-ss-bell noti_icon"
-              data-bs-toggle="dropdown"
-              onClick={onclicgdgdnotification}
-              aria-expanded="false"
-            ></i>
-            {countdatat?.unseencount == 0 ? (
-              <span>{countdatat?.unseenCount}</span>
-            ) : (
-              ""
-            )}
-            <ul className="dropdown-menu sidebar123">
-              <h5 className="noti_cation">Notification</h5>
-              <div className="scrollNoti">
-                {data && data.length > 0 ? (
-                  data.map((item, index) => (
-                    <div className="notidropparent" key={index}>
-                      <div>
-                        <h6 className="text-dark text-capitalize">
-                          {item?.title}
-                        </h6>
-                        <p>{item?.description}</p>
+              <i
+                className="fi fi-ss-bell noti_icon"
+                data-bs-toggle="dropdown"
+                onClick={onclicgdgdnotification}
+                aria-expanded="false"
+              ></i>
+              {countdatat?.unseencount == 0 ? (
+                <span>{countdatat?.unseenCount}</span>
+              ) : (
+                ""
+              )}
+              <ul className="dropdown-menu sidebar123  notificationFreight">
+                <h5 className="noti_cation">Notification</h5>
+                <div className="scrollNoti">
+                  {data && data.length > 0 ? (
+                    data.map((item, index) => (
+                      <div className="notidropparent" key={index}>
+                        <div>
+                          <h6 className="text-dark text-capitalize">
+                            {item?.title}
+                          </h6>
+                          <p>{item?.description}</p>
+                        </div>
+                        <div className="dateTopNoti"></div>
                       </div>
-                      <div className="dateTopNoti"></div>
+                    ))
+                  ) : (
+                    <div>
+                      {data.length === 0 ? (
+                        <p className="fw-bold text-center" style={{ marginTop: "100px" }}>
+                          No notifications
+                        </p>
+                      ) : (
+                        <p>One notification</p>
+                      )}
                     </div>
-                  ))
-                ) : (
-                  <div>
-                    {data.length === 0 ? (
-                      <p className="fw-bold" style={{ marginTop: "100px" }}>
-                        No notifications
-                      </p>
-                    ) : (
-                      <p>One notification</p>
-                    )}
-                  </div>
-                )}
-              </div>
-              <div className="btnShowAll">
-                <button>View all notification</button>
-              </div>
-            </ul>
-          </div>
-          <div className="dropdown me-2" style={{ cursor: "pointer" }}>
-            <a
-              className="d-flex align-items-center"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <img
-                src={`${process.env.REACT_APP_BASE_URL_image}${userData.profile}`}
-                className="pro_img"
-              />
-              <div className="ms-2">
-                <p className="pro_para">{userData?.full_name}</p>
-                <p className="pro_para">{userData?.email}</p>
-              </div>
-              <div className="ms-2">
-                <i className="fi fi-br-angle-small-down drop_icon"></i>
-              </div>
-            </a>
-            <ul
-              className="dropdown-menu menu_item"
-              aria-labelledby="dropdownMenuButton1"
-            >
-              <li>
-                <Link
-                  className="dropdown-item list_item"
-                  to={"/My-profile"}
-                  onClick={() => {
-                    navigate("/My-profile");
-                  }}
-                >
-                  My Profile
-                </Link>
-              </li>
-              <li>
-                <Link className="dropdown-item list_item" to={"/order-details"}>
-                  Freight Orders
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="dropdown-item list_item"
-                  to={"/Clearence-order"}
-                  onClick={handleNavigatecleanence}
-                >
-                  Clearance Order
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="dropdown-item list_item"
-                  to={"/Changepassword"}
-                >
-                  Change Password
-                </Link>
-              </li>
-              <li>
-                <div
-                  className="dropdown-item list_item drop_item1"
-                  onClick={handleclicklogout}
-                >
-                  Logout
+                  )}
                 </div>
-              </li>
-            </ul>
+                <div className="btnShowAll">
+                  <button>View all notification</button>
+                </div>
+              </ul>
+            </div>
+            <div className="dropdown me-2" style={{ cursor: "pointer" }}>
+              <a
+                className="d-flex align-items-center"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src={`${process.env.REACT_APP_BASE_URL_image}${userData.profile}`}
+                  className="pro_img"
+                />
+                <div className="ms-2">
+                  <p className="pro_para">{userData?.full_name}</p>
+                  <p className="pro_para">{userData?.email}</p>
+                </div>
+                <div className="ms-2">
+                  <i className="fi fi-br-angle-small-down drop_icon"></i>
+                </div>
+              </a>
+              <ul
+                className="dropdown-menu menu_item"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                <li>
+                  <Link
+                    className="dropdown-item list_item"
+                    to={"/My-profile"}
+                    onClick={() => {
+                      navigate("/My-profile");
+                    }}
+                  >
+                    My Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="dropdown-item list_item"
+                    to={"/order-details"}
+                  >
+                    Freight Orders
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="dropdown-item list_item"
+                    to={"/Clearence-order"}
+                    onClick={handleNavigatecleanence}
+                  >
+                    Clearance Order
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="dropdown-item list_item"
+                    to={"/Changepassword"}
+                  >
+                    Change Password
+                  </Link>
+                </li>
+                <li>
+                  <div
+                    className="dropdown-item list_item drop_item1"
+                    onClick={handleclicklogout}
+                  >
+                    Logout
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>

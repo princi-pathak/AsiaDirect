@@ -312,7 +312,10 @@ export default function Customclearence() {
                   <>
                     <div className="card border-0">
                       <div className="card-body">
-                        <div className="table-responsive">
+                        <div
+                          className="table-responsive"
+                          style={{ minHeight: "50vh" }}
+                        >
                           <table className="table table-striped tableICon">
                             <tbody>
                               {currentdata &&
@@ -323,152 +326,33 @@ export default function Customclearence() {
                                     <>
                                       <tr key={index}>
                                         <td className="list_bd">
-                                          <div className="d-flex justify-content-between align-items-center">
-                                            <div className="d-flex align-items-center">
-                                              <p
-                                                className="client_nm"
-                                                onClick={() => {
-                                                  handleclicknavi(item?.id);
-                                                }}
-                                              >
-                                                {item.client_name}
-                                              </p>
-                                              <p
-                                                className="fright_no mx-2 fs-6"
-                                                onClick={() => {
-                                                  handleclicknavi(item?.id);
-                                                }}
-                                              >
-                                                {item.clearance_number}
-                                              </p>
-                                            </div>
-                                            <div className="">
-                                              <p className="port_date">
-                                                {new Date(
-                                                  item.created_at
-                                                ).toLocaleDateString("en-GB")}
-                                              </p>
-                                            </div>
+                                          <div className="d-flex align-items-center">
+                                            <p
+                                              className="client_nm"
+                                              onClick={() => {
+                                                handleclicknavi(item?.id);
+                                              }}
+                                            >
+                                              {item.client_name}
+                                            </p>
+                                            <p
+                                              className="fright_no mx-2"
+                                              onClick={() => {
+                                                handleclicknavi(item?.id);
+                                              }}
+                                            >
+                                              {item.clearance_number}
+                                            </p>
                                           </div>
                                           <div className="">
-                                            <div className="row">
-                                              <div className="col-md-3">
-                                                <div className="">
-                                                  <p
-                                                    className="origin"
-                                                    onClick={() => {
-                                                      handleclicknavi(item?.id);
-                                                    }}
-                                                  >
-                                                    {item.goods_desc}
-                                                  </p>
-                                                </div>
-                                              </div>
-                                              <div className="col-md-5">
-                                                <div
-                                                  className="country_mnge"
-                                                  onClick={() => {
-                                                    handleclicknavi(item?.id);
-                                                  }}
-                                                >
-                                                  {item.port_of_entry_name}
-                                                  <img
-                                                    src={Arrow}
-                                                    className="flag_img1"
-                                                  />
-                                                  {item.port_of_exit_name}
-                                                </div>
-                                              </div>
-                                              <div className="col-md-2">
-                                                <td>
-                                                  {item.quotation_status ===
-                                                  "1" ? (
-                                                    <button
-                                                      onClick={() => {
-                                                        handleclickuoploaddoc(
-                                                          item
-                                                        );
-                                                      }}
-                                                      className="btn upload_btn"
-                                                    >
-                                                      <CloudUploadIcon />
-                                                      Upload Doc
-                                                    </button>
-                                                  ) : (
-                                                    "----"
-                                                  )}
-                                                </td>
-                                              </div>
-                                              <div className="col-md-2 pe-0">
-                                                <div className="text-end">
-                                                  <div className="dropdown">
-                                                    <a
-                                                      href=""
-                                                      type="button"
-                                                      className="act_btn dropdown-toggle"
-                                                      data-bs-toggle="dropdown"
-                                                      aria-expanded="false"
-                                                    >
-                                                      Action
-                                                    </a>
-                                                    <div
-                                                      className="dropdown-menu drop_down"
-                                                      aria-labelledby="dropdownMenuButton1"
-                                                    >
-                                                      <div className="btnManageFreight">
-                                                        <div className="drpIcons dropdown-item item_drop">
-                                                          {item.status ===
-                                                          "2" ? (
-                                                            <p></p>
-                                                          ) : (
-                                                            // <i onClick={() => { handlenavi() }}><MessageIcon style={{ fontSize: "20px" }} /></i>
-                                                            <a
-                                                              className="link_bdy"
-                                                              href="https://chat.whatsapp.com/C1SiwQek53B434FSz4BjQo"
-                                                              target="_blank"
-                                                            >
-                                                              <WhatsAppIcon className="text-success" />
-                                                              Whatsapp
-                                                            </a>
-                                                          )}
-                                                        </div>
-                                                        <div
-                                                          className="drpIcons dropdown-item item_drop"
-                                                          onClick={() => {
-                                                            handledelete(
-                                                              item.id
-                                                            );
-                                                          }}
-                                                        >
-                                                          <i className="fa fa-trash icon_align"></i>
-                                                          Delete
-                                                        </div>
-                                                        <div className="">
-                                                          {item.status ===
-                                                          "2" ? (
-                                                            <p></p>
-                                                          ) : (
-                                                            <div
-                                                              className="drpIcons dropdown-item item_drop drop_item1"
-                                                              data-bs-toggle="modal"
-                                                              data-bs-target="#exampleModal"
-                                                              onClick={() => {
-                                                                handleidvali(
-                                                                  item.id
-                                                                );
-                                                              }}
-                                                            >
-                                                              <i className="fa fa-edit icon_align"></i>
-                                                              Edit
-                                                            </div>
-                                                          )}
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
+                                            <p
+                                              className="origin"
+                                              onClick={() => {
+                                                handleclicknavi(item?.id);
+                                              }}
+                                            >
+                                              {item.goods_desc}
+                                            </p>
                                           </div>
                                           <div className="">
                                             {item.quotation_status == "0" ? (
@@ -499,6 +383,104 @@ export default function Customclearence() {
                                             ) : (
                                               ""
                                             )}
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div
+                                            className="country_mnge"
+                                            onClick={() => {
+                                              handleclicknavi(item?.id);
+                                            }}
+                                          >
+                                            {item.port_of_entry_name}
+                                            <img
+                                              src={Arrow}
+                                              className="flag_img1"
+                                            />
+                                            {item.port_of_exit_name}
+                                          </div>
+                                        </td>
+                                        <td>
+                                          {item.quotation_status === "1" ? (
+                                            <button
+                                              onClick={() => {
+                                                handleclickuoploaddoc(item);
+                                              }}
+                                              className="btn upload_btn"
+                                            >
+                                              <CloudUploadIcon />
+                                              Upload Doc
+                                            </button>
+                                          ) : (
+                                            "----"
+                                          )}
+                                        </td>
+                                        <td className="">
+                                          <p className="port_date">
+                                            {new Date(
+                                              item.created_at
+                                            ).toLocaleDateString("en-GB")}
+                                          </p>
+                                          <div className="text-end">
+                                            <div className="dropdown">
+                                              <a
+                                                href=""
+                                                type="button"
+                                                className="act_btn dropdown-toggle"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                              >
+                                                Action
+                                              </a>
+                                              <div
+                                                className="dropdown-menu drop_down"
+                                                aria-labelledby="dropdownMenuButton1"
+                                              >
+                                                <div className="btnManageFreight">
+                                                  <div className="drpIcons dropdown-item item_drop">
+                                                    {item.status === "2" ? (
+                                                      <p></p>
+                                                    ) : (
+                                                      // <i onClick={() => { handlenavi() }}><MessageIcon style={{ fontSize: "20px" }} /></i>
+                                                      <a
+                                                        className="link_bdy"
+                                                        href="https://chat.whatsapp.com/C1SiwQek53B434FSz4BjQo"
+                                                        target="_blank"
+                                                      >
+                                                        <WhatsAppIcon className="text-success" />
+                                                        Whatsapp
+                                                      </a>
+                                                    )}
+                                                  </div>
+                                                  <div
+                                                    className="drpIcons dropdown-item item_drop"
+                                                    onClick={() => {
+                                                      handledelete(item.id);
+                                                    }}
+                                                  >
+                                                    <i className="fa fa-trash icon_align"></i>
+                                                    Delete
+                                                  </div>
+                                                  <div className="">
+                                                    {item.status === "2" ? (
+                                                      <p></p>
+                                                    ) : (
+                                                      <div
+                                                        className="drpIcons dropdown-item item_drop drop_item1"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal"
+                                                        onClick={() => {
+                                                          handleidvali(item.id);
+                                                        }}
+                                                      >
+                                                        <i className="fa fa-edit icon_align"></i>
+                                                        Edit
+                                                      </div>
+                                                    )}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
                                           </div>
                                         </td>
                                       </tr>
