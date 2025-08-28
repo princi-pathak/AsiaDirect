@@ -4,9 +4,10 @@ import Topbar from "../Topbar";
 import Navbar from "../homepage/Navbar";
 import Footer from "../homepage/Footer";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { ArrowBack } from "@mui/icons-material";
 export default function Addclearing() {
   const [error, setError] = useState({});
   const navigate = useNavigate();
@@ -162,9 +163,19 @@ export default function Addclearing() {
                 <div class="page-banner full-row">
                   <div class="container">
                     <div class="row align-items-center">
-                      <div class="col-md-6">
-                        <h3 class="fre_det_hd">Custom Clearance</h3>
-                      </div>
+                      
+                        <div className="col-md-6">
+                          <div className="d-flex">
+                          <Link
+                            className="backArrow"
+                            onClick={() => navigate(-1)}
+                          >
+                            <ArrowBack />
+                          </Link>
+                          <h3 class="fre_det_hd">Custom Clearance</h3>
+                        </div>
+                        </div>
+                       
                       <div class="col-md-6">
                         <nav class="float-start float-md-end">
                           <ol class="breadcrumb m-0">
@@ -638,7 +649,8 @@ export default function Addclearing() {
                       />
                       <div className="toolSpace">
                         <p className="toolText">
-                     Add any remarks or notes related to shipping documents."
+                          Add any remarks or notes related to shipping
+                          documents."
                         </p>
                       </div>
                     </div>

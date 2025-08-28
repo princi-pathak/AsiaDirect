@@ -11,6 +11,7 @@ import SidebarWeb from "../homepage/SidebarwWeb";
 import NavbarWeb from "../homepage/NavbarWeb";
 import Arrow from "../../assestss/Group 2.png";
 import FooterWeb from "../homepage/FooterWeb";
+import CloseIcon from '@mui/icons-material/Close';
 const pageSize = 5;
 export default function Customclearence() {
   const navigate = useNavigate();
@@ -514,7 +515,7 @@ export default function Customclearence() {
                             aria-labelledby="exampleModalLabel"
                             aria-hidden="true"
                           >
-                            <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div className="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
                               <div className="modal-content">
                                 <div className="customHeader">
                                   <h5
@@ -523,14 +524,17 @@ export default function Customclearence() {
                                   >
                                     Update Custom Clearance
                                   </h5>
-                                  {/* <button
-                                    type="button"
-                                    className="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                  /> */}
+
+                                  <div className="crossBtn">
+                                    <i
+                                      data-bs-dismiss="modal"
+                                      aria-hidden="true"
+                                    >
+                                      <CloseIcon />
+                                    </i>
+                                  </div>
                                 </div>
-                                <div className="modal-body">
+                                <div className="modal-body pt-0">
                                   <section className="frightFormSec manageModal my-0">
                                     <div className="row">
                                       <div className="col-md-12">
@@ -945,17 +949,10 @@ export default function Customclearence() {
                                   <button
                                     type="button"
                                     data-bs-dismiss="modal"
-                                    className="btn btn-primary"
+                                    className="allFreFilter btn btn_add_web"
                                     onClick={updatedata}
                                   >
                                     Submit
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                  >
-                                    Close
                                   </button>
                                 </div>
                               </div>

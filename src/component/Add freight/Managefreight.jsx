@@ -11,6 +11,7 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import SidebarWeb from "../homepage/SidebarwWeb";
 import NavbarWeb from "../homepage/NavbarWeb";
 import FooterWeb from "../homepage/FooterWeb";
+import CloseIcon from "@mui/icons-material/Close";
 const pageSize = 5;
 export default function Managefreight() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -482,7 +483,7 @@ export default function Managefreight() {
                             aria-label="Default select example"
                           >
                             <option selected id="demo-simple-select-label">
-                              Select...
+                            Status
                             </option>
                             <option value={"0"}>Pending</option>
                             <option value={1}>Accepted</option>
@@ -1523,10 +1524,16 @@ export default function Managefreight() {
             width: 750,
             bgcolor: "background.paper",
             boxShadow: 24,
+            borderRadius: "5px",
           }}
         >
           <div className="customHeader">
             <h5>Update Freight </h5>
+            <div className="crossBtn">
+              <i onClick={handleUpdateClose} aria-hidden="true">
+                <CloseIcon />
+              </i>
+            </div>
           </div>
           <section className="frightFormSec manageModal">
             <div className="container ps-0">
@@ -2215,7 +2222,7 @@ export default function Managefreight() {
           <div className="text-center my-3">
             <button
               type="submit"
-              className="btn btn_add_web"
+              className=" allFreFilter btn btn_add_web "
               onClick={handleclicknavi}
             >
               Update Freight
@@ -2233,10 +2240,16 @@ export default function Managefreight() {
             width: 750,
             bgcolor: "background.paper",
             boxShadow: 24,
+            borderRadius: "5px",
           }}
         >
           <div className="customHeader">
             <h5>Filter</h5>
+            <div className="crossBtn">
+              <i onClick={handleUpdateClose5} aria-hidden="true">
+                <CloseIcon />
+              </i>
+            </div>
           </div>
           <div className="frightFormSec manageModal">
             <div className="row d-flex mb-3">
@@ -2321,7 +2334,7 @@ export default function Managefreight() {
             <div className="row d-flex"></div>
           </div>
           <div className="text-center mb-3">
-            <button onClick={postapi} className="btn btn_add_web">
+            <button onClick={postapi} className=" allFreFilter btn btn_add_web">
               Apply
             </button>
           </div>

@@ -1,0 +1,104 @@
+import React, { useEffect, useState } from "react";
+import Navbar from "../homepage/Navbar";
+import Footer from "../homepage/Footer";
+import Topbar from "../Topbar";
+
+import axios from "axios";
+const DisputeDetails = () => {
+    const pageSize = 10;
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const getwarehouse = () => {
+    const user = JSON.parse(localStorage?.getItem("data"));
+    console.log(user);
+    axios
+      .post(`${process.env.REACT_APP_BASE_URL}GetClientAllInvoice`, {
+        client_id: user?.id,
+      })
+      .then((response) => {
+        console.log(response.data.data);
+        setData(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+      });
+  };
+  useEffect(() => {
+    getwarehouse();
+  }, []);
+  const totalPage = Math.ceil(data.length / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+
+  const currentdata = data.slice(startIndex, endIndex);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+  return (
+    <div>
+      <Topbar />
+      <Navbar />
+      <div className="d-flex justify-content-between mx-5 my-4">
+        <div className="fw-bold fs-3">Dispute Details</div>
+        <div className="searchInput">
+          <input className="rounded" placeholder="Search..."></input>
+        </div>
+      </div>
+      <div className="table-responsive mt-4 mx-5">
+        <table className="table table-striped tableICon">
+          <thead>
+            <tr>
+              <th>Freight Number	</th>
+              <th>Name</th>
+              <th>Subject	</th>
+              
+              <th>Nature of Heading	</th>
+              <th> Outcomes</th>
+              <th>Resolution</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentdata &&
+              currentdata.length > 0 &&
+              currentdata.map((item, index) => {
+                console.log(item);
+                return (
+                  <>
+                    <tr key={item.id}>
+                      <td>{new Date(item.date).toLocaleDateString("EN-gb")}</td>
+                      <td>{item.order_number}</td>
+                      <td>{item.document_number}</td>
+                      <td>{item.transaction}</td>
+                      <td>{item.bill_currency}</td>
+                      <td>{item.payment}</td>
+                       
+                    </tr>
+                  </>
+                );
+              })}
+          </tbody>
+        </table>
+        <div className="text-center d-flex justify-content-end align-items-center">
+          <button
+            disabled={currentPage === 1}
+            className="bg_page"
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
+            <i class="fi fi-rr-angle-small-left page_icon"></i>
+          </button>
+          <span className="mx-2">{`Page ${currentPage} of ${totalPage}`}</span>
+          <button
+            disabled={currentPage === totalPage}
+            className="bg_page"
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
+            <i class="fi fi-rr-angle-small-right page_icon"></i>
+          </button>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default DisputeDetails;

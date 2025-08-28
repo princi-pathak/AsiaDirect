@@ -55,6 +55,7 @@ import TransctionDetails from './component/invoices/TransctionDetails';
 import TransctionAllocation from './component/invoices/TransctionAllocation';
 import Waybill from './component/order/Waybill';
 import Contactus from './component/homepage/Contactus';
+import DisputeDetails from './component/Cms pages/DisputeDetails';
  
  
 function App() {
@@ -83,6 +84,7 @@ function App() {
           <Route path='/My-profile' element={<Profile />} />
           <Route path='/animation' element={<Animation />} />
           <Route path='/dispute' element={<Dispute />} />
+          <Route path='/dispute_detail' element={<DisputeDetails />} />
           <Route path='/Download-pdf' element={<Downloadpdf />} />
           <Route path='/update-profile' element={<Updateprofile />} />
           <Route path='/clearence-details' element={<Customdetails />} />

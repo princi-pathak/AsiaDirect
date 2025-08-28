@@ -102,19 +102,20 @@ export default function Navbar() {
                 <ul className="dropdown-menu" style={{padding:"0px 15px"}}>
                   <li>
                     <Link className="dropdown-item  list_item" to={'/invoices'} >
-                      Invoices & Credits Transaction
+                        Invoices 
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item list_item"to={'/TransctionDetails'}>
-                    Statement 
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item list_item" to={'/TransctionAllocation'}>
+                    <Link className="dropdown-item list_item" to={'/TransctionDetails'}>
                       Transaction Allocation
                     </Link>
                   </li>
+                  <li>
+                    <Link className="dropdown-item list_item"to={'/TransctionAllocation'}>
+                    Statement 
+                    </Link>
+                  </li>
+                  
                 </ul>
               </div>
               ):("")}

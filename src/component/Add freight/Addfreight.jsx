@@ -324,7 +324,7 @@ export default function AddFreight() {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6 mt-3 mainTool">
+                {/* <div className="col-lg-6 mt-3 mainTool">
                   <h5>Type</h5>
                   <select
                     type="text"
@@ -341,7 +341,7 @@ export default function AddFreight() {
                       Load (LCL).
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="borderShip ">
                 <div className="row">
@@ -561,7 +561,7 @@ export default function AddFreight() {
                               id="Destination4"
                               onChange={handleInputChange}
                               name="Destination"
-                              value="Consignee will collect and facilitate import at destination portn"
+                              value="Consignee will collect and facilitate import at destination port"
                             />
                           </div>
                           <div className="ps-2">
@@ -570,7 +570,7 @@ export default function AddFreight() {
                               className="my-0  add_freight_label"
                             >
                               Consignee will collect and facilitate import at
-                              destination portn
+                              destination port
                             </label>
                           </div>
                         </div>
@@ -803,7 +803,6 @@ export default function AddFreight() {
                       name="commodity"
                       onChange={handleInputChange}
                       placeholder="commodity"
-                      className="form-control"
                     >
                       <option>Select...</option>
                       {apidata &&
@@ -922,74 +921,120 @@ export default function AddFreight() {
                     />
                     <div className="toolSpace">
                       <p className="toolText">
-                      Enable to calculate values automatically.
+                        Enable to calculate values automatically.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-lg-6 mt-3 mainTool">
+                    <h5>Type</h5>
+                    <select
+                      type="text"
+                      name="fcl_lcl"
+                      onChange={handleInputChange}
+                    >
+                      <option>select...</option>
+                      <option value={"FCL"}>FCL</option>
+                      <option value={"LCL"}>LCL</option>
+                    </select>
+                    <div className="toolSpace">
+                      <p className="toolText">
+                        Choose Full Container Load (FCL) or Less than Container
+                        Load (LCL).
                       </p>
                     </div>
                   </div>
 
-                  {/* <div className="col-lg-6 mt-3">
-                    <h5>Add attachments</h5>
-                    <input
-                      type="file"
-                      name="attachments"
-                      className="mb-3"
-                      onChange={handleFileChange}
-                      multiple
-                    />
-                  </div> */}
                   <div className="col-6 mt-3 mainTool">
                     <h5>Add attachments</h5>
                     <input
                       type="file"
                       name="supplier_invoice"
-                      className="w-100 mb-3 rounded"
+                      className="w-100 rounded"
                       onChange={handleFileChange4}
                       multiple
                     />
-                    {/* <div className="col-6 mt-3">
-                      <h5>Packing List</h5>
-                      <input
-                        type="file"
-                        name="packing_list"
-                        className="mb-3 w-100 rounded"
-                        onChange={handleFileChange1}
-                        multiple
-                      />
-                    </div> */}
                     <div className="toolSpace">
-                      <p className="toolText">
-                      Upload supporting cargo files.
-                      </p>
+                      <p className="toolText">Upload supporting cargo files.</p>
                     </div>
-                    
                   </div>
-                  {/* <div className="row">
-                    <div className="col-6 mt-3">
-                      <h5>Licenses</h5>
-                      <input
-                        type="file"
-                        name="licenses"
-                        className="mb-3 w-100 rounded"
-                        onChange={handleFileChange2}
-                        multiple
-                      />
+                  {/* add 27Aug */}
+                  <div className="col-6 mt-3 mainTool">
+                    <h5>Packing List</h5>
+                    <input
+                      type="file"
+                      name="packing_list"
+                      className="w-100 rounded"
+                      onChange={handleFileChange1}
+                      multiple
+                    />
+                     <div className="toolSpace">
+                      <p className="toolText"> Choose and upload the Packing List file (PDF, DOC, or image) for this cargo.</p>
                     </div>
-                    <div className="col-6 mt-3">
-                      <h5>Other Documents</h5>
-                      <input
-                        type="file"
-                        name="other_documents"
-                        className="mb-3 w-100 rounded"
-                        onChange={handleFileChange3}
-                        multiple
-                      />
-                    </div>
-                  </div> */}
+                   
+                  </div>
 
-                  <div className="text-center">
+                  <div className="col-6 mt-3 mainTool">
+                    <h5>Licenses</h5>
+                    <input
+                      type="file"
+                      name="licenses"
+                      className="w-100 rounded"
+                      onChange={handleFileChange2}
+                      multiple
+                    />
+                    <div className="toolSpace">
+                      <p className="toolText">Upload valid license documents required for this shipment or cargo.</p>
+                    </div>
+                   
+                  </div>
+                  <div className="col-6 mt-3 mainTool">
+                    <h5>Other Documents</h5>
+                    <input
+                      type="file"
+                      name="other_documents"
+                      className="w-100 rounded"
+                      onChange={handleFileChange3}
+                      multiple
+                    />
+                    <div className="toolSpace">
+                      <p className="toolText"> Upload any additional documents related to this cargo shipment.</p>
+                    </div>
+                   
+                  </div>
+                  <div className="col-lg-6 mt-3 mainTool">
+                    <h5>Document Name</h5>
+                    <select name="attachmentType">
+                      <option value="">Select Doc...</option>
+                      <option value="supplierInvoice">
+                        Supplier Invoice / Quotation / Proforma Invoice
+                      </option>
+                      <option value="packingList">Packing List</option>
+                      <option value="licenses">Licenses/Permits</option>
+                      <option value="otherDocuments">Other documents</option>
+                    </select>
+                    <div className="toolSpace">
+                      <p className="toolText"> Select the type of document you want to upload for this shipment</p>
+                    </div>
+                   
+                  </div>
+                  <div className="col-lg-6 mt-3 mainTool">
+                    <h5>Comment</h5>
+                    <input
+                      type="text"
+                      name="comment"
+                      placeholder="comment"
+                     
+                    />
+                    <div className="toolSpace">
+                      <p className="toolText"> Add clarifications or special handling instructions, if any</p>
+                    </div>
+                   
+                  </div>
+                  {/* add 27Aug */}
+                  <div className="text-center mt-3">
                     <button
                       type="submit"
-                      className=""
+                      className=" btn btn_add_web allFreFilter"
                       onClick={handleclicksubmit}
                     >
                       Add Freight

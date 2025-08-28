@@ -224,7 +224,7 @@ export default function Profile() {
                       </div>
                     </div>
                   </div>
-                  <div className='d-flex text-align-center'>
+                  <div className='text-center'>
                     <button className='fre_up_btn' onClick={handleclicknavi}>Update Profile</button>
                   </div>
                 </div>

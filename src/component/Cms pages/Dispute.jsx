@@ -199,7 +199,7 @@ export default function Dispute() {
                   <div class="div1 mb-4 d-flex justify-content-between">
                     <h2 class="heading_1">Get in touch</h2>
                     <div>
-                      <button className="btn btn_add_web">View Dispute</button>
+                      <button className="btn btn_add_web" onClick={()=>naviagte("/dispute_detail")}>View Dispute</button>
                     </div>
                   </div>
                   <form method="post">
@@ -216,7 +216,7 @@ export default function Dispute() {
                         />
                       </div>
                       <div class="col-md-6">
-                        <label class="div_label">Phone No.*</label>
+                        <label class="div_label">Freight No.*</label>
                         <input
                           type="text"
                           class="box1 form-control "
@@ -229,9 +229,9 @@ export default function Dispute() {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label class="div_label">Email*</label>
+                        <label class="div_label">Nature of Heading*</label>
                         <input
-                          type="email"
+                          type="text"
                           name="email"
                           class="box1 form-control"
                           placeholder="Email"

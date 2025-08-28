@@ -947,6 +947,7 @@ import { Box, Modal } from "@mui/material";
 import { Button } from "react-bootstrap";
 import { Delete, Edit } from "@mui/icons-material";
 import FooterWeb from "../homepage/FooterWeb";
+import CloseIcon from '@mui/icons-material/Close';
 const pageSize = 5;
 export default function OrderDetails() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -1577,12 +1578,16 @@ export default function OrderDetails() {
               width: 750,
               bgcolor: "background.paper",
               boxShadow: 24,
+              borderRadius:"5px"
           
             }}
           >
             <div className="d-flex justify-content-between">
               <div className="customHeader">
                 <h5>Update Order List</h5>
+                <div className="crossBtn">
+              <i  onClick={handleUpdateClose99}  aria-hidden="true"><CloseIcon /></i> 
+            </div>
               </div>
 
               <div>
@@ -1811,7 +1816,7 @@ export default function OrderDetails() {
             </div>
 
             <div className="text-center my-3">
-              <button onClick={handlepostdataedit} className=" btn btn_add_web">
+              <button onClick={handlepostdataedit} className="allFreFilter btn btn_add_web">
                 Update
               </button>
             </div>
@@ -1914,18 +1919,22 @@ export default function OrderDetails() {
               transform: "translate(-50%, -50%)",
               bgcolor: "background.paper",
               boxShadow: 24,
+              borderRadius:"5px"
             }}
           >
             <div className=" customHeader d-flex justify-content-between">
               <h5 className="text-center">Add Warehouse Order</h5>
               <div>
-                <button className="circlePlus" onClick={handleclickfunc3}>
+                {/* <button className="circlePlus" onClick={handleclickfunc3}>
                   +
-                </button>
+                </button> */}
+                	  <div className="crossBtn">
+              <i  onClick={handleUpdateClose3}  aria-hidden="true"><CloseIcon /></i>       
+            </div>
               </div>
             </div>
             <div className="frightFormSec manageModal">
-              <div className="row mt-3 ">
+              <div className="row">
                 <div className="col-lg-6">
                   <label htmlFor="clientName">Product Description </label>
                   <input
@@ -2113,7 +2122,7 @@ export default function OrderDetails() {
             </div>
             <div className="text-center">
               <button
-                className="btn btn_add_web my-3"
+                className="btn allFreFilter btn_add_web my-3"
                 onClick={handleclickpostdataitem}
               >
                 Add Item
@@ -2131,10 +2140,14 @@ export default function OrderDetails() {
               width: 750,
               bgcolor: "background.paper",
               boxShadow: 24,
+              borderRadius:"5px"
             }}
           >
             <div className="customHeader">
               <h5>Filter</h5>
+              	  <div className="crossBtn">
+              <i  onClick={handleUpdateClose5}  aria-hidden="true"><CloseIcon /></i>       
+            </div>
             </div>
             <div className="frightFormSec manageModal">
               <div className="row d-flex mb-3">
@@ -2233,7 +2246,7 @@ export default function OrderDetails() {
                 </div>
 
                 <div className="d-flex justify-content-center">
-                  <button onClick={postapi} className="mt-4 btn_add_web">
+                  <button onClick={postapi} className="mt-4 allFreFilter btn_add_web">
                     Apply
                   </button>
                 </div>
